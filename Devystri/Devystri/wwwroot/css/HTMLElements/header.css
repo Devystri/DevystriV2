@@ -13,6 +13,7 @@ header {
     position: fixed;
     z-index: 1;
     overflow: hidden;
+    user-select: none;
 }
 
     header a { /*Button nav*/
