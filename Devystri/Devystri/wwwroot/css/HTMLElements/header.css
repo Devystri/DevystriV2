@@ -16,7 +16,7 @@ header {
 }
 
     header a { /*Button nav*/
-        color: var(--nav-text-color);
+        color: var(--dark-blue);
         margin: 0 19px 0 19px;
         text-transform: uppercase;
         cursor: pointer;
@@ -71,7 +71,7 @@ header .menu-icon {
 }
 
     header .menu-icon .navicon {
-        background: var(--nav-text-color);
+        background: var(--dark-blue);
         display: block;
         height: 2px;
         position: relative;
@@ -81,7 +81,7 @@ header .menu-icon {
 
         header .menu-icon .navicon:before,
         header .menu-icon .navicon:after {
-            background: var(--nav-text-color);
+            background: var(--dark-blue);
             content: '';
             display: block;
             height: 100%;

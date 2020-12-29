@@ -10,6 +10,6 @@
 
 #homepage-big-title {
     font-size: min(max(182px), 18vw);
-    color: var(--text-color);
+    color: var(--dark-blue);
     font-weight: bold;
 }
