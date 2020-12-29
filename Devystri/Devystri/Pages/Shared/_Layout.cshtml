@@ -1,29 +1,41 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Devystri</title>
     <link rel="stylesheet" href="~/css/loadscreen.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <script src="~/js/HTMLElements/loader.js"></script>
-    <loader-element>
-        <div id="links">
-            <link rel="stylesheet" href="~/css/site.css" />
-            @await RenderSectionAsync("Styles", required: false)
-        </div>
-        <div id="loadscreen">
-            <h1>Loading...</h1>
-        </div>
-        <div id="scripts">
-            <script src="~/lib/jquery/dist/jquery.min.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-            @await RenderSectionAsync("Scripts", required: false)
-        </div>
-    </loader-element>
+    @*<loader-element>
+            <div id="links">
+                <link rel="stylesheet" href="~/css/site.css" />
+                @await RenderSectionAsync("Styles", required: false)
+            </div>
+            <div id="loadscreen">
+                <h1>Loading...</h1>
+            </div>
+            <div id="scripts">
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+                @await RenderSectionAsync("Scripts", required: false)
+            </div>
+        </loader-element>*@
 
     <header>
+        <nav id="products">
+            <a href="#"><img id="header-logo" draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
+            <a href="#">Applications</a>
+            <a href="#">Site web</a>
+            <a href="#">Objets connecté</a>
+        </nav>
+        <nav>
+            <a href="#">Contact</a><a href="#">A propos</a>
+            <a></a>
+        </nav>
     </header>
 
     <main role="main">
@@ -34,6 +46,8 @@
     <footer>
     </footer>
 
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>
