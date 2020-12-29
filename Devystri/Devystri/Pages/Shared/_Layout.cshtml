@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Devystri</title>
     <link rel="stylesheet" href="~/css/loadscreen.css" />
+    <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -25,17 +26,21 @@
             </div>
         </loader-element>*@
 
-    <header>
-        <nav id="products">
-            <a href="#"><img id="header-logo" draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
-            <a href="#">Applications</a>
-            <a href="#">Site web</a>
-            <a href="#">Objets connecté</a>
-        </nav>
-        <nav>
-            <a href="#">Contact</a><a href="#">A propos</a>
-            <a></a>
-        </nav>
+    <header id="header">
+        <a id="header-logo" href="#"><img draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
+        <div id="nav-location">
+            <nav>
+                <a href="#">Applications</a>
+                <a href="#">Site web</a>
+                <a href="#">Objets connecté</a>
+            </nav>
+            <nav>
+                <a href="#">Contact</a><a href="#">A propos</a>
+                <a></a>
+            </nav>
+        </div>
+        <input class="menu-btn" name="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     </header>
 
     <main role="main">
@@ -45,7 +50,8 @@
 
     <footer>
     </footer>
-
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 

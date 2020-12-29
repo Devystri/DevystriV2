@@ -5,10 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\HTMLElements\header.js" />
+    <Content Remove="wwwroot\js\HTMLElements\JavaScript.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Assets\3D\" />
     <Folder Include="wwwroot\Assets\Images\" />
-    <Folder Include="wwwroot\css\Pages\" />
-    <Folder Include="wwwroot\js\HTMLElements\" />
     <Folder Include="wwwroot\js\Pages\" />
   </ItemGroup>
 
