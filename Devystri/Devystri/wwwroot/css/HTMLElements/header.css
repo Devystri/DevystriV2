@@ -1,9 +1,4 @@
-﻿:root {
-    --nav-background: #FFFFFF;
-    --nav-text-color: #073965;
-}
-
-/* HEADER */
+﻿/* HEADER */
 
 header {
     width: 100%;
@@ -17,6 +12,7 @@ header {
     box-shadow: 0px 3px 6px #00000029;
     position: fixed;
     z-index: 1;
+    overflow: hidden;
 }
 
     header a { /*Button nav*/
@@ -50,8 +46,14 @@ header {
         align-items: center;
     }
 
+    header a{
+        margin: 0;
+
+    }
+
     #nav-location {
         flex-direction: column;
+        margin-top: 190px;
     }
 
     header .menu-icon {
