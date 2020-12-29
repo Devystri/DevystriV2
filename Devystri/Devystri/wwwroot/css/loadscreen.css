@@ -10,7 +10,7 @@
 #loadscreen h1 {
     display: inline-block;
     font-size: min(max(182px), 18vw);
-    color: var(--text-color);
+    color: var( --dark-blue);
 }
 
 #loadscreen #loading-indicator {
@@ -23,7 +23,7 @@
     counter-increment: i;
     border-radius: 100%;
     display: inline-block;
-    background-color: var(--text-color);
+    background-color: var( --dark-blue);
     width: 20px;
     height: 20px;
     margin: 12px;

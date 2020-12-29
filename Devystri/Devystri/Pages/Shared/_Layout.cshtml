@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Devystri</title>
+    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/loadscreen.css" />
 </head>
 <body>
@@ -11,7 +12,7 @@
     <loader-element>
         <div id="links">
             <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
-            <link rel="stylesheet" href="~/css/site.css" />
+            
             @await RenderSectionAsync("Styles", required: false)
         </div>
         <div id="loadscreen">
