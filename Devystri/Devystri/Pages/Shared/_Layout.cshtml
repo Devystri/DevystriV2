@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Devystri</title>
     <link rel="stylesheet" href="~/css/loadscreen.css" />
-    <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <script src="~/js/HTMLElements/loader.js"></script>
-    @*<loader-element>
-            <div id="links">
-                <link rel="stylesheet" href="~/css/site.css" />
-                @await RenderSectionAsync("Styles", required: false)
+    <loader-element>
+        <div id="links">
+            <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+            @await RenderSectionAsync("Styles", required: false)
+        </div>
+        <div id="loadscreen">
+            <h1>Devystri</h1>
+            <div id="loading-indicator">
+                <div class="dot" ></div>
+                <div class="dot"></div>
+                <div class="dot" ></div>
+                <div class="dot" ></div>
             </div>
-            <div id="loadscreen">
-                <h1>Loading...</h1>
-            </div>
+        </div>
             <div id="scripts">
                 <script src="~/lib/jquery/dist/jquery.min.js"></script>
                 <script src="~/js/site.js" asp-append-version="true"></script>
                 @await RenderSectionAsync("Scripts", required: false)
             </div>
-        </loader-element>*@
+    </loader-element>
 
     <header id="header">
         <a id="header-logo" href="#"><img draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
@@ -45,15 +49,14 @@
 
     <main role="main">
         @RenderBody()
+        <img style="display: none;" src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Sunset-serpentine-road-wallpapers-4k.jpg"/>
     </main>
 
 
     <footer>
     </footer>
     
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+   
 
 </body>
 </html>

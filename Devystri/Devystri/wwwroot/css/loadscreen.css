@@ -1,1 +1,59 @@
 ﻿
+#loadscreen {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#loadscreen h1 {
+    display: inline-block;
+    font-size: min(max(182px), 18vw);
+    color: var(--text-color);
+}
+
+#loadscreen #loading-indicator {
+    width: auto;
+    height: auto;
+   
+}
+
+#loadscreen #loading-indicator .dot {
+    counter-increment: i;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: var(--text-color);
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+    animation: bounce 1.5s 0.5s linear infinite;
+}
+/*
+#loading-indicator:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+#loading-indicator:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+#loading-indicator:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+#loading-indicator:nth-child(4) {
+    animation-delay: 0.8s;
+}*/
+
+
+@keyframes bounce{
+    0%, 100% {
+        transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(1.6);
+    }
+}
+
