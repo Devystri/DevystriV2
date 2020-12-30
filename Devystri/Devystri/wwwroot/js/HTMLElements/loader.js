@@ -18,9 +18,9 @@ class LoaderElement extends HTMLElement {
         var link = document.getElementById("links");
         var script = document.getElementById("scripts");
         document.head.innerHTML += link.innerHTML;
-        document.body.innerHTML += script.innerHTML;
+        //document.body.innerHTML += script.innerHTML;
         link.innerHTML = "";
-        script.innerHTML = "";
+       // script.innerHTML = "";
         document.body.style.overflow = "auto";
         this.loadRequested = true;
     }
