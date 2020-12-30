@@ -43,14 +43,13 @@
                 <a href="#">Contact</a><a href="#">A propos</a>
                 <a></a>
             </nav>
-        </div>
-        <input class="menu-btn" name="menu-btn" type="checkbox" id="menu-btn" />
+        </div> 
+        <input onchange="menuStateChanhed()" class="menu-btn" name="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     </header>
 
     <main role="main">
         @RenderBody()
-        <img style="display: none;" src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Sunset-serpentine-road-wallpapers-4k.jpg"/>
     </main>
 
 
