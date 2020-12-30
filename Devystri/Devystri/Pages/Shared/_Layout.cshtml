@@ -32,16 +32,17 @@
     </loader-element>
 
     <header id="header">
-        <a id="header-logo" href="#"><img draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
+        <a id="header-logo" asp-area="" asp-page="/Index"><img draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
         <div id="nav-location">
             <nav>
-                <a href="#">Applications</a>
-                <a href="#">Site web</a>
-                <a href="#">Objets connecté</a>
+                <a asp-area="" asp-page="/Applications/List" >Applications</a>
+                <a asp-area="" asp-page="/Web-Sites/List" >Site web</a>
+                <a asp-area="" asp-page="/Internet-Of-Things/List" >Objets connecté</a>
             </nav>
             <nav>
-                <a href="#">Contact</a><a href="#">A propos</a>
-                <a></a>
+                <a asp-area="" asp-page="/Contact">Contact</a>
+                <a asp-area="" asp-page="/About">A propos</a>
+                    
             </nav>
         </div> 
         <input onchange="menuStateChanhed()" class="menu-btn" name="menu-btn" type="checkbox" id="menu-btn" />
