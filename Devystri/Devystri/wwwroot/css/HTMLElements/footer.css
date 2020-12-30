@@ -67,7 +67,7 @@ footer {
     /* social-networks */
 #social-media-center {
     display: flex;
-    height: fit-content;
+    height: 61px;
     max-width: 243px;
     width: 80vw;
     justify-content: space-between;
