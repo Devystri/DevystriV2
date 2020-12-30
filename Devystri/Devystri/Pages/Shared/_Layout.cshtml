@@ -12,6 +12,7 @@
     <loader-element>
         <div id="links">
             <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
+            <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
 
             @await RenderSectionAsync("Styles", required: false)
         </div>
@@ -51,6 +52,65 @@
 
 
     <footer>
+        <section id="section-information-footer">
+            <div>
+                <span id="devystri-name-footer">Devystri</span>
+                <div id="social-media-center">
+                    <a target=_blank href="https://www.facebook.com/Devystri-105726897863972" class="social-networks" id="facebook">
+                        <img draggable="false" alt="" src="~/Assets/éléments/facebook.svg" />
+                    </a>
+                    <a target=_blank href="https://www.instagram.com/devystri/" class="social-networks" id="instragram">
+                        <img draggable="false" alt="" src="~/Assets/éléments/instagram.svg" />
+                    </a>
+                    <a target=_blank href="https://twitter.com/devystri" class="social-networks" id="twitter">
+                        <img draggable="false" alt="" src="~/Assets/éléments/twitter.svg" />
+                    </a>
+                </div>
+            </div>
+            <div id="right-compartment">
+                <div class="list-pages">
+                    <span class="list-title-footer">Products</span>
+                    <ul class="list-footer">
+                        <li>
+                            <a>Applications</a>
+                        </li>
+                        <li>
+                            <a>Web site</a>
+                        </li>
+                        <li>
+                        <a>Objets connecté</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-pages">
+                    <span class="list-title-footer">Contact</span>
+                    <ul class="list-footer">
+                        <li>
+                        <a>Page contact</a>
+                        </li>
+                        <li>
+                            <a>contact@devystri.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-pages">
+                    <span class="list-title-footer">A propos</span>
+                    <ul class="list-footer">
+                        <li>
+                            <a>Mentions légales</a>
+                        </li>
+                        <li>
+                            <a>Newsletter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div id="divider-bar-footer"></div>
+        <section id="copyright-section">
+            <span>Devystri © 2020</span>
+            <span>Tous droits réservés.</span>
+        </section>
     </footer>
 
 

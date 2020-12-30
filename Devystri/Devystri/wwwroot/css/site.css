@@ -5,6 +5,8 @@
     --white-button: #FFFFFF;
     --dark-blue: #073965;
     --grey-blue: #00529A;
+    --light-blue: #7CADD8;
+    --very-light-blue: #9FCAEF;
 }
 
 /* Font */
@@ -19,12 +21,16 @@
     margin: 0;
 }
 
-a, h1, h2, h3, h4, h5, p, span {
+a, h1, h2, h3, h4, h5, p, span, li {
     font-family: 'Roboto', sans-serif;
 }
 
 a{
     cursor: pointer;
+}
+
+li {
+    list-style: none;
 }
 
 /* Arrow animate */

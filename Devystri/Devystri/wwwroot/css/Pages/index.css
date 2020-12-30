@@ -95,7 +95,9 @@
     user-select: none;
 }
 
-
+.image-section-img {
+    width: 100%;
+}
 
 /* Mobile */
 @media screen and (max-width: 1000px) {
