@@ -81,7 +81,6 @@ class Visualisator3D extends HTMLElement {
         });
 
         window.addEventListener('mousemove', (mouse)=>{
-            mouse.preventDefault();
             if(!this.mesh)
                 return;
             //var xR = mouse.pageX / window.innerWidth * 2;
