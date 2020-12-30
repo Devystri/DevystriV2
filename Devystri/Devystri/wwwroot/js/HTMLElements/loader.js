@@ -7,7 +7,8 @@ document.body.onload = function (event) {
 }; 
 
 class LoaderElement extends HTMLElement {
-    constructor(){
+    constructor() {
+        document.body.style.overflow = "hidden";
         super();
         this.IsLoaded = false;
         this.loadRequested = false;
@@ -24,7 +25,7 @@ class LoaderElement extends HTMLElement {
         this.loadRequested = true;
     }
     connectedCallback() {
-        setTimeout(function(){
+        setTimeout(()=> {
             if (!this.loadRequested) {
 
                 var loadscreen = document.getElementById("loadscreen");
@@ -34,11 +35,10 @@ class LoaderElement extends HTMLElement {
                 loadscreen.style.position = "fixed";
                 loadscreen.style.height = "100%";
                 loadscreen.style.width = "100%";
-                document.body.style.overflow = "hidden";
-         
-                 
+                
             }
-            
+         
+
         });
 
       }
