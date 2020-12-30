@@ -6,6 +6,18 @@
     Made by Timoz Dimitri
 */
 
+function getOffset(el) {
+    var _x = 0;
+    var _y = 0;
+    while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+        _x += el.offsetLeft - el.scrollLeft;
+        _y += el.offsetTop - el.scrollTop;
+        el = el.offsetParent;
+    }
+    return { top: _y, left: _x };
+}
+
+
 class Visualisator3D extends HTMLElement {
     constructor(){
         super();      
@@ -17,7 +29,7 @@ class Visualisator3D extends HTMLElement {
     }
 
     init(){
-        this.maxAngX = 3.14/5;
+        this.maxAngX = 3    /5;
         this.maxAngY = 3.14/5;   
 
         var renderer = new THREE.WebGLRenderer();
@@ -48,8 +60,7 @@ class Visualisator3D extends HTMLElement {
         const gltfLoader = new THREE.GLTFLoader();
         gltfLoader.load(this.src, (gltf) => {
             this.mesh = gltf.scene;
-            this.mesh.castShadow = true;
-            this.mesh.receiveShadow  = true;
+     
             scene.add(this.mesh);
         });
 
@@ -74,7 +85,7 @@ class Visualisator3D extends HTMLElement {
             if(!this.mesh)
                 return;
             //var xR = mouse.pageX / window.innerWidth * 2;
-            var yR = mouse.pageY / window.innerHeight * 2;
+            var yR = mouse.clientY / window.innerHeight * 2;
             
             //this.mesh.rotation.y = (xR - 1) * this.maxAngX;
             this.mesh.rotation.x = (yR - 1) * this.maxAngY;
@@ -91,7 +102,7 @@ class Visualisator3D extends HTMLElement {
         if(this.src == undefined)
             console.error("Error: GLB source not specified.");
         this.init();
-    }
+    }   
     
 }
 

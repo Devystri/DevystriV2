@@ -10,8 +10,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="MyStaticsFiles\hub.glb" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Assets\3D\" />
     <Folder Include="wwwroot\Assets\Images\" />
+    <Folder Include="wwwroot\Assets\Objects3D\" />
     <Folder Include="wwwroot\js\Pages\" />
   </ItemGroup>
 
