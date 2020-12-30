@@ -61,10 +61,15 @@
     </div>
     <div class="image-section">
         @*Image*@
-        <img style="background: black;" class="image-section-img" alt="Image du Hub" draggable="false" src="~/Assets/Images/main page/........" /> @*ICI*@ 
+        @*<img style="background: black;" class="image-section-img" alt="Image du Hub" draggable="false" src="~/Assets/Images/main page/........" />*@ @*ICI*@
+        
+        <object-viewer  style="width: 100%; height: 30em; background-color: #ffffff;" src="/Assets/Objects3D/hub.glb" zoom="0.08" />
+       
     </div>
 </section>
 
 @section Scripts{ 
-
+    <script src="~/lib/ThreeJS/three.js"></script>
+    <script src="~/lib/ThreeJS/GLTFLoader.js"></script>
+    <script src="~/js/HTMLElements/objectVisualisator.js"></script>
 }
