@@ -20,7 +20,7 @@ class LoaderElement extends HTMLElement {
         document.body.innerHTML += script.innerHTML;
         link.innerHTML = "";
         script.innerHTML = "";
-        document.body.style.overflow = "initial";
+        document.body.style.overflow = "auto";
         this.loadRequested = true;
     }
     connectedCallback() {
