@@ -22,6 +22,7 @@ header {
         text-transform: uppercase;
         cursor: pointer;
         text-decoration: none;
+        font-family: 'Roboto', sans-serif;
     }
 
 #nav-location {

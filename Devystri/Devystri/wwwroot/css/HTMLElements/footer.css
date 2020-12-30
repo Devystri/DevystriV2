@@ -65,14 +65,15 @@ footer {
     }
 
     /* social-networks */
-    #social-media-center {
-        display: flex;
-        max-width: 243px;
-        width: 80vw;
-        justify-content: space-between;
-        margin-top: 27px;
-        user-select: none;
-    }
+#social-media-center {
+    display: flex;
+    height: fit-content;
+    max-width: 243px;
+    width: 80vw;
+    justify-content: space-between;
+    margin-top: 27px;
+    user-select: none;
+}
 
 .social-networks {
     width: 61px;
@@ -124,8 +125,8 @@ footer {
     #section-information-footer {
         flex-direction: column;
         align-self: center;
-        text-align-last: center;
         align-items: center;
+        text-align: center;
     }
     #right-compartment{
         flex-direction: column;
