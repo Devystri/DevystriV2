@@ -3,6 +3,7 @@
 :root {
     --white-background: #FFFFFF;
     --white-button: #FFFFFF;
+    --white-first-section: #FFFFFF; /*page application / Website / objects*/
     --dark-blue: #073965;
     --grey-blue: #00529A;
     --light-blue: #7CADD8;

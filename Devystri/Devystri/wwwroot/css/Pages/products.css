@@ -1,0 +1,94 @@
+﻿/* Section général */
+
+.section {
+    height: 100vh;
+    width: 82%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12% 0 6%;
+}
+
+.left-part {
+    display: flex;
+    user-select: none;
+    max-width: 655px;
+    max-height: 659px;
+    align-content: center;
+    justify-content: center;
+}
+
+.right-part {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-product {
+    width: 153px;
+    height: 153px;
+    user-select: none;
+}
+
+.title-product {
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.product-description {
+    font-size: 20px;
+    width: 547px;
+    height: 200px;
+    font-weight: 300;
+}
+
+.more-button-list {
+    background-color: var(--grey-blue);
+}
+
+    .more-button-list:hover {
+        animation: hover-button-main 0.2s forwards;
+    }
+
+@keyframes hover-button-main {
+    from {
+        background-color: var(--grey-blue);
+        color: var(--white-first-section);
+    }
+
+    to {
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+    }
+}
+/* First section */
+.first-section {
+    background-color: var(--dark-blue);
+    color: var(--white-first-section);
+}
+
+/* compatibility */
+
+.compatibility {
+    height: 50px;
+    width: 260px;
+}
+
+.appstore-icon {
+    background: url('../../Assets/elements/appstore.png');
+}
+
+.playstore-icon {
+    background: url('../../Assets/elements/playstore.png');
+}
+
+.appstore-icon, .playstore-icon {
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+}
