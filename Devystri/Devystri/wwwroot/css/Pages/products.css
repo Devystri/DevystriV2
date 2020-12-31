@@ -99,7 +99,7 @@
 /* compatibility */
 
 .compatibility {
-    width: 260px;
+    width: 318px;
     display: flex;
     margin: 21px 0;
     flex-direction: column;
@@ -136,7 +136,8 @@
 }
 
 .constraint {
-    width: 206px;
+    width: max-content;
+    padding: 0 32px;
     height: 35px;
     border-radius: 30px;
     background-color: #8ACF9E;
