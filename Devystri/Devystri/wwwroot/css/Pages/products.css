@@ -1,22 +1,30 @@
 ﻿/* Section général */
 
 .section {
-    height: 100vh;
+    min-height: 100vh;
     width: 82%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 12% 0 6%;
+    color: var(--dark-blue);
+    position: relative;
 }
 
 .left-part {
     display: flex;
     user-select: none;
-    max-width: 655px;
+    max-width: 473px;
     max-height: 659px;
     align-content: center;
     justify-content: center;
+    width: 83%;
 }
+
+    .left-part img {
+        width: 100%;
+        height: 100%;
+    }
 
 .right-part {
     display: flex;
@@ -26,6 +34,21 @@
     text-align: center;
 }
 
+.project-status {
+    width: 206px;
+    height: 35px;
+    border-radius: 18px;
+    background-color: #E23A3A;
+    position: absolute;
+    top: 81px;
+    right: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--white-first-section)
+}
+
 .logo-product {
     width: 153px;
     height: 153px;
@@ -33,13 +56,13 @@
 }
 
 .title-product {
-    font-size: 60px;
+    font-size: min(max(60px), 43px);
     font-weight: 500;
 }
 
 .product-description {
-    font-size: 20px;
-    width: 547px;
+    font-size: min(max(20px), 4vw);
+    max-width: 547px;
     height: 200px;
     font-weight: 300;
 }
@@ -72,23 +95,80 @@
 /* compatibility */
 
 .compatibility {
-    height: 50px;
     width: 260px;
+    display: flex;
+    margin: 21px 0;
+    flex-direction: column;
 }
 
-.appstore-icon {
-    background: url('../../Assets/elements/appstore.png');
+.platform {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.playstore-icon {
-    background: url('../../Assets/elements/playstore.png');
+.platform-logo {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+    .platform-logo img{
+        height: 100%;
+    }
+
+    .appstore-icon, .playstore-icon {
+        width: 50px;
+        height: 50px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+/* Constraint */
+
+.contrainte-block {
+    height: 55px;
 }
 
-.appstore-icon, .playstore-icon {
-    width: 50px;
-    height: 50px;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: block;
+.constraint {
+    width: 206px;
+    height: 35px;
+    border-radius: 30px;
+    background-color: #8ACF9E;
+    color: #055B1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 1000px) {
+    .section {
+        flex-direction: column;
+        width: 88%;
+        padding: 22% 6% 14% 6%;
+    }
+    .left-part {
+        width: 74%;
+        margin-bottom: 13px;
+    }
+    .more-button {
+        width: 90%;
+        height: 52px;
+        font-size: 19px;
+    }
+    .logo-product {
+        width: 110px;
+        height: 110px;
+    }
+    .project-status {
+        position: initial;
+        width: 177px;
+        height: 29px;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
 }

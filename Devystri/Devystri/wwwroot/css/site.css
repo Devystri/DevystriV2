@@ -63,7 +63,7 @@ li {
 /* Arrow animate */
 
 .down-arrow {
-    background-image: url(../Assets/element/arrow.svg);
+    background-image: url(../Assets/elements/arrow.svg);
     background-repeat: no-repeat;
     background-position: center;
     width: 70px;

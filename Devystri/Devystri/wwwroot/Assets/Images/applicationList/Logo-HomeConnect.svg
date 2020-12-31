@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="171" height="171" viewBox="0 0 171 171">
+  <defs>
+    <filter id="Rectangle_8" x="0" y="0" width="171" height="171" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Logo-HomeConnect" transform="translate(-1334 -172)">
+    <g id="Logo" transform="translate(951 -9)">
+      <g transform="matrix(1, 0, 0, 1, 383, 181)" filter="url(#Rectangle_8)">
+        <rect id="Rectangle_8-2" data-name="Rectangle 8" width="153" height="153" rx="27" transform="translate(9 6)" fill="#2bb5e1"/>
+      </g>
+    </g>
+    <g id="apk-file-format-symbol" transform="translate(1375.172 205.311)">
+      <g id="Groupe_1" data-name="Groupe 1" transform="translate(0)">
+        <path id="Tracé_7" data-name="Tracé 7" d="M115.955,257.88c-.491-1.638-.982-3.684-1.392-5.321h-.081c-.41,1.637-.821,3.726-1.269,5.321l-1.638,5.855h6.1Z" transform="translate(-97.294 -207.512)" fill="#fff"/>
+        <path id="Tracé_8" data-name="Tracé 8" d="M258.293,251.641a10.629,10.629,0,0,0-2.581.246v8.146a9.582,9.582,0,0,0,2.089.164c3.317,0,5.362-1.678,5.362-4.5C263.163,253.155,261.4,251.641,258.293,251.641Z" transform="translate(-215.721 -206.757)" fill="#fff"/>
+        <path id="Tracé_9" data-name="Tracé 9" d="M113,35.141h-2.359V23.757a1.668,1.668,0,0,0-.021-.215,1.89,1.89,0,0,0-.457-1.247L91.224.659c-.006-.006-.011-.008-.015-.014a1.883,1.883,0,0,0-.384-.322C90.784.3,90.742.272,90.7.248a2.015,2.015,0,0,0-.38-.16c-.036-.009-.068-.024-.1-.034A1.95,1.95,0,0,0,89.773,0H43.222a3.857,3.857,0,0,0-3.853,3.853V35.14H37.011A5.506,5.506,0,0,0,31.5,40.646V69.281a5.508,5.508,0,0,0,5.507,5.507h2.358v19.6a3.857,3.857,0,0,0,3.853,3.853h63.569a3.858,3.858,0,0,0,3.853-3.853v-19.6H113a5.507,5.507,0,0,0,5.506-5.506V40.647A5.506,5.506,0,0,0,113,35.141ZM43.222,3.853H87.847V23.564a1.927,1.927,0,0,0,1.926,1.926h17.017v9.651H43.222Zm41.905,44.92a8.825,8.825,0,0,1-2.537,6.549c-2.13,2.005-5.281,2.907-8.967,2.907a15.893,15.893,0,0,1-2.128-.123v9.865H65.315V40.748a51.239,51.239,0,0,1,8.432-.572c3.85,0,6.591.736,8.434,2.208A8.07,8.07,0,0,1,85.127,48.772Zm-42.206,19.2H36.454l8.431-27.591h8.187l8.555,27.591H54.913l-2.128-7.082h-7.9Zm63.869,25.375H43.222V74.788h63.569Zm-2.38-25.375L97.656,56.059l-2.374,2.906v9.005H89.1V40.38h6.182v12.2H95.4c.613-1.064,1.269-2.046,1.883-3.029l6.264-9.17H111.2l-9.13,11.749,9.62,15.841h-7.284v0Z" transform="translate(-31.504)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
