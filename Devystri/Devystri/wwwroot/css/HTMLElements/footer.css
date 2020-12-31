@@ -82,7 +82,12 @@ footer {
     background-color: var(--light-blue);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+    .social-networks img {
+        width: 69%;
+        height: 69%;
+    }
 
     .social-networks:hover {
         animation: social-networks-hover 0.2s forwards;
@@ -127,11 +132,33 @@ footer {
         align-self: center;
         align-items: center;
         text-align: center;
+        padding-top: 28px;
     }
     #right-compartment{
         flex-direction: column;
     }
+    #social-media-center {
+        width: 55vw;
+        margin-top: 12px;
+    }
+    .social-networks {
+        width: 50px;
+        height: 50px;
+    }
     .list-pages {
         margin: 20px;
+        margin: 6px;
+    }
+    .list-title-footer {
+        font-size: 22px;
+    }
+    .list-footer {
+        font-size: 15px;
+    }
+    #divider-bar-footer {
+        margin: 16px 4% 17px 4%;
+    }
+    #copyright-section {
+        font-size: 13px;
     }
 }
