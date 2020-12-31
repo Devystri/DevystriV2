@@ -114,7 +114,7 @@ li {
 /* Page title */
 
 .page-title {
-    font-size: 63px;
+    font-size: min(max(63px), 11vw);
     font-weight: bold;
     color: var(--dark-blue);
 }

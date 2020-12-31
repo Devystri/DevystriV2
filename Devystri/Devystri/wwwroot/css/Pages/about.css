@@ -11,13 +11,13 @@
 }
 
 .about-title {
-    font-size: 150px;
+    font-size: min(max(161px), 13vw);
     font-weight: bold;
     margin-top: 217px;
 }
 
 .about-description {
-    font-size: 24px;
+    font-size: min(max(24px), 4.5vw);
     margin-top: 94px;
     width: 67%;
 }
@@ -51,14 +51,38 @@ figure {
     }
 
 .profile-name {
-    font-size: 40px;
+    font-size: min(max(40px), 8vw);
     font-weight: bold;
     margin-top: 65px;
 }
 
 figcaption {
-    font-size: 25px;
+    font-size: min(max(25px), 5vw);
     width: 100%;
-    text-align:center;   
+    text-align: center;
     margin-top: 5px;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 1000px) {
+    .about-description {
+        margin-top: 47px;
+        width: 90%;
+    }
+    #team-list{
+        flex-direction: column;
+    }
+    figure {
+        margin: 10px auto;
+    }
+        figure img {
+            width: 188px;
+        }
+    .profile-name {
+        margin-top: 13px;
+    }
+    figcaption {
+        width: 81%;
+    }
 }
