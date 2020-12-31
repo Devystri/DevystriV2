@@ -26,23 +26,20 @@ class LoaderElement extends HTMLElement {
     }
     connectedCallback() {
         setTimeout(()=> {
-            if (!this.inited) {
+            if (!this.loadRequested) {
 
                 var loadscreen = document.getElementById("loadscreen");
-                if (!loadscreen)
-                    return;
                 loadscreen.style.top = "0px";
                 loadscreen.style.left = "0px";
                 loadscreen.style.zIndex = 999;
                 loadscreen.style.position = "fixed";
                 loadscreen.style.height = "100%";
                 loadscreen.style.width = "100%";
-                this.inited = true;
-                clearTimeout();
+                
             }
          
 
-        }, 100);
+        });
 
       }
 
