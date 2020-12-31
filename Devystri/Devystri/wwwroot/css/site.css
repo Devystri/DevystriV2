@@ -48,7 +48,7 @@ html {
     overflow: overlay;
 }
 
-a, h1, h2, h3, h4, h5, p, span, li {
+a, h1, h2, h3, h4, h5, p, span, li, figcaption {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -109,4 +109,12 @@ li {
     font-size: 24px;
     font-weight: bold;
     user-select: none;
+}
+
+/* Page title */
+
+.page-title {
+    font-size: 63px;
+    font-weight: bold;
+    color: var(--dark-blue);
 }
