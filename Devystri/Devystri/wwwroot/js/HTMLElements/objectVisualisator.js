@@ -37,7 +37,7 @@ class Visualisator3D extends HTMLElement {
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.setSize(this.clientWidth, this.clientHeight);
-        renderer.setClearColor(new THREE.Color(this.style.backgroundColor), 1.0);
+        renderer.setClearColor(new THREE.Color(this.backgroundColor), 1.0);
 
         this.camera = new THREE.PerspectiveCamera(50, this.clientWidth / this.clientHeight, 0.1, 1000)
      
@@ -45,7 +45,7 @@ class Visualisator3D extends HTMLElement {
         this.appendChild(renderer.domElement);
 
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(this.style.backgroundColor);
+        scene.background = new THREE.Color(this.backgroundColor);
 
         const ambientLight = new THREE.AmbientLight( 0xffffff, 0.8);
         ambientLight.castShadow = true;
@@ -97,6 +97,7 @@ class Visualisator3D extends HTMLElement {
         this.color = this.getAttribute('color') || 0x000000,
         this.zoom = this.getAttribute('zoom') || 20,
         this.src = this.getAttribute("src") || undefined
+        this.backgroundColor = this.getAttribute("background-color") || undefined;
         if(this.src == undefined)
             console.error("Error: GLB source not specified.");
         this.init();
