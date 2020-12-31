@@ -4,16 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Devystri</title>
-    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/loadscreen.css" />
 </head>
 <body>
     <script src="~/js/HTMLElements/loader.js"></script>
     <loader-element>
         <div id="links">
-            <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
-            <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
-        
+            <environment include="Development">
+                <link rel="stylesheet" href="~/css/site.css" />
+                <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
+                <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
+            </environment>
+            <environment exclude="Development">
+                <link rel="stylesheet" href="~/css/site.css" />
+                <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
+                <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
+            </environment>
             @await RenderSectionAsync("Styles", required: false)
         </div>
         <div id="loadscreen">
