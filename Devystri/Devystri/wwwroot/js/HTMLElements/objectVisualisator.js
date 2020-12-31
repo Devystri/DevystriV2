@@ -29,7 +29,7 @@ class Visualisator3D extends HTMLElement {
     }
 
     init(){
-        this.maxAngX = 3    /5;
+        this.maxAngX = 3/5;
         this.maxAngY = 3.14/5;   
 
         var renderer = new THREE.WebGLRenderer();
