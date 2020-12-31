@@ -49,7 +49,6 @@ class Visualisator3D extends HTMLElement {
 
         const ambientLight = new THREE.AmbientLight( 0xffffff, 0.8);
         ambientLight.castShadow = true;
-        ambientLight.shadowDarkness = 0.5;
         scene.add( ambientLight );
 
         const dirLight = new THREE.DirectionalLight( 0xefffff, 0.5  );
