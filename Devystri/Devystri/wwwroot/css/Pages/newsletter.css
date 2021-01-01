@@ -49,9 +49,23 @@ form {
 }
 
     .social-networks-newsletter img {
-        width: 69%;
-        height: 69%;
+        width: 59%;
+        height: 59%;
     }
+
+    .social-networks-newsletter:hover {
+        animation: social-networks-newsletter-hover 0.2s forwards;
+    }
+
+@keyframes social-networks-newsletter-hover {
+    from {
+        background-color: var(--dark-blue);
+    }
+
+    to {
+        background-color: var(--grey-blue);
+    }
+}
 
 
 /* Mobile */
