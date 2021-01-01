@@ -31,7 +31,7 @@ namespace Devystri.Pages.Applications
                 IsOnPlayStore = 1,
                 AppLogoName = "motivation-logo.png",
                 PresentationRessource = "application-image-motivation.png",
-                Stat = 0
+                Stat = (int)Stats.CANCEL
             });
 
             dbContext.Applications.Add(new Application()
@@ -42,7 +42,7 @@ namespace Devystri.Pages.Applications
                 IsOnPlayStore = 1,
                 AppLogoName = "Logo-HomeConnect.svg",
                 PresentationRessource = "application-image-HomeConnect.png",
-                Stat = 0
+                Stat = (int)Stats.NOT_DOWNLABLE
             });
             dbContext.SaveChanges();
             applications = dbContext.Applications.ToList();
