@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data;
+using Data.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,8 +15,12 @@ namespace Devystri.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        private MyDbContext myDbContext;
+
+        public IndexModel(ILogger<IndexModel> logger, MyDbContext context)
         {
+            myDbContext = context;
+            //myDbContext.Users.Add(new UserGroup() { Email = "dimitri.timoz@orange.fr", Password = "test" });
             _logger = logger;
         }
 
