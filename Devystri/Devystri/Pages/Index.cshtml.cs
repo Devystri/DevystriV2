@@ -22,7 +22,7 @@ namespace Devystri.Pages
            if(context != null)
             {
                 myDbContext = context;
-            }
+            }   
 
             _logger = logger;
         }
