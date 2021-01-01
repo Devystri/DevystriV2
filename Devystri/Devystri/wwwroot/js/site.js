@@ -26,7 +26,7 @@ $(window).resize(function () {
 // Scroll main page
 
 $(function () {
-    $(".down-arrow").on("click", function (event) {
+    $(".down-arrow, .légal-button").on("click", function (event) {
         event.preventDefault();
         var hash = this.hash;
         $('body,html').animate({ scrollTop: $(hash).offset().top }, 900, function () { window.location.hash = hash; })

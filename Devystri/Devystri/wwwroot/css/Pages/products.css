@@ -63,11 +63,19 @@
     content: "Projet annulé";
 }
 
+.not-marketed:before {
+    content: "Non commercialisé";
+}
+.not-remotely-downloadable:before {
+    content: "Non téléchargeable";
+}
+
 .logo-product {
     width: 153px;
     height: 153px;
     user-select: none;
 }
+
 
 .title-product {
     font-size: min(max(60px), 43px);

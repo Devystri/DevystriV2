@@ -1,0 +1,93 @@
+﻿/* LEGAL */
+
+
+#legal {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 155px auto;
+}
+
+#legal-text {
+    max-width: 1000px;
+    width: 85%;
+}
+
+#legal-text a {
+    color: var(--dark-blue);
+}
+
+
+p, h3, h2, strong {
+    color: var(--dark-blue);
+}
+
+h2 {
+    font-size: 2.3em;
+    margin-bottom: 50px;
+}
+
+
+h3 {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+
+
+p {
+    margin-left: 30px;
+    line-height: 25px;
+    font-size: 1.1em;
+}
+
+#summary-container a {
+    color: var(--very-light-blue);
+    background-size: 0% 100%;
+    font-weight: 500;
+    background-image: linear-gradient( transparent calc( 100% - 3px ), var(--light-blue) 3px );
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    transition: background-size 0.35s ease-out;
+    text-decoration: none;
+}
+
+#summary-container a:hover {
+    background-size: 100% 100%;
+    transition: background-size 0.35s ease-in-out;
+}
+
+#summary-container h3{
+    color: var(--light-blue);
+}
+
+
+
+/* LEXICO */
+
+#summary-container {
+    width: 330px;
+    height: max-content;
+    background: var(--grey-blue);
+    padding: 20px;
+    color: var(--white-text);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 12px;
+    margin-left: 3%;
+}
+
+#legal li {
+    list-style-type: none;
+    margin: 17px 0;
+    letter-spacing: 1px;
+}
+
+
+
+/* MOBILE */
+
+@media screen and (max-width: 1200px) {
+    #summary-container {
+        display: none;
+    }
+}
