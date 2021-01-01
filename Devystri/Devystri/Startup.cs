@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using System.Collections.Generic;
 using Data;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Devystri
 {
@@ -23,7 +24,16 @@ namespace Devystri
         public void ConfigureServices(IServiceCollection services)
         {
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContextPool<MyDbContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            try
+            {
+                services.AddDbContextPool<MyDbContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+
+            }
+            catch (Exception e)
+            {
+                Console.Out(e.Message);
+            }
+
 
             services.AddRazorPages();
 
