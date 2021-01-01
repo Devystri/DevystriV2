@@ -8,6 +8,7 @@
     --grey-blue: #00529A;
     --light-blue: #7CADD8;
     --very-light-blue: #9FCAEF;
+    --input-area-color: #D0E3F3;
 }
 
 /* Font */
@@ -111,10 +112,70 @@ li {
     user-select: none;
 }
 
-/* Page title */
+/* Page title and description*/
 
 .page-title {
     font-size: min(max(63px), 11vw);
     font-weight: bold;
     color: var(--dark-blue);
+}
+
+.page-description {
+    font-size: min(max(20px), 4vw);
+    max-width: 626px;
+    width: 90%;
+    color: var(--dark-blue);
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* input-area */
+
+.input-area {
+    background-color: var(--input-area-color);
+    height: 29px;
+    border-radius: 34px;
+    outline: none;
+    border: transparent;
+    padding: 14px 25px;
+    max-width: 714px;
+    width: 93%;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--dark-blue);
+}
+
+    .input-area::placeholder {
+        color: #7CADD8;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        user-select: none;
+    }
+
+.send-button {
+    width: 50%;
+    height: 54px;
+    border-radius: 34px;
+    border: transparent;
+    background: var(--grey-blue);
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 42px;
+    outline: none;
+    cursor: pointer;
+}
+
+    .send-button:hover {
+        animation: hover-send-button 0.2s forwards;
+    }
+
+@keyframes hover-send-button {
+    from {
+        background: var(--grey-blue);
+    }
+
+    to {
+        background: var(--light-blue);
+    }
 }
