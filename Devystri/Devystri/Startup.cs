@@ -31,7 +31,7 @@ namespace Devystri
             }
             catch (Exception e)
             {
-                Console.Out(e.Message);
+          
             }
 
 
