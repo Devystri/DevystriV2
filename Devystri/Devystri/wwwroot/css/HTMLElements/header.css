@@ -37,6 +37,7 @@ header {
 
     #header-logo img {
         height: 70px;
+        font-family: 'HelveticaRoundedBold';
     }
 
 /* For mobile */
