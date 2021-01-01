@@ -1,27 +1,30 @@
 ﻿@page
-@model Devystri.Pages.Applications.ListModel
+@model Devystri.Pages.Web_Sites.ListModel
 @{
 }
 
 @section Styles{
     <link rel="stylesheet" href="~/css/Pages/products.css" />
 }
+@foreach (var item in Model.webSites)
+{
+    <section id="website-@item.Name.Replace(' ', '-').ToLower()" class="section">
+        <div class="left-part computer">
+            <device-viewer src="../Assets/Images/websiteList/@item.PresentationRessource" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
+        </div>
+        <div class="right-part">
+            <span class="project-status">Projet annulé</span>
+            <figure>
+                <img draggable="false" class="logo-product" alt="Logo du site web" src="~/Assets/Images/websiteList/@item.AppLogoName" />
+            </figure>
+            <h1 class="title-product">@item.Name</h1>
+            <h2 class="product-description">@item.Description</h2>
+            <div class="compatibility"></div>
+            <a title="En savoir plus sur @item.Name" class="more-button more-button-list">En savoir plus</a>
+        </div>
+    </section>
+}
 
-<section id="website-whatisit" class="section first-section">
-    <div class="left-part computer">
-        <device-viewer src="../Assets/Images/websiteList/WhatIsItMacbook.png" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
-    </div>
-    <div class="right-part">
-        <span class="project-status">Projet annulé</span>
-        <figure>
-            <img draggable="false" class="logo-product" alt="Logo du site web" src="~/Assets/Images/websiteList/Logo-whatIsIt.svg" />
-        </figure>
-        <h1 class="title-product">What Is It ?</h1>
-        <h2 class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</h2>
-        <div class="compatibility"></div>
-        <a title="En savoir plus sur what is it" class="more-button more-button-list">En savoir plus</a>
-    </div>
-</section>
 <section class="section section-soon">
     <span class="soon">Prochainement ...</span>
 </section>
