@@ -19,8 +19,11 @@ namespace Devystri.Pages
 
         public IndexModel(ILogger<IndexModel> logger, MyDbContext context)
         {
-            myDbContext = context;
-            //myDbContext.Users.Add(new UserGroup() { Email = "dimitri.timoz@orange.fr", Password = "test" });
+           if(context != null)
+            {
+                myDbContext = context;
+            }
+
             _logger = logger;
         }
 
