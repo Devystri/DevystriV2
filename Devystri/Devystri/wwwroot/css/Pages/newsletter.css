@@ -1,0 +1,76 @@
+﻿/* Newsletter section */
+
+#newsletter-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 128px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 714px;
+    width: 95%;
+    margin: 100px 0;
+}
+
+.send-button {
+    align-self: center;
+}
+
+/* Social networks */
+
+#other-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#social-media-center-newsletter {
+    display: flex;
+    height: 110px;
+    max-width: 518px;
+    width: 80vw;
+    justify-content: space-between;
+    margin-top: 58px;
+    user-select: none;
+}
+
+.social-networks-newsletter {
+    width: 110px;
+    height: 110px;
+    border-radius: 55px;
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .social-networks-newsletter img {
+        width: 69%;
+        height: 69%;
+    }
+
+
+/* Mobile */
+
+@media screen and (max-width: 1000px) {
+    .input-area {
+        width: auto;
+        padding: 8px 25px;
+        font-size: 14px;
+    }
+    .send-button {
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+        margin: 10px auto;
+    }
+/* Social networks */
+    .social-networks-newsletter {
+        width: 75px;
+        height: 75px;
+    }
+}

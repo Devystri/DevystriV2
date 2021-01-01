@@ -2,3 +2,34 @@
 @model Devystri.Pages.NewsletterModel
 @{
 }
+
+@section Styles{ 
+    <link rel="stylesheet" href="~/css/Pages/newsletter.css" />
+}
+<section id="newsletter-section">
+    <h2 class="page-title">Newsletter</h2>
+    <p class="page-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum.(Désoler je sais pas quoi dire...)</p>
+    <form>
+        <input class="input-area" type="email" name="email" placeholder="Email" />
+        <input class="send-button" type="submit" value="Envoyer">
+    </form>
+    <div id="other-news">
+        <p class="page-description">Tu peux aussi t'abonner à nos réseaux sociaux.</p>
+        <div id="social-media-center-newsletter">
+            <a target=_blank href="https://www.facebook.com/Devystri-105726897863972" class="social-networks-newsletter" id="facebook">
+                <img draggable="false" alt="" src="~/Assets/elements/facebook-white.svg" />
+            </a>
+            <a target=_blank href="https://www.instagram.com/devystri/" class="social-networks-newsletter" id="instragram">
+                <img draggable="false" alt="" src="~/Assets/elements/instagram-white.svg" />
+            </a>
+            <a target=_blank href="https://twitter.com/devystri" class="social-networks-newsletter" id="twitter">
+                <img draggable="false" alt="" src="~/Assets/elements/twitter-white.svg" />
+            </a>
+        </div>
+
+    </div>
+</section>
+
+@section Scripts{ 
+
+}

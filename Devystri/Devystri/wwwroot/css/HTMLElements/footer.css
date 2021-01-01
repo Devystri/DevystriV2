@@ -42,10 +42,12 @@ footer {
     font-size: 20px;
 }
 
-.list-footer li a{
-    margin: 2px 0;
-    position: relative;
-}
+    .list-footer li a {
+        margin: 2px 0;
+        position: relative;
+        color: var(--very-light-blue);
+        text-decoration: none;
+    }
 
     .list-footer li a::before {
         content: "";

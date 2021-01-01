@@ -51,15 +51,17 @@ textarea {
     align-items: center;
     color: var(--dark-blue);
 }
-#email-description{
-    font-size: 24px;
+#email-description {
     font-weight: bold;
     margin-bottom: 14px;
+    font-size: min(max(24px), 5vw);
+    width: 80%;
+    text-align: center;
 }
 
 #contact-email {
     text-decoration: underline;
-    font-size: 22px;
+    font-size: min(max(22px), 4vw);
     color: var(--dark-blue);
 }
 
