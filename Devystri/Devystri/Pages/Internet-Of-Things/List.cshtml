@@ -1,4 +1,5 @@
 ﻿@page
+@using Data.Models;
 @model Devystri.Pages.Internet_Of_Things.ListModel
 @{
 }
@@ -14,8 +15,18 @@
 
     </div>
     <div class="right-part">
-        <span class="project-status">Non commercialisé</span>
-
+        @if (item.Stat == (int)Stats.CANCEL)
+        {
+            <span class="project-status project-cancelled"></span>
+        }
+        else if (item.Stat == (int)Stats.NOT_MARKETED)
+        {
+            <span class="project-status not-marketed"></span>
+        }
+        else if (item.Stat == (int)Stats.NOT_DOWNLABLE)
+        {
+            <span class="project-status not-downloadable"></span>
+        }
         <h1 class="title-product">@item.Name</h1>
         <h2 class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</h2>
         <div class="compatibility">

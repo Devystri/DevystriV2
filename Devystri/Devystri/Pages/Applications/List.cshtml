@@ -1,4 +1,5 @@
 ﻿@page
+@using Data.Models;
 @model Devystri.Pages.Applications.ListModel
 @{
 }
@@ -8,57 +9,69 @@
 }
 @foreach (var item in Model.applications)
 {
-<section id="application-@item.Name" class="section">
-    <div class="left-part">
-        <img draggable="false" alt="Application" src="~/Assets/Images/applicationList/@item.PresentationRessource" />
-    </div>
-    <div class="right-part">
-        <span class="project-status project-cancelled"></span>
-        <figure>
-            <img draggable="false" class="logo-product" alt="Logo de l'application @item.Name" src="~/Assets/Images/applicationList/@item.AppLogoName" />
-        </figure>
-        <h1 class="title-product">@item.Name</h1>
-        <h2 class="product-description">@item.Description</h2>
-        <div class="compatibility">
-            <div class="platform">
-                @if (item.IsOnAppStore == 1)
-                {
-                    <span class="platform-logo" title="AppStore"><img draggable="false" src="~/Assets/elements/appstroe.svg" /></span>
-                }
-                @if (item.IsOnPlayStore == 1)
-                {
-                    <span class="platform-logo" title="Playstore"><img draggable="false" src="~/Assets/elements/playstore.svg" /></span>
-
-                }
-            </div>
+    <section id="application-@item.Name" class="section">
+        <div class="left-part">
+            <img draggable="false" alt="Application" src="~/Assets/Images/applicationList/@item.PresentationRessource" />
         </div>
-        <a title="En savoir plus sur l'application @item.Name" class="more-button more-button-list">En savoir plus</a>
-    </div>
-</section>
+        <div class="right-part">
+            @if (item.Stat == (int)Stats.CANCEL)
+            {
+                <span class="project-status project-cancelled"></span>
+            }
+            else if (item.Stat == (int)Stats.NOT_MARKETED)
+            {
+                <span class="project-status not-marketed"></span>
+            }
+            else if (item.Stat == (int)Stats.NOT_DOWNLABLE)
+            {
+                <span class="project-status not-downloadable"></span>
+            }
+
+            <figure>
+                <img draggable="false" class="logo-product" alt="Logo de l'application @item.Name" src="~/Assets/Images/applicationList/@item.AppLogoName" />
+            </figure>
+            <h1 class="title-product">@item.Name</h1>
+            <h2 class="product-description">@item.Description</h2>
+            <div class="compatibility">
+                <div class="platform">
+                    @if (item.IsOnAppStore == 1)
+                    {
+                        <span class="platform-logo" title="AppStore"><img draggable="false" src="~/Assets/elements/appstroe.svg" /></span>
+                    }
+                    @if (item.IsOnPlayStore == 1)
+                    {
+                        <span class="platform-logo" title="Playstore"><img draggable="false" src="~/Assets/elements/playstore.svg" /></span>
+
+                    }
+                </div>
+            </div>
+            <a title="En savoir plus sur l'application @item.Name" class="more-button more-button-list">En savoir plus</a>
+        </div>
+    </section>
 }
 
 @*<section id="application-HomeConnect" class="section">
-    <div class="left-part">
-        <img draggable="false" alt="Application" src="~/Assets/Images/applicationList/application-image-HomeConnect.png" />
-    </div>
-    <div class="right-part">
-        <span class="project-status">Projet non téléhcrageable</span>
-        <figure>
-            <img draggable="false" class="logo-product" alt="Logo de l'application HomeConnect" src="~/Assets/Images/applicationList/Logo-HomeConnect.svg" />
-        </figure>
-        <h1 class="title-product">HomeConnect</h1>
-        <h2 class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</h2>
-        <div class="compatibility">
-            <div>
-                <span class="constraint">Nécessite le hub</span>
-            </div>
-            <div class="platform">
-                <span class="platform-logo" title="Playstore"><img draggable="false" src="~/Assets/elements/playstore.svg" /></span>
-            </div>
+        <div class="left-part">
+            <img draggable="false" alt="Application" src="~/Assets/Images/applicationList/application-image-HomeConnect.png" />
         </div>
-        <a title="En savoir plus sur l'application HomeConnect" class="more-button more-button-list">En savoir plus</a>
-    </div>
-</section>*@
+        <div class="right-part">
+            <span class="project-status">Projet non téléhcrageable</span>
+            <figure>
+                <img draggable="false" class="logo-product" alt="Logo de l'application HomeConnect" src="~/Assets/Images/applicationList/Logo-HomeConnect.svg" />
+            </figure>
+            <h1 class="title-product">HomeConnect</h1>
+            <h2 class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</h2>
+            <div class="compatibility">
+                <div>
+                    <span class="constraint">Nécessite le hub</span>
+                </div>
+                <div class="platform">
+                    <span class="platform-logo" title="Playstore"><img draggable="false" src="~/Assets/elements/playstore.svg" /></span>
+                </div>
+            </div>
+            <a title="En savoir plus sur l'application HomeConnect" class="more-button more-button-list">En savoir plus</a>
+        </div>
+    </section>*@
 
 @section Scripts{
 

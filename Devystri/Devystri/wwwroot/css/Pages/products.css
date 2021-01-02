@@ -66,7 +66,7 @@
 .not-marketed:before {
     content: "Non commercialisé";
 }
-.not-remotely-downloadable:before {
+.not-downloadable:before {
     content: "Non téléchargeable";
 }
 

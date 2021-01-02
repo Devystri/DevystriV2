@@ -1,4 +1,5 @@
 ﻿@page
+@using Data.Models;
 @model Devystri.Pages.Web_Sites.ListModel
 @{
 }
@@ -13,7 +14,18 @@
             <device-viewer src="../Assets/Images/websiteList/@item.PresentationRessource" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
         </div>
         <div class="right-part">
-            <span class="project-status">Projet annulé</span>
+            @if (item.Stat == (int)Stats.CANCEL)
+            {
+                <span class="project-status project-cancelled"></span>
+            }
+            else if (item.Stat == (int)Stats.NOT_MARKETED)
+            {
+                <span class="project-status not-marketed"></span>
+            }
+            else if (item.Stat == (int)Stats.NOT_DOWNLABLE)
+            {
+                <span class="project-status not-downloadable"></span>
+            }
             <figure>
                 <img draggable="false" class="logo-product" alt="Logo du site web" src="~/Assets/Images/websiteList/@item.AppLogoName" />
             </figure>
