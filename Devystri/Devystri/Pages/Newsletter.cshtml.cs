@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
@@ -19,7 +20,11 @@ namespace Devystri.Pages
         }
         public void OnPost(string email)
         {
-            
+            MailAddress address = new MailAddress(email);
+            if (address.Address == email)
+            {
+                return;
+            }
             int count = dbContext.Newsletters.Count(item => item.Email == email);
             if (count > 0)
             {

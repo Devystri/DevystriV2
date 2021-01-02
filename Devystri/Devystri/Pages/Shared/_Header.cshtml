@@ -1,0 +1,17 @@
+﻿<header id="header">
+    <a id="header-logo" asp-area="" asp-page="/Index"><img draggable="false" src="~/Assets/Images/header/devystri-logo.svg" /></a>
+    <div id="nav-location">
+        <nav>
+            <a asp-area="" asp-page="/Applications/List">Applications</a>
+            <a asp-area="" asp-page="/Web-Sites/List">Sites web</a>
+            <a asp-area="" asp-page="/Internet-Of-Things/List">Objets connectés</a>
+        </nav>
+        <nav>
+            <a asp-area="" asp-page="/Contact">Contact</a>
+            <a asp-area="" asp-page="/About">A propos</a>
+
+        </nav>
+    </div>
+    <input onchange="menuStateChanhed()" class="menu-btn" name="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+</header>
