@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20210102150453_DBInit")]
+    [Migration("20210102181952_DBInit")]
     partial class DBInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -157,8 +157,9 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("OsName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(100)")
+                        .HasDefaultValue("Unknow");
 
                     b.HasKey("Id")
                         .HasName("PK_Newsletters");

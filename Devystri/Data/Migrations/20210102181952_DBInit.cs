@@ -65,7 +65,7 @@ namespace Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     OsId = table.Column<int>(type: "int", nullable: false),
-                    OsName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    OsName = table.Column<string>(type: "nvarchar(100)", nullable: true, defaultValue: "Unknow"),
                     Counts = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

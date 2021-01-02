@@ -100,7 +100,7 @@ namespace Data
 
             //Configure columns Os
             modelBuilder.Entity<OSStats>().Property(ug => ug.Id).HasColumnType("int").ValueGeneratedOnAdd().IsRequired();
-            modelBuilder.Entity<OSStats>().Property(ug => ug.OsName).HasColumnType("nvarchar(100)").IsRequired();
+            modelBuilder.Entity<OSStats>().Property(ug => ug.OsName).HasColumnType("nvarchar(100)").HasDefaultValue("Unknow").IsRequired(false);
             modelBuilder.Entity<OSStats>().Property(ug => ug.Counts).HasColumnType("int").IsRequired();
             modelBuilder.Entity<OSStats>().Property(ug => ug.OsId).HasColumnType("int").IsRequired();
 
