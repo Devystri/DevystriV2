@@ -117,6 +117,7 @@ li {
     font-size: 24px;
     font-weight: bold;
     user-select: none;
+    text-decoration: none;
 }
 
 /* Page title and description*/

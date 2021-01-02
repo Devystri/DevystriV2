@@ -1,0 +1,166 @@
+﻿/* product description */
+
+#product-description {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: var(--dark-blue);
+    justify-content: space-around;
+}
+
+
+.product-description-img { /*image in left and right description*/
+    max-height: 700px;
+    width: 25vw;
+    user-select: none;
+}
+
+#detailed-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 843px;
+}
+
+.product-logo {
+    max-width: 171px;
+    max-height: 171px;
+    width: 30vw;
+    height: 30vw;
+    user-select: none;
+}
+
+    .product-logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+.title-product { /*Title product*/
+    font-size: min(max(60px), 10vw);
+    margin-top: 20px;
+}
+
+#product-features { /*Age/Language/size*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+
+    #product-features span {
+        font-size: min(max(19px), 4vw);
+        margin: 4px;
+    }
+
+#product-description-text { /*Product description*/
+    font-size: 16px;
+    text-align: center;
+    width: 86%;
+    margin-top: 13px;
+}
+
+#download {
+    width: 80%;
+    height: 77px;
+    display: flex;
+    margin-top: 44px;
+    margin-bottom: 42px;
+    justify-content: center;
+}
+
+/* product-functionality */
+
+.feature-container {
+    min-height: 85vh;
+    display: flex;
+    color: var(--dark-blue);
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .feature-container:nth-child(2n){
+        flex-direction: row-reverse;
+    }
+
+.feature-title {
+    font-weight: bold;
+    font-size: min(max(51px), 8vw);
+}
+.feature-description {
+    margin-top: 20px;
+    font-size: min(max(21px), 4.5vw);
+    height: 419px;
+}
+
+.feature-text {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-image {
+    max-width: 600px;
+    max-height: 600px;
+    height: 78vw;
+    user-select:none;
+}
+/* Mobile */
+@media screen and (max-width: 1000px) {
+    #product-description {
+        flex-direction: column;
+        padding-top: 92px;
+    }
+    .product-description-img {
+        width: 52vw;
+        margin: 5px auto;
+    }
+    .feature-container {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 61px 0;
+    }
+    .feature-description {
+        height: min-content;
+        width: 88%;
+    }
+    .alert {
+        position: initial !important;
+    }
+}
+
+/* AppStore / Playstore */
+
+.download-button {
+    max-width: 296px;
+    max-height: 88px;
+    height: 90%;
+    width: 90%;
+    background-size: 80%;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#appstore-button {
+    background-image: url(../../../Assets/elements/appstore-button.png);
+}
+
+#playstore-button {
+    background-image: url(../../../Assets/elements/playstore-button.png);
+}
+
+/* Alert */
+
+.alert {
+    position: absolute;
+    background: #E23A3A;
+    top: 102px;
+    left: 20px;
+    width: 300px;
+    padding: 10px 20px;
+    border-radius: 14px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
