@@ -9,32 +9,33 @@ namespace Data
 {
     public class MyDbContext : DbContext
     {
-        public DbSet<UserGroup> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<IoT> Iots { get; set; }
         public DbSet<WebSites> WebSites { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<OSStats> OSs{ get; set; }
+        public DbSet<Log> Logs { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         { 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
+        { 
             // Map entities to tables  
-            modelBuilder.Entity<UserGroup>().ToTable("UserGroups");
+            modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Application>().ToTable("Applications");
             modelBuilder.Entity<IoT>().ToTable("Iot");
             modelBuilder.Entity<WebSites>().ToTable("WebSites");
             modelBuilder.Entity<Section>().ToTable("Sections");
             modelBuilder.Entity<Newsletter>().ToTable("Newsletters");
-            modelBuilder.Entity<OSStats>().ToTable("OSStats");
+            modelBuilder.Entity<OSStats>().ToTable("OSs");
             modelBuilder.Entity<Visits>().ToTable("Visits");
+            modelBuilder.Entity<Log>().ToTable("Logs");
 
             // Configure Primary Keys  
-            modelBuilder.Entity<UserGroup>().HasKey(ug => ug.Id).HasName("PK_User");
+            modelBuilder.Entity<User>().HasKey(ug => ug.Id).HasName("PK_User");
             modelBuilder.Entity<Application>().HasKey(ug => ug.Id).HasName("PK_Applications");
             modelBuilder.Entity<IoT>().HasKey(ug => ug.Id).HasName("PK_IoTs");
             modelBuilder.Entity<WebSites>().HasKey(ug => ug.Id).HasName("PK_WebSites");
@@ -42,9 +43,10 @@ namespace Data
             modelBuilder.Entity<Newsletter>().HasKey(ug => ug.Id).HasName("PK_Newsletters");
             modelBuilder.Entity<OSStats>().HasKey(ug => ug.Id).HasName("PK_Newsletters");
             modelBuilder.Entity<Visits>().HasKey(ug => ug.Id).HasName("PK_Visits");
+            modelBuilder.Entity<Log>().HasKey(ug => ug.Id).HasName("PK_Log");
 
             // Configure indexes  
-            modelBuilder.Entity<UserGroup>().HasIndex(p => p.Email).IsUnique().HasDatabaseName("Idx_Email");
+            modelBuilder.Entity<User>().HasIndex(p => p.Email).IsUnique().HasDatabaseName("Idx_Email");
             modelBuilder.Entity<Application>().HasIndex(p => p.Name).IsUnique().HasDatabaseName("Idx_Name");
             modelBuilder.Entity<WebSites>().HasIndex(p => p.Name).IsUnique().HasDatabaseName("Idx_Name");
             modelBuilder.Entity<IoT>().HasIndex(p => p.Name).IsUnique().HasDatabaseName("Idx_Name");
@@ -52,13 +54,14 @@ namespace Data
             modelBuilder.Entity<Newsletter>().HasIndex(p => p.Id).IsUnique().HasDatabaseName("Idx_ProjectId");
             modelBuilder.Entity<OSStats>().HasIndex(p => p.Id).IsUnique().HasDatabaseName("Idx_StatId");
             modelBuilder.Entity<Visits>().HasIndex(p => p.Id).IsUnique().HasDatabaseName("Idx_StatId");
+            modelBuilder.Entity<Log>().HasIndex(p => p.Id).IsUnique().HasDatabaseName("Idx_LogId");
 
             // Configure columns users
-            modelBuilder.Entity<UserGroup>().Property(ug => ug.Id).HasColumnType("int").ValueGeneratedOnAdd().IsRequired();
-            modelBuilder.Entity<UserGroup>().Property(ug => ug.Email).HasColumnType("nvarchar(100)").IsRequired();
-            modelBuilder.Entity<UserGroup>().Property(ug => ug.Password).HasColumnType("nvarchar(100)").IsRequired();
-            modelBuilder.Entity<UserGroup>().Property(ug => ug.CreationDateTime).HasColumnType("datetime").IsRequired();
-            modelBuilder.Entity<UserGroup>().Property(ug => ug.LastUpdateDateTime).HasColumnType("datetime").IsRequired(false);
+            modelBuilder.Entity<User>().Property(ug => ug.Id).HasColumnType("int").ValueGeneratedOnAdd().IsRequired();
+            modelBuilder.Entity<User>().Property(ug => ug.Email).HasColumnType("nvarchar(100)").IsRequired();
+            modelBuilder.Entity<User>().Property(ug => ug.Password).HasColumnType("nvarchar(100)").IsRequired();
+            modelBuilder.Entity<User>().Property(ug => ug.CreationDateTime).HasColumnType("datetime").IsRequired();
+            modelBuilder.Entity<User>().Property(ug => ug.LastUpdateDateTime).HasColumnType("datetime").IsRequired(false);
 
             // Configure columns Applications
             modelBuilder.Entity<Application>().Property(ug => ug.Id).HasColumnType("int").ValueGeneratedOnAdd().IsRequired();
@@ -109,6 +112,13 @@ namespace Data
             modelBuilder.Entity<Visits>().Property(ug => ug.Count).HasColumnType("int").IsRequired();
             modelBuilder.Entity<Visits>().Property(ug => ug.Date).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<Visits>().Property(ug => ug.Page).HasColumnType("int").IsRequired();
+
+
+            //Configure columns Logs
+            modelBuilder.Entity<Log>().Property(ug => ug.Id).HasColumnType("int").ValueGeneratedOnAdd().IsRequired();
+            modelBuilder.Entity<Log>().Property(ug => ug.Date).HasColumnType("datetime").IsRequired();
+            modelBuilder.Entity<Log>().Property(ug => ug.Message).HasColumnType("nvarchar(1000)").IsRequired();
+            modelBuilder.Entity<Log>().Property(ug => ug.UserId).HasColumnType("int").IsRequired();
 
             base.OnModelCreating(modelBuilder);
 

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20210102212835_DBInitV1")]
-    partial class DBInitV1
+    [Migration("20210102214400_DBInitV1.0")]
+    partial class DBInitV10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -144,6 +144,32 @@ namespace Data.Migrations
                     b.ToTable("Sections");
                 });
 
+            modelBuilder.Entity("Data.Models.Statistics.Log", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id")
+                        .HasName("PK_Log");
+
+                    b.HasIndex("Id")
+                        .IsUnique()
+                        .HasDatabaseName("Idx_LogId");
+
+                    b.ToTable("Logs");
+                });
+
             modelBuilder.Entity("Data.Models.Statistics.OSStats", b =>
                 {
                     b.Property<int>("Id")
@@ -208,8 +234,14 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<DateTime?>("LastUpdateDateTime")
                         .HasColumnType("datetime");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Password")
                         .IsRequired()
