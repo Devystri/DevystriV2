@@ -155,9 +155,8 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("OsName")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(100)")
-                        .HasDefaultValue("Unknow");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id")
                         .HasName("PK_Newsletters");

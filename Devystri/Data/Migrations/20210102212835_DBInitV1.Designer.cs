@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20210102181952_DBInit")]
-    partial class DBInit
+    [Migration("20210102212835_DBInitV1")]
+    partial class DBInitV1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -157,9 +157,8 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("OsName")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(100)")
-                        .HasDefaultValue("Unknow");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id")
                         .HasName("PK_Newsletters");

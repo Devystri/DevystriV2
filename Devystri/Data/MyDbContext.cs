@@ -22,7 +22,7 @@ namespace Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
+
             // Map entities to tables  
             modelBuilder.Entity<UserGroup>().ToTable("UserGroups");
             modelBuilder.Entity<Application>().ToTable("Applications");
@@ -100,7 +100,7 @@ namespace Data
 
             //Configure columns Os
             modelBuilder.Entity<OSStats>().Property(ug => ug.Id).HasColumnType("int").ValueGeneratedOnAdd().IsRequired();
-            modelBuilder.Entity<OSStats>().Property(ug => ug.OsName).HasColumnType("nvarchar(100)").HasDefaultValue("Unknow").IsRequired(false);
+            modelBuilder.Entity<OSStats>().Property(ug => ug.OsName).HasColumnType("nvarchar(100)").IsRequired();
             modelBuilder.Entity<OSStats>().Property(ug => ug.Counts).HasColumnType("int").IsRequired();
             modelBuilder.Entity<OSStats>().Property(ug => ug.OsId).HasColumnType("int").IsRequired();
 
@@ -109,6 +109,9 @@ namespace Data
             modelBuilder.Entity<Visits>().Property(ug => ug.Count).HasColumnType("int").IsRequired();
             modelBuilder.Entity<Visits>().Property(ug => ug.Date).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<Visits>().Property(ug => ug.Page).HasColumnType("int").IsRequired();
+
+            base.OnModelCreating(modelBuilder);
+
         }
     }
 }

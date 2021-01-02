@@ -23,9 +23,9 @@ namespace Devystri
                 var db = scope.ServiceProvider.GetRequiredService<MyDbContext>();
                 try
                 {
-                    //db.Database.EnsureCreated();
-
-                    db.Database.Migrate();
+                    db.Database.EnsureCreated();
+                    
+                    //db.Database.Migrate();
 
                 }
                 catch (Exception e)
