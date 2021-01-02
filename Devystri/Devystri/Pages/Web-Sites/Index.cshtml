@@ -2,3 +2,55 @@
 @model Devystri.Pages.Web_Sites.IndexModel
 @{
 }
+@section Styles{
+    <link rel="stylesheet" href="~/css/Pages/products/index.css" />
+}
+<section id="product-description">
+    <div class="alert">Notre projet à été annulé en raison d'un manque de budget.</div>
+    <div class="container-description-img">
+        <img draggable="false" class="product-description-img" alt="What is it sur Macbook" src="~/Assets/Images/website/question-page-wahtisit.png" />
+    </div>    
+    <div id="detailed-description">
+        <figure class="product-logo">
+            <img draggable="false" class="logo-product" alt="Logo de what is it" src="~/Assets/Images/websiteList/Logo-whatIsIt.svg" />
+        </figure>
+        <h1 class="title-product">What Is It ?</h1>
+        <div id="product-features">
+            <span>Âge : 12+ ans</span>
+            <span>Langue : FR</span>
+        </div>
+        <p id="product-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+        <div id="download">
+            <a title="Télécharger sur l'AppStore" class="download-button" id="appstore-button"></a>
+            <a title="Télécharger sur le PlayStore" class="download-button" id="playstore-button"></a>
+        </div>
+    </div>
+    <div class="container-description-img">
+        <img draggable="false" class="product-description-img" alt="what is it sur Iphone" src="~/Assets/Images/website/whatisit-iphone.png" />
+    </div>
+</section>
+<section id="product-feature">
+    <div class="feature-container">
+        <div class="feature-text">
+            <h2 class="feature-title">Facile d'utilisation.</h2>
+            <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+        </div>
+        <div class="container-image">
+            <img draggable="false" class="feature-image" alt="Page question de what is it" src="~/Assets/Images/website/question-page-wahtisit.png" />
+        </div>
+    </div>
+    <div class="feature-container">
+        <div class="feature-text">
+            <h2 class="feature-title">Notre IA apprend Grâce à vous.</h2>
+            <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+        </div>
+        <div class="container-image">
+            <img draggable="false" class="feature-image" alt="Page réponse de what is it" src="~/Assets/Images/website/whatisit-réponse-macbook.png" />
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+
+}
