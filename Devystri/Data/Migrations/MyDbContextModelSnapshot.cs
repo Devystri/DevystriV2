@@ -92,6 +92,29 @@ namespace Data.Migrations
                     b.ToTable("Iot");
                 });
 
+            modelBuilder.Entity("Data.Models.Newsletter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_Newsletters");
+
+                    b.HasIndex("Id")
+                        .IsUnique()
+                        .HasDatabaseName("Idx_ProjectId");
+
+                    b.ToTable("Newsletters");
+                });
+
             modelBuilder.Entity("Data.Models.Section", b =>
                 {
                     b.Property<int>("Id")
@@ -117,6 +140,57 @@ namespace Data.Migrations
                         .HasDatabaseName("Idx_ProjectId");
 
                     b.ToTable("Sections");
+                });
+
+            modelBuilder.Entity("Data.Models.Statistics.OSStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Counts")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OsName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_Newsletters");
+
+                    b.HasIndex("Id")
+                        .IsUnique()
+                        .HasDatabaseName("Idx_StatId");
+
+                    b.ToTable("OSStats");
+                });
+
+            modelBuilder.Entity("Data.Models.Statistics.Visits", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("Page")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id")
+                        .HasName("PK_Visits");
+
+                    b.HasIndex("Id")
+                        .IsUnique()
+                        .HasDatabaseName("Idx_StatId");
+
+                    b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("Data.Models.UserGroup", b =>
