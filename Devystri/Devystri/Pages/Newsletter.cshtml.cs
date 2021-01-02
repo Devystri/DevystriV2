@@ -12,7 +12,7 @@ namespace Devystri.Pages
     public class NewsletterModel : PageModel
     {
         private MyDbContext dbContext;
-        private string Email = "";
+
         public NewsletterModel(MyDbContext context)
         {
             dbContext = context;
