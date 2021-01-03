@@ -1,0 +1,28 @@
+﻿@page
+@model Devystri.Pages.admin.admin_loginModel
+@{
+}
+@section Styles{ 
+    <link rel="stylesheet" href="~/css/Pages/admin/admin-login.css" />
+}
+
+<section id="admin-login">
+    <div id="login">
+        <h2 class="page-title">Devystri</h2>
+        <p class="page-description">Administration</p>
+        <form>
+            <span class="form-title" >Connexion</span>
+            <input class="input-area" type="email" name="email" placeholder="Email" />
+            <input class="input-area" type="password" name="password" placeholder="Mot de passe" />
+            <input class="send-button" type="submit" value="Envoyer">
+        </form>
+    </div>
+    <div id="prevention-message">
+        <span id="prevention-message-text">Cette page est strictement réserver aux personnes disposant d'un accès administrateur de devystri. Toutes tentatives d'intrusions non autorisées par l'administrateur du site sera poursuivie.</span>
+        <a id="back-main-page">Retour à la page principal</a>
+    </div>
+</section>
+
+@section Scripts{ 
+
+}
