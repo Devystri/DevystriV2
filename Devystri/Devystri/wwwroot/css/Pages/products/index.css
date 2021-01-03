@@ -11,18 +11,21 @@
 
 .container-description-img {
     height: 100%;
-    width: 400px;
+    max-width: 400px;
     display: flex;
     text-align: center;
+    width: 90%;
+    display: flex;
+    place-content: center;
 }
 
 
 .product-description-img { /*image in left and right description*/
     user-select: none;
-    width: auto;
     max-width: 400px;
-    height: auto;
     max-height: 500px;
+    width: auto;
+    height: auto;
 }
 
 #detailed-description {
@@ -117,28 +120,6 @@
     width: 100%;
     user-select: none;
 }
-/* Mobile */
-@media screen and (max-width: 1000px) {
-    #product-description {
-        flex-direction: column;
-        padding-top: 92px;
-    }
-    .product-description-img {
-        margin: 5px auto;
-    }
-    .feature-container {
-        flex-direction: column !important;
-        text-align: center;
-        padding: 61px 0;
-    }
-    .feature-description {
-        height: min-content;
-        width: 88%;
-    }
-    .alert {
-        position: initial !important;
-    }
-}
 
 /* AppStore / Playstore */
 
@@ -161,8 +142,39 @@
     background-image: url(../../../Assets/elements/playstore-button.png);
 }
 
-/* Alert */
+/*redirect-button*/
 
+.redirect-button {
+    max-width: 524px;
+    width: 100%;
+    height: 69px;
+    border-radius: 55px;
+    background: var(--grey-blue);
+    color: var(--white-button);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    user-select: none;
+}
+
+    .redirect-button:hover {
+        animation: hover-redirect-button 0.2s forwards;
+    }
+
+@keyframes hover-redirect-button {
+    from {
+        background-color: var(--grey-blue);
+        color: var(--white-button);
+    }
+
+    to {
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+    }
+}
+/* Alert */
 .alert {
     position: absolute;
     background: #E23A3A;
@@ -174,3 +186,36 @@
     color: white;
     font-family: 'Roboto', sans-serif;
 }
+/* Mobile */
+@media screen and (max-width: 1000px) {
+    #product-description {
+        flex-direction: column;
+        padding-top: 92px;
+    }
+    .product-description-img {
+        margin: 5px auto;
+    }
+    .feature-container {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 61px 0;
+    }
+    .feature-title {
+        width: 95%;
+    }
+    .feature-description {
+        height: min-content;
+        width: 85%;
+    }
+    .feature-text {
+        align-items: center;
+    }
+    .alert {
+        position: initial !important;
+    }
+    .redirect-button {
+        height: 60px ;
+        font-size: 18px ;
+    }
+}
+
