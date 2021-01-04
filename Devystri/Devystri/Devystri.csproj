@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Assets\3D\" />
+    <Folder Include="wwwroot\Assets\Images\Particles\" />
     <Folder Include="wwwroot\Assets\Objects3D\" />
     <Folder Include="wwwroot\js\Pages\" />
   </ItemGroup>

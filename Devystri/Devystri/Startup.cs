@@ -35,7 +35,11 @@ namespace Devystri
             }
 
 
-            services.AddRazorPages();
+            services.AddRazorPages().AddRazorPagesOptions(options =>
+            {
+
+        
+            });
 
         }
 
