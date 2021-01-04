@@ -1,5 +1,4 @@
-﻿@page "contact"
-
+﻿@page
 @model Devystri.Pages.ContactModel
 @{
 }
@@ -12,17 +11,16 @@
     @*  contact-form  *@
     <h2 class="page-title">Contact</h2>
     <p class="page-description">Le service client de Devystri est à votre écoute pour toutes questions ou demandes. Nous donnerons suite à votre message dans les plus brefs délais.</p>
-    <form method="post">
+    <form>
         <div id="name-and-surnames">
             <input class="input-area" type="text" name="name" placeholder="Nom"  />
             <input class="input-area" type="text" name="firstname" placeholder="Prénom" />
         </div>
         <input class="input-area" type="email" name="email" placeholder="Email" />
-        <input class="input-area" type="text" name="obj" placeholder="Objet" />
-        <textarea name="message" class="input-area" placeholder="Votre message"></textarea>
+        <input class="input-area" type="text" name="object" placeholder="Objet" />
+        <textarea class="input-area" placeholder="Votre message"></textarea>
         <input class="send-button" type="submit" value="Envoyer">
     </form>
-    <span>@Model.Message</span>
 </section>
 <section id="other-contact">
     @* other-contact *@

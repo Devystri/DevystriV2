@@ -32,7 +32,7 @@
                 <div class="dot"></div>
             </div>
         </div>
-
+       
     </loader-element>
 
     @await Html.PartialAsync("_Header.cshtml")
@@ -46,7 +46,7 @@
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
+    
     <environment include="Development">
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
@@ -54,7 +54,5 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
     @await RenderSectionAsync("Scripts", required: false)
-    @await Html.PartialAsync("_ParticlesEvent.cshtml")
-
 </body>
 </html>
