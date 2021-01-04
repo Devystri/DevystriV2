@@ -1,0 +1,37 @@
+﻿<script src="~/js/particle.js"></script>
+@{
+    DateTime valentin = new DateTime(DateTime.Now.Year, 2, 14);
+    DateTime christmas = new DateTime(DateTime.Now.Year, 12, 25);
+    DateTime birthday = new DateTime(DateTime.Now.Year, 10, 16);
+    bool ev = false;
+    string src = "";
+    string settings = "";
+    if (DateTime.Now.Day == DateTime.Now.Day && DateTime.Now.Month == DateTime.Now.Month)
+    {
+        ev = true;
+
+        src = "['Assets/Images/Particles/Balloon/Red.svg','Assets/Images/Particles/Balloon/Blue.svg','Assets/Images/Particles/Balloon/Green.svg', 'Assets/Images/Particles/Balloon/Pink.svg', 'Assets/Images/Particles/Balloon/Yellow.svg']";
+        settings = "src, 100, 10, 1";
+    }
+    else if (DateTime.Now.Day == christmas.Day && DateTime.Now.Month == christmas.Month)
+    {
+        ev = true;
+
+    }
+    else if (DateTime.Now.Day == birthday.Day && DateTime.Now.Month == birthday.Month)
+    {
+        ev = true;
+
+    }
+}
+
+
+@if (ev)
+{
+
+
+    <script>
+        var src = String(@src);
+        var p = new Particles(@settings );
+    </script>
+}
