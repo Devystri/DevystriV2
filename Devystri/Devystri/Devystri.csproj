@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Modules\Modules.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,7 @@ namespace Devystri.Pages.Admin
     {
         public void OnGet()
         {
+            
         }
     }
 }

@@ -34,12 +34,20 @@ namespace Devystri
                 Console.WriteLine(e.Message);
             }
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+            });
 
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {
                 options.Conventions.AddPageRoute("/admin/Login", "/admin/*"); 
                 options.Conventions.AddPageRoute("/Admin/ChangePassword", "/admin/change-password"); 
-                options.Conventions.AddPageRoute("/Admin/Dashboad", "/admin/dashboad"); 
         
             });
 
@@ -72,6 +80,8 @@ namespace Devystri
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
