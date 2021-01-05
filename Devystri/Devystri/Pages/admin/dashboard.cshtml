@@ -1,0 +1,102 @@
+﻿@page
+@model Devystri.Pages.admin.dashboardModel
+@{
+}
+@section Styles{ 
+    <link rel="stylesheet" href="~/css/Pages/admin/dashboard.css" />
+}
+
+<section id="fast-information">
+    <form id="form-period">
+        <label class="label-period" >
+            <input class="input-period" name="period" type="radio" checked />
+            <span class="period">Jour</span>
+
+        </label>
+        <label class="label-period">
+            <input class="input-period" name="period" type="radio" />
+            <span class="period">Semaine</span>
+        </label>
+        <label class="label-period">
+            <input class="input-period" name="period" type="radio" />
+            <span class="period">Mois</span>
+        </label>
+        <label class="label-period">
+            <input class="input-period" name="period" type="radio" />
+            <span class="period">Année</span>
+        </label>
+    </form>
+    <div class="fast-information-box">
+        <span class="title-fast-information">Nombres de visites</span> @*Number of visits*@
+        <span class="data-fast-information">2 800</span>
+        <span class="period-description-fast-information">Depuis une semaine</span>
+    </div>
+    <div class="fast-information-box">
+        <span class="title-fast-information">Temps moyen qu'un utilisateur reste sur le site</span> @*Average time a user stays on the site*@
+        <span class="data-fast-information">7 min</span>
+        <span class="period-description-fast-information">Depuis une semaine</span>
+    </div>
+    <div class="fast-information-box">
+        <span class="title-fast-information">Nombres de visites par page</span> @*Number of visits per page*@
+        <span class="period-description-fast-information">Main page</span>
+        <span class="data-fast-information">2 800</span>
+        <span class="period-description-fast-information">Page application</span>
+        <span class="data-fast-information">2 648</span>
+        <span class="period-description-fast-information">Page Website</span>
+        <span class="data-fast-information">1 843</span>
+        <span class="period-description-fast-information">Page objets connecté</span>
+        <span class="data-fast-information">2 126</span>
+        <span class="period-description-fast-information">Page contact</span>
+        <span class="data-fast-information">748</span>
+        <span class="period-description-fast-information">Page à propos</span>
+        <span class="data-fast-information">1 125</span>
+        <span class="period-description-fast-information">Application motivation</span>
+        <span class="data-fast-information">2 200</span>
+        <span class="period-description-fast-information">Depuis une semaine</span>
+    </div>
+    <div class="fast-information-box">
+        <span class="title-fast-information">Nombres de messages</span> @*Message numbers*@
+        <span class="data-fast-information">47</span>
+        <span class="period-description-fast-information">Depuis une semaine</span>
+    </div>
+</section>
+<section id="accurate-information">
+    <span>Statistiques de visites</span>
+    <div id="total-visits-box">
+        <div id="total-visits-header">
+            <span>Visites total</span>
+            <form id="form-period">
+                <label class="label-period">
+                    <input class="input-period" name="period" type="radio" checked />
+                    <span class="period">Jour</span>
+
+                </label>
+                <label class="label-period">
+                    <input class="input-period" name="period" type="radio" />
+                    <span class="period">Semaine</span>
+                </label>
+                <label class="label-period">
+                    <input class="input-period" name="period" type="radio" />
+                    <span class="period">Mois</span>
+                </label>
+                <label class="label-period">
+                    <input class="input-period" name="period" type="radio" />
+                    <span class="period">Année</span>
+                </label>
+            </form>
+        </div>
+        <canvas id="visit-website-graphic" ></canvas>
+    </div>
+    <div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts{ 
+    <script src="~/js/dashboard.js"></script>
+}

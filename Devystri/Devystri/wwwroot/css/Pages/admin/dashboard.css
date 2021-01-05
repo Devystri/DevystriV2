@@ -1,0 +1,112 @@
+﻿/* Général */
+
+main{
+    display:flex;
+}
+
+/* fast-information */
+#fast-information {
+    max-width: 600px;
+    width: 50%;
+    min-height: 100vh;
+    margin: 111px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: solid 2px #7CADD8;
+}
+
+/* period */
+#form-period {
+    display: flex;
+    border-radius: 16px;
+    background: var(--admin-blue);
+    width: fit-content;
+    color: white;
+    font-weight: 500;
+    margin: 35px 0;
+}
+
+.input-period:checked + span {
+    animation: input-period-checked 0.2s forwards;
+    border-radius: 16px;
+}
+
+@keyframes input-period-checked {
+    from {
+        background: none
+    }
+
+    to {
+        background-color: #204c85;
+    }
+}
+
+.input-period {
+    display: none;
+}
+
+.period {
+    width: 100px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* fast-information-box */
+
+.fast-information-box {
+    border: solid 2px var(--admin-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    width: 75%;
+    max-width: 353px;
+    border-radius: 15px;
+    margin: 10px 0;
+    color: var(--dark-blue);
+}
+
+.title-fast-information {
+    font-size: 25px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.data-fast-information {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.period-description-fast-information{
+    font-size: 20px;
+}
+
+/* accurate-information */
+
+#accurate-information {
+    margin: 111px 0;
+    width: 72%;
+}
+
+#total-visits-header{
+    display: flex;
+}
+/* total-visits-box */
+#total-visits-box {
+    max-width: 1204px;
+    max-height: 466px;
+    width: 100%;
+    height: 100%;
+    border: solid 2px var(--admin-blue);
+}
+
+#visit-website-graphic{
+    width: 98%;
+    height: 335px;
+}
