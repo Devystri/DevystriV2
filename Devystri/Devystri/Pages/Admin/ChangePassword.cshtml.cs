@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Devystri.Pages.admin
+namespace Devystri.Pages.Admin
 {
-    public class change_passwordsModel : PageModel
+    public class ChangePasswordModel : PageModel
     {
         public void OnGet()
         {

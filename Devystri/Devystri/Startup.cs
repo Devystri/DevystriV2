@@ -37,7 +37,9 @@ namespace Devystri
 
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {
-
+                options.Conventions.AddPageRoute("/admin/Login", "/admin/*"); 
+                options.Conventions.AddPageRoute("/Admin/ChangePassword", "/admin/change-password"); 
+                options.Conventions.AddPageRoute("/Admin/Dashboad", "/admin/dashboad"); 
         
             });
 
