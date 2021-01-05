@@ -1,14 +1,14 @@
-﻿@page 
+﻿@page
 @model Devystri.Pages.Admin.DashboardModel
 @{
 }
-@section Styles{ 
+@section Styles{
     <link rel="stylesheet" href="~/css/Pages/admin/dashboard.css" />
 }
 
 <section id="fast-information">
-    <form id="form-period">
-        <label class="label-period" >
+    <form class="form-period">
+        <label class="label-period">
             <input class="input-period" name="period" type="radio" checked />
             <span class="period">Jour</span>
 
@@ -61,15 +61,14 @@
     </div>
 </section>
 <section id="accurate-information">
-    <span>Statistiques de visites</span>
+    <span id="accurate-information-title">Statistiques de visites</span>
     <div id="total-visits-box">
         <div id="total-visits-header">
-            <span>Visites total</span>
-            <form id="form-period">
+            <span class="graphic-title">Visites total</span>
+            <form class="form-period from-period-graphic">
                 <label class="label-period">
                     <input class="input-period" name="period" type="radio" checked />
                     <span class="period">Jour</span>
-
                 </label>
                 <label class="label-period">
                     <input class="input-period" name="period" type="radio" />
@@ -85,18 +84,26 @@
                 </label>
             </form>
         </div>
-        <canvas id="visit-website-graphic" ></canvas>
+        <canvas id="visit-website-graphic"></canvas>
     </div>
     <div>
-        <div>
-
+        <div id="popular-os-box">
+            <span class="graphic-title">OS les plus populaire</span>
+            <canvas id="popular-os-graphic"></canvas>
+            <div id="os-list">
+                <span id="macos">MacOS</span>
+                <span id="windows">Windows</span>
+                <span id="ios">IOS</span>
+                <span id="android">Android</span>
+            </div>
         </div>
-        <div>
+        <div id="newsletter-os">
+            <span class="graphic-title">Inscrit à la newsletter</span>
 
         </div>
     </div>
 </section>
 
-@section Scripts{ 
+@section Scripts{
     <script src="~/js/dashboard.js"></script>
 }
