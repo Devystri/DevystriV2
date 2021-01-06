@@ -10,7 +10,9 @@ namespace Data.Models
         [Key]
         public int Id { get; set; }
         public int ProjectId { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Veuillez spécifier le titre de la section.")]
         public string Title{ get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Veuillez spécifier une description.")]
         public string Description{ get; set; }
     }
 }

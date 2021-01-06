@@ -10,7 +10,7 @@ namespace Data.Models
         [Key]
         public int Id { get; set; }
         
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Veuillez saisir une email valide.")]
         [Required]
         public string Email { get; set; }
         
