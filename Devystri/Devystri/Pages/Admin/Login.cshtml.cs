@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Devystri.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,6 +16,9 @@ namespace Devystri.Pages.Admin
     {
         private MyDbContext myDbContext;
         public string Message;
+        [BindProperty]
+        public LoginInputModel login { get; set; }
+
         public LoginModel(MyDbContext context)
         {
             myDbContext = context;
@@ -41,10 +45,10 @@ namespace Devystri.Pages.Admin
             
         }
 
-        public IActionResult OnPost(string email, string password )
+        public IActionResult OnPost()
         {
 
-            List<User> users = myDbContext.Users.Where(item => item.Email == email).ToList();
+            List<User> users = myDbContext.Users.Where(item => item.Email == login.Email).ToList();
             if(users.Count < 1)
             {
                 Message = "Les identifiants ne correspondent pas ou le compte n'existe pas.";
@@ -55,7 +59,7 @@ namespace Devystri.Pages.Admin
             }
             else if(users.Count == 1)
             {
-                if (PasswordHasher.VerifyPassword(users[0].Password, password))
+                if (PasswordHasher.VerifyPassword(users[0].Password, login.Passwod))
                 {
                     Message = "Connecté avec succés.";
                   
