@@ -1,5 +1,7 @@
 ﻿using Data;
 using Data.Models;
+using Data.Models.Entity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -17,16 +19,28 @@ namespace Devystri.Pages
 
         private MyDbContext myDbContext;
 
-        public IndexModel(ILogger<IndexModel> logger, MyDbContext context)
+        public IndexModel(ILogger<IndexModel> logger, MyDbContext context, UserManager<AdminUser> userManager)
         {
-           if(context != null)
+#if DEBUG
+            _ = Register(userManager);
+#endif
+            if (context != null)
             {
                 myDbContext = context;
             }   
 
             _logger = logger;
         }
-
+        private async Task Register(UserManager<AdminUser> userManager)
+        {
+            await userManager.CreateAsync(new AdminUser()
+            {
+                Email = "dev@devystri.com",
+                FirstName = "Develpper",
+                LastName = "Debug",
+                UserName = "dev@devystri.com"
+            }, "Password1234!");
+        }
         public void OnGet()
         {
 

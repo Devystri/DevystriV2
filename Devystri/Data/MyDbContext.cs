@@ -9,7 +9,6 @@ namespace Data
 {
     public class MyDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<IoT> Iots { get; set; }
         public DbSet<WebSites> WebSites { get; set; }

@@ -21,9 +21,11 @@ namespace Devystri
             using (var scope = host.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<MyDbContext>();
+                var dbIdentity = scope.ServiceProvider.GetRequiredService<IdentityAppContext>();
                 try
                 {                    
                    db.Database.Migrate();
+                   dbIdentity.Database.Migrate();
 
                 }
                 catch (Exception e)

@@ -13,6 +13,6 @@ namespace Devystri.Model
         public string Email{ get; set; }
         [DataType(DataType.Password)]
         [Required]
-        public string Passwod { get; set; }
+        public string Password { get; set; }
     }
 }
