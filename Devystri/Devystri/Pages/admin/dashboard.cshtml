@@ -25,14 +25,13 @@
             <span class="period">Mois</span>
         </label>
         <label class="label-period">
-            <input class="input-period" name="period" type="radio" />
+            <input class="input-period" name="period" type="radio" onclick="YearVisits()"/>
             <span class="period">Année</span>
         </label>
     </form>
     <div class="fast-information-box">
         <span class="title-fast-information">Nombres de visites</span> @*Number of visits*@
-        <span class="data-fast-information">2 800</span>
-        <span class="period-description-fast-information">Depuis une semaine</span>
+        <span id="all-visits" class="data-fast-information">2 800</span>
     </div>
     <div class="fast-information-box">
         <span class="title-fast-information">Temps moyen qu'un utilisateur reste sur le site</span> @*Average time a user stays on the site*@
@@ -74,7 +73,7 @@
                     <span class="period">Jour</span>
                 </label>
                 <label class="label-period">
-                    <input class="input-period" name="period" type="radio" />
+                    <input class="input-period" name="period" type="radio"  />
                     <span class="period">Semaine</span>
                 </label>
                 <label class="label-period">
@@ -117,6 +116,11 @@
 </section>
 
 @section Scripts{
+    <script>
+        var allVisits = [50, 400, 1500, 18000]
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="~/js/dashboard.js"></script>
+    <script src="~/js/Pages/dashboard.js"></script>
 }
