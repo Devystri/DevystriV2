@@ -152,6 +152,7 @@ li {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     color: var(--dark-blue);
+    margin-bottom: 7px;
 }
 
     .input-area::placeholder {
@@ -179,6 +180,8 @@ li {
         animation: hover-send-button 0.2s forwards;
     }
 
+
+
 @keyframes hover-send-button {
     from {
         background: var(--grey-blue);
@@ -186,5 +189,42 @@ li {
 
     to {
         background: var(--light-blue);
+    }
+}
+
+
+/* Alert message */
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    min-height: 89px;
+    height: auto;
+}
+
+    .form-box span {
+        margin-left: 10px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        color: #E23A3A;
+    }
+
+        .form-box span::before {
+            content: " ";
+            display: block;
+            background: url(../../Assets/elements/alert.svg);
+            background-position: center;
+            width: 15px;
+            height: 15px;
+            background-size: 100%;
+            margin: 0 9px;
+        }
+
+@media screen and (max-width: 1000px) {
+
+    .form-box {
+        min-height: 77px;
+        height: auto;
     }
 }

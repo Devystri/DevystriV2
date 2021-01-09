@@ -16,30 +16,7 @@ form {
     margin: 44px 0;
 }
 
-.form-box {
-    display: flex;
-    flex-direction: column;
-    min-height: 89px;
-    height: auto;
-}
 
-    .form-box span {
-        margin-left: 10px;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        color: #E23A3A;
-    }
-        .form-box span::before {
-            content: " ";
-            display: block;
-            background: url(../../Assets/elements/alert.svg);
-            background-position: center;
-            width: 15px;
-            height: 15px;
-            background-size: 100%;
-            margin: 0 9px;
-        }
 
 .input-area {
     margin: 12px 0 5px 0;
@@ -102,10 +79,6 @@ textarea {
             width: auto;
         }
 
-    .form-box {
-        min-height: 77px;
-        height: auto;
-    }
 
     .input-area {
         width: auto;
