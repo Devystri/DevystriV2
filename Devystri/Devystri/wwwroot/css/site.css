@@ -155,6 +155,11 @@ li {
     margin-bottom: 7px;
 }
 
+input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
     .input-area::placeholder {
         color: #7CADD8;
         font-family: 'Roboto', sans-serif;
@@ -174,6 +179,7 @@ li {
     margin-top: 42px;
     outline: none;
     cursor: pointer;
+    -webkit-appearance: none;
 }
 
     .send-button:hover {
