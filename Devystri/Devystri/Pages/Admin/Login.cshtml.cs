@@ -22,7 +22,7 @@ namespace Devystri.Pages.Admin
         private SignInManager<AdminUser> SignInManager;
 
         [BindProperty]
-        public LoginInputModel login { get; set; }
+        public LoginInputModel Login { get; set; }
 
         public LoginModel(MyDbContext context, SignInManager<AdminUser> signInManager)
         {
@@ -37,7 +37,7 @@ namespace Devystri.Pages.Admin
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var result = await SignInManager.PasswordSignInAsync(login.Email, login.Password, false, true);
+            var result = await SignInManager.PasswordSignInAsync(Login.Email, Login.Password, false, true);
             if (result.Succeeded)
             {
                 return RedirectToPage("/admin/dashboard");
