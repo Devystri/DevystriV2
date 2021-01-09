@@ -131,9 +131,10 @@ main {
     margin-bottom: 30px;
 }
 
-#visit-website-graphic {
-    width: 98%;
-    height: 335px;
+#visit-website-graphic-box {
+    width: 100%;
+    max-width: 851px;
+    margin: 0 auto;
 }
 
 /* popular-os-box */
@@ -206,13 +207,16 @@ main {
     height: 300px;
 }
 
-/* Newsletter */
-
-#newsletter-suscribe-header {
-    display: flex;
-    align-items: center;
-    place-content: space-between;
+#popular-os-graphic-box {
+    width: 100%;
+    margin: 0 auto;
 }
+    /* Newsletter */
+    #newsletter-suscribe-header {
+        display: flex;
+        align-items: center;
+        place-content: space-between;
+    }
 
 #newsletter-suscribe {
     display: flex;
@@ -234,9 +238,11 @@ main {
     margin: 0 auto;
     height: 445px;
 }
-
+#newsletter-users-graphic-box {
+    width: 100%;
+    margin: auto;
+}
 /* Mobile */
-
 @media screen and (max-width: 1200px) {
     main {
         flex-direction: column;
