@@ -11,8 +11,8 @@
     <p class="page-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum.(Désoler je sais pas quoi dire...)</p>
     <form method="post">
         <div class="form-box">
-            <input class="input-area" type="email" name="email" placeholder="Email" />
-            <span>EUHH... C'est pas bon.</span>
+            <input class="input-area" asp-for="NewsletterInput.Email" placeholder="Email" />
+            <span asp-validation-for="NewsletterInput.Email"></span>
         </div>
         <input class="send-button" type="submit" value="Envoyer">
     </form>

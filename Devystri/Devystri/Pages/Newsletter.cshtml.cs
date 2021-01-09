@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Devystri.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,20 +13,23 @@ namespace Devystri.Pages
 {
     public class NewsletterModel : PageModel
     {
+        
+        public NewsletterInputModel NewsletterInput { get; set; }
+        
         private MyDbContext dbContext;
-
+        
         public NewsletterModel(MyDbContext context)
         {
             dbContext = context;
         }
-        public void OnPost(string email)
+        public void OnPost()
         {
-            MailAddress address = new MailAddress(email);
-            if (address.Address == email)
+            MailAddress address = new MailAddress(NewsletterInput.Email);
+            if (address.Address == NewsletterInput.Email)
             {
                 return;
             }
-            int count = dbContext.Newsletters.Count(item => item.Email == email);
+            int count = dbContext.Newsletters.Count(item => item.Email == NewsletterInput.Email);
             if (count > 0)
             {
                 return;
@@ -34,7 +38,7 @@ namespace Devystri.Pages
             {
                 dbContext.Newsletters.Add(new Newsletter()
                 {
-                    Email = email,
+                    Email = NewsletterInput.Email,
                     Date = DateTime.Now
                 });
                 dbContext.SaveChanges();
