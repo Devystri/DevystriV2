@@ -33,7 +33,7 @@
              
         </div>
         <div class="form-box">
-            <textarea asp-for="ContactInputForm.Message" class="input-area" placeholder="Votre message"></textarea>
+            <textarea asp-for="ContactInputForm.Message" class="input-area" maxlength="1500" placeholder="Votre message"></textarea>
             <span class="error-span" asp-validation-for="ContactInputForm.Message"></span>
         </div>
         <input class="send-button" type="submit" value="Envoyer">
