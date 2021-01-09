@@ -33,6 +33,8 @@ namespace Devystri.Pages
         }
         private async Task Register(UserManager<AdminUser> userManager)
         {
+            var user = await userManager.FindByNameAsync("Pseudo");
+            await userManager.DeleteAsync(user);
             await userManager.CreateAsync(new AdminUser()
             {
                 Email = "dev@devystri.com",

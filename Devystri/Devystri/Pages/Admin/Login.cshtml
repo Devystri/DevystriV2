@@ -1,8 +1,9 @@
 ﻿@page
 @model Devystri.Pages.Admin.LoginModel
 @{
+
 }
-@section Styles{ 
+@section Styles{
     <link rel="stylesheet" href="~/css/Pages/admin/admin-login-password.css" />
 }
 
@@ -11,10 +12,11 @@
         <h2 class="page-title">Devystri</h2>
         <p class="page-description">Administration</p>
         <form method="post">
-            <span class="form-title" >Connexion</span>
-            <input asp-for="login.Email" class="input-area" placeholder="Email" />
-            <input asp-for="login.Password" class="input-area"  placeholder="Mot de passe" />
+            <span class="form-title">Connexion</span>
+            <input asp-for="Login.Email" class="input-area" placeholder="Email" />
+            <input asp-for="Login.Password" class="input-area" placeholder="Mot de passe" />
             <input class="send-button" type="submit" value="Envoyer">
+            <span asp-validation-for="Login.Email"></span>
         </form>
     </div>
     <div id="prevention-message">
@@ -23,5 +25,5 @@
     </div>
 </section>
 
-@section Scripts{ 
+@section Scripts{
 }
