@@ -10,21 +10,13 @@
 }
 
 .container-description-img {
-    height: 100%;
-    max-width: 400px;
-    display: flex;
-    text-align: center;
     display: flex;
     place-content: center;
 }
 
 
 .product-description-img { /*image in left and right description*/
-    user-select: none;
-    max-width: 400px;
-    max-height: 500px;
     width: 80%;
-    height: auto;
 }
 
 #detailed-description {
