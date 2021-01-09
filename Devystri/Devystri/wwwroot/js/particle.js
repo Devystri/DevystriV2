@@ -111,5 +111,5 @@ class Particles{
 
     
 }
-var src = ["balloon/Red.svg", "balloon/Blue.svg", "balloon/Green.svg", "balloon/Pink.svg", "balloon/Yellow.svg"];
-var p = new Particles(src, 100, 10, 1); 
+//var src = ["balloon/Red.svg", "balloon/Blue.svg", "balloon/Green.svg", "balloon/Pink.svg", "balloon/Yellow.svg"];
+//var p = new Particles(src, 100, 10, 1); 
