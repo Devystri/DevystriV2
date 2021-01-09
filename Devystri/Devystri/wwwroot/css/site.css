@@ -208,24 +208,24 @@ input{
     height: auto;
 }
 
-    .form-box span {
-        margin-left: 10px;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        color: #E23A3A;
-    }
+.form-box span {
+    margin-left: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: #E23A3A;
+}
 
-        .form-box span::before {
-            content: " ";
-            display: block;
-            background: url(../../Assets/elements/alert.svg);
-            background-position: center;
-            width: 15px;
-            height: 15px;
-            background-size: 100%;
-            margin: 0 9px;
-        }
+.error-span > span::before {
+    content: " ";
+    display: block;
+    background: url(../../Assets/elements/alert.svg);
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    background-size: 100%;
+    margin: 0 9px;
+}
 
 @media screen and (max-width: 1000px) {
 

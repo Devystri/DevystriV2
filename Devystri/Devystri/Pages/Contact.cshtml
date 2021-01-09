@@ -16,25 +16,25 @@
         <div id="name-and-surnames">
             <div class="form-box">
                 <input class="input-area" asp-for="ContactInputForm.Name" placeholder="Nom" />
-                <span asp-validation-for="ContactInputForm.Name"></span>
+                <span class="error-span"  asp-validation-for="ContactInputForm.Name" ></span>
             </div>
             <div class="form-box">
                 <input class="input-area" asp-for="ContactInputForm.FirstName" placeholder="Prénom" />
-                <span asp-validation-for="ContactInputForm.FirstName"></span>
+                <span class="error-span" asp-validation-for="ContactInputForm.FirstName"></span>
             </div>
         </div>
         <div class="form-box">
-            <input class="input-area" asp-for="ContactInputForm.Email" placeholder="Email" />
-            <span asp-validation-for="ContactInputForm.Email"></span>
+            <input class="input-area" asp-for="ContactInputForm.Email"  placeholder="Email" />
+            <span class="error-span" asp-validation-for="ContactInputForm.Email"></span>
         </div>
         <div class="form-box">
             <input class="input-area" asp-for="ContactInputForm.Subject" placeholder="Objet" />
-            <span asp-validation-for="ContactInputForm.Subject"></span>
+            <span class="error-span" asp-validation-for="ContactInputForm.Subject"></span>
              
         </div>
         <div class="form-box">
             <textarea asp-for="ContactInputForm.Message" class="input-area" placeholder="Votre message"></textarea>
-            <span asp-validation-for="ContactInputForm.Message"></span>
+            <span class="error-span" asp-validation-for="ContactInputForm.Message"></span>
         </div>
         <input class="send-button" type="submit" value="Envoyer">
     </form>
