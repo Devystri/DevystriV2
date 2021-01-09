@@ -11,6 +11,7 @@ using System;
 using Data.Models;
 using Data.Models.Entity;
 using Microsoft.AspNetCore.Identity;
+using Middleware;
 
 namespace Devystri
 {
@@ -97,6 +98,7 @@ namespace Devystri
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             var options = new StaticFileOptions
             {
                 ContentTypeProvider = new FileExtensionContentTypeProvider()
@@ -104,6 +106,7 @@ namespace Devystri
             ((FileExtensionContentTypeProvider)options.ContentTypeProvider).Mappings.Add(
                 new KeyValuePair<string, string>(".glb", "text/plain"));
 
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -114,6 +117,7 @@ namespace Devystri
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseMiddleware(typeof(VisitorsCounter));
 
             app.UseHttpsRedirection();
             app.UseStaticFiles(options);
@@ -128,6 +132,8 @@ namespace Devystri
             {
                 endpoints.MapRazorPages();
             });
+
+
         }
     }
 }

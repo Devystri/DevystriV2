@@ -1,14 +1,15 @@
-﻿@page 
+﻿@page
+
 
 @model Devystri.Pages.ContactModel
 @{
+    ViewData["Title"] = "Contact";
 }
-
 @section Styles{
     <link rel="stylesheet" href="~/css/Pages/contact.css" />
 }
 
-<section id="contact-form">  
+<section id="contact-form">
     @*  contact-form  *@
     <h2 class="page-title">Contact</h2>
     <p class="page-description">Le service client de Devystri est à votre écoute pour toutes questions ou demandes. Nous donnerons suite à votre message dans les plus brefs délais.</p>
@@ -16,7 +17,7 @@
         <div id="name-and-surnames">
             <div class="form-box">
                 <input class="input-area" asp-for="ContactInputForm.Name" placeholder="Nom" />
-                <span class="error-span"  asp-validation-for="ContactInputForm.Name" ></span>
+                <span class="error-span" asp-validation-for="ContactInputForm.Name"></span>
             </div>
             <div class="form-box">
                 <input class="input-area" asp-for="ContactInputForm.FirstName" placeholder="Prénom" />
@@ -24,13 +25,13 @@
             </div>
         </div>
         <div class="form-box">
-            <input class="input-area" asp-for="ContactInputForm.Email"  placeholder="Email" />
+            <input class="input-area" asp-for="ContactInputForm.Email" placeholder="Email" />
             <span class="error-span" asp-validation-for="ContactInputForm.Email"></span>
         </div>
         <div class="form-box">
             <input class="input-area" asp-for="ContactInputForm.Subject" placeholder="Objet" />
             <span class="error-span" asp-validation-for="ContactInputForm.Subject"></span>
-             
+
         </div>
         <div class="form-box">
             <textarea asp-for="ContactInputForm.Message" class="input-area" maxlength="1500" placeholder="Votre message"></textarea>

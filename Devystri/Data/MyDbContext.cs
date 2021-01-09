@@ -16,6 +16,7 @@ namespace Data
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<OSStats> OSs{ get; set; }
         public DbSet<Log> Logs { get; set; }
+        public DbSet<Visits> Visits { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         { 
         }
