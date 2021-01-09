@@ -40,6 +40,7 @@ namespace Devystri.Pages.Admin
             var result = await SignInManager.PasswordSignInAsync(Login.Email, Login.Password, false, true);
             if (result.Succeeded)
             {
+                
                 return RedirectToPage("/admin/dashboard");
             }
             

@@ -15,29 +15,29 @@
     <form method="post">
         <div id="name-and-surnames">
             <div class="form-box">
-                <input class="input-area" type="text" name="name" placeholder="Nom" />
-                <span>EUHH... C'est pas bon.</span>
+                <input class="input-area" asp-for="ContactInputForm.Name" placeholder="Nom" />
+                <span asp-validation-for="ContactInputForm.Name"></span>
             </div>
             <div class="form-box">
-                <input class="input-area" type="text" name="firstname" placeholder="Prénom" />
-                <span>EUHH... C'est pas bon.</span>
+                <input class="input-area" asp-for="ContactInputForm.FirstName" placeholder="Prénom" />
+                <span asp-validation-for="ContactInputForm.FirstName"></span>
             </div>
         </div>
         <div class="form-box">
-            <input class="input-area" type="email" name="email" placeholder="Email" />
-            <span>EUHH... C'est pas bon.</span>
+            <input class="input-area" asp-for="ContactInputForm.Email" placeholder="Email" />
+            <span asp-validation-for="ContactInputForm.Email"></span>
         </div>
         <div class="form-box">
-            <input class="input-area" type="text" name="obj" placeholder="Objet" />
-            <span>EUHH... C'est pas bon.</span>
+            <input class="input-area" asp-for="ContactInputForm.Subject" placeholder="Objet" />
+            <span asp-validation-for="ContactInputForm.Subject"></span>
+             
         </div>
         <div class="form-box">
-            <textarea name="message" class="input-area" placeholder="Votre message"></textarea>
-            <span>EUHH... C'est pas bon.</span>
+            <textarea asp-for="ContactInputForm.Message" class="input-area" placeholder="Votre message"></textarea>
+            <span asp-validation-for="ContactInputForm.Message"></span>
         </div>
         <input class="send-button" type="submit" value="Envoyer">
     </form>
-    <span>@Model.Message</span>
 </section>
 <section id="other-contact">
     @* other-contact *@
