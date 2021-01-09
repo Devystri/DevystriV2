@@ -14,12 +14,27 @@
     <p class="page-description">Le service client de Devystri est à votre écoute pour toutes questions ou demandes. Nous donnerons suite à votre message dans les plus brefs délais.</p>
     <form method="post">
         <div id="name-and-surnames">
-            <input class="input-area" type="text" name="name" placeholder="Nom"  />
-            <input class="input-area" type="text" name="firstname" placeholder="Prénom" />
+            <div class="form-box">
+                <input class="input-area" type="text" name="name" placeholder="Nom" />
+                <span>EUHH... C'est pas bon.</span>
+            </div>
+            <div class="form-box">
+                <input class="input-area" type="text" name="firstname" placeholder="Prénom" />
+                <span>EUHH... C'est pas bon.</span>
+            </div>
         </div>
-        <input class="input-area" type="email" name="email" placeholder="Email" />
-        <input class="input-area" type="text" name="obj" placeholder="Objet" />
-        <textarea name="message" class="input-area" placeholder="Votre message"></textarea>
+        <div class="form-box">
+            <input class="input-area" type="email" name="email" placeholder="Email" />
+            <span>EUHH... C'est pas bon.</span>
+        </div>
+        <div class="form-box">
+            <input class="input-area" type="text" name="obj" placeholder="Objet" />
+            <span>EUHH... C'est pas bon.</span>
+        </div>
+        <div class="form-box">
+            <textarea name="message" class="input-area" placeholder="Votre message"></textarea>
+            <span>EUHH... C'est pas bon.</span>
+        </div>
         <input class="send-button" type="submit" value="Envoyer">
     </form>
     <span>@Model.Message</span>
