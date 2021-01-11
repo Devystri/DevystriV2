@@ -21,7 +21,7 @@ main{
     align-items: center;
     height: 45px;
     border-bottom: solid 1px var(--dark-blue);
-    width: 302px;
+    min-width: 302px;
 }
 
     .add-products-nav-element div {
@@ -74,10 +74,12 @@ main{
     align-items: center;
     justify-content: center;
     border-radius: 29px;
-    margin: 7px auto;
+    margin: 7px auto 30px 40px;
     color: var(--white-button);
     font-weight: 500;
     font-size: 17px;
+    background: var(--grey-blue);
+    max-width: 349px;
 }
 
 #add-new-product {
@@ -98,20 +100,28 @@ main{
 /* fast-information */
 #fast-information {
     display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
-        #fast-information .input-box input {
-            width: 300px;
-            height: 24px;
-            padding: 10px;
-            font-size: 17px;
-        }
+    #fast-information .input-box input {
+        height: 24px;
+        padding: 10px;
+        font-size: 17px;
+    }
+
+    #fast-information .input-box {
+        max-width: 300px;
+        width: 24%;
+    }
 
 .input-box {
     display: flex;
     flex-direction: column;
     border-radius: 15px;
     margin: 0 16px;
+    width: 100%;
+    max-width: 662px;
 }
         .input-box span{
             margin-bottom: 10px;
@@ -123,6 +133,8 @@ main{
         border-radius: 15px;
         border: solid 1px #073965;
         outline: none;
+        max-width: 324px;
+        width: 90%;
     }
 
 #description-logo {
@@ -148,7 +160,8 @@ main{
 }
 
 #button-submite-product {
-    min-width: 360px;
+    max-width: 360px;
+    width: 93%;
     height: 57px;
     border-radius: 29px;
     outline: none;
@@ -197,8 +210,7 @@ main{
     width: 70%;
 }
     #platform input[type=checkbox] {
-        margin-right: 30px;
-        margin-left: 30px;
+        margin: 0 30px;
         width: 25px;
         height: 25px;
         border-radius: 6px;
@@ -234,7 +246,6 @@ select[name=product-condition] {
 /* input-image-box */
 .input-image-box {
     height: 245px;
-    width: 324px;
     margin: 0 20px;
     border-radius: 15px;
     border: solid 1px #073965;
@@ -268,17 +279,108 @@ select[name=product-condition] {
         font-size: 17px;
     }
 
-    .product-section textarea {
-        min-width: 662px;
-        max-width: 662px;
-        min-height: 142px;
-        border-radius: 15px;
-        border: solid 1px #073965;
-        outline: none;
-        padding: 10px;
-    }
+.product-section textarea {
+    width: 97%;
+    max-width: 662px;
+    min-height: 142px;
+    border-radius: 15px;
+    border: solid 1px #073965;
+    outline: none;
+    padding: 10px;
+}
 
-.section-title{
+         /* min-width: 662px; */
+
+.section-title {
     padding: 10px;
     height: 33px;
+    width: 97% !important;
+    max-width: 662px !important;
+}
+
+/* Mobile 1500 */
+
+@media screen and (max-width: 1500px) {
+    main{
+        flex-direction: column;
+    }
+    #nav-products {
+        height: auto;
+        margin: 23px 0px;
+    }
+    #add-products-nav {
+        height: auto;
+        border: none;
+        margin: 0 auto;
+        max-width: 470px;
+        width: 95%;
+    }
+    #product-information {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    #fast-information {
+        flex-direction: column;
+        align-items: center;
+        border-top: solid 1px var(--grey-blue);
+    }
+        #fast-information .input-box {
+            max-width: 1000px;
+            width: 76%;
+            order: 2;
+        }
+    #input-description {
+        width: 76%;
+    }
+    .input-box input {
+        max-width: none;
+    }
+    #button-submite-product {
+        margin: 13px 0;
+        order: 1;
+    }
+    .input-box input {
+        width: 100%;
+    }
+    .input-box span{
+        margin: 10px 0;
+    }
+    #description-logo {
+        flex-direction: column;
+        align-items: center;
+    }
+    #product-option{
+        width: 100%;
+        flex-direction: column;
+    }
+    #platform{
+        margin-left: 0;
+        width: 95%;
+    }
+        #platform input[type=checkbox]{
+            margin: 0 15px;
+        }
+    select[name=product-condition]{
+        width: 90%;
+    }
+    #first-image-product {
+        flex-direction: column;
+    }
+    #images-fact-sheet {
+        flex-direction: column;
+        width: 100%;
+    }
+    .input-image-box{
+        margin: 0;
+    }
+    .input-box {
+        align-items: center;
+        text-align: center;
+        margin: 16px;
+    }
+    .product-section {
+        flex-direction: column;
+    }
 }
