@@ -13,7 +13,7 @@ namespace Devystri.Pages
 {
     public class NewsletterModel : PageModel
     {
-        
+        [BindProperty]
         public NewsletterInputModel NewsletterInput { get; set; }
         
         private MyDbContext dbContext;
@@ -24,8 +24,7 @@ namespace Devystri.Pages
         }
         public void OnPost()
         {
-            MailAddress address = new MailAddress(NewsletterInput.Email);
-            if (address.Address == NewsletterInput.Email)
+            if (!ModelState.IsValid)
             {
                 return;
             }
