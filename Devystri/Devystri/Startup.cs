@@ -121,7 +121,7 @@ namespace Devystri
             app.Use(async (context, next) =>
             {
                 await next();
-                if (context.Response.StatusCode == 404)
+                if (context.Response.StatusCode == 404 || context.Response.StatusCode == 500)
                 {
                     context.Request.Path = "/Error/404";
                     await next();
