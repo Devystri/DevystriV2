@@ -38,6 +38,12 @@
     justify-content: space-between;
 }
 
+.about-image-box {
+    width: 250px;
+    height: 250px;
+    display: flex;
+}
+
 figure {
     display: flex;
     flex-direction: column;
@@ -46,7 +52,8 @@ figure {
     width: 319px;
 }
     figure img {
-        width: 250px;
+        width: 100%;
+        height: 100%;
         user-select: none;
         border-radius: 50%;
     }
@@ -77,9 +84,10 @@ figcaption {
     figure {
         margin: 10px auto;
     }
-        figure img {
-            width: 188px;
-        }
+    .about-image-box {
+        width: 200px;
+        height: 200px;
+    }
     .profile-name {
         margin-top: 13px;
     }
