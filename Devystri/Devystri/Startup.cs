@@ -118,7 +118,15 @@ namespace Devystri
                 app.UseHsts();
             }
             app.UseMiddleware(typeof(VisitorsCounter));
-
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/Error/404";
+                    await next();
+                }
+            });
             app.UseHttpsRedirection();
             app.UseStaticFiles(options);
 
