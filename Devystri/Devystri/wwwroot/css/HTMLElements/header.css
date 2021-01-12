@@ -28,16 +28,18 @@ header {
 #nav-location {
     display: flex;
     justify-content: space-between;
-    width: 83%;
+    width: 57%;
 }
 
 #header-logo { /*logo devystri in nav*/
     display: flex;
+    height: 60%;
+    width: 75px;
+    justify-content: center;
 }
 
     #header-logo img {
-        height: 70px;
-        font-family: 'HelveticaRoundedBold';
+        height: 100%;
     }
 
 /* For mobile */
