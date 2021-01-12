@@ -48,6 +48,7 @@ figure {
     figure img {
         width: 250px;
         user-select: none;
+        border-radius: 50%;
     }
 
 .profile-name {
