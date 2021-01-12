@@ -5,6 +5,12 @@ main{
     margin-top: 72px;
 }
 
+input, textarea {
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    font-size : 15px !important;
+}
+
 /* add-products-nav */
 
 #add-products-nav {
@@ -74,7 +80,7 @@ main{
     align-items: center;
     justify-content: center;
     border-radius: 29px;
-    margin: 7px auto 30px 40px;
+    margin: 7px auto 30px auto;
     color: var(--white-button);
     font-weight: 500;
     font-size: 17px;
@@ -102,12 +108,12 @@ main{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    max-width: 1331px;
 }
 
     #fast-information .input-box input {
         height: 24px;
         padding: 10px;
-        font-size: 17px;
     }
 
     #fast-information .input-box {
@@ -120,7 +126,6 @@ main{
     flex-direction: column;
     border-radius: 15px;
     margin: 0 16px;
-    width: 100%;
     max-width: 662px;
 }
         .input-box span{
@@ -263,6 +268,10 @@ select[name=product-condition] {
     margin: 25px 10px;
 }
 
+.product-section .input-box{
+    width: 100%;
+}
+
 .section-number{
     font-weight: bold;
     font-size: 25px;
@@ -280,8 +289,8 @@ select[name=product-condition] {
     }
 
 .product-section textarea {
-    width: 97%;
-    max-width: 662px;
+    max-width: 97%;
+    min-width: 97%;
     min-height: 142px;
     border-radius: 15px;
     border: solid 1px #073965;
@@ -342,10 +351,10 @@ select[name=product-condition] {
         order: 1;
     }
     .input-box input {
-        width: 100%;
+        width: 83%;
     }
     .input-box span{
-        margin: 10px 0;
+        margin: 5px 0;
     }
     #description-logo {
         flex-direction: column;
@@ -367,10 +376,12 @@ select[name=product-condition] {
     }
     #first-image-product {
         flex-direction: column;
+        align-items: center;
     }
     #images-fact-sheet {
         flex-direction: column;
         width: 100%;
+        align-items: center;
     }
     .input-image-box{
         margin: 0;
@@ -378,9 +389,24 @@ select[name=product-condition] {
     .input-box {
         align-items: center;
         text-align: center;
-        margin: 16px;
+        margin: 8px 0;
+        width: 100%;
     }
     .product-section {
         flex-direction: column;
     }
+    .section {
+        display: flex;
+        text-align-last: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .section-title {
+        width: 94% !important;
+    }
+    .product-section textarea {
+        max-width: 94%;
+        min-width: 94%;
+    }
+
 }

@@ -28,12 +28,12 @@ header {
 #nav-location {
     display: flex;
     justify-content: space-between;
-    width: 57%;
+    width: 81vw;
 }
 
 #header-logo { /*logo devystri in nav*/
     display: flex;
-    height: 60%;
+    height: 56%;
     width: 75px;
     justify-content: center;
 }
