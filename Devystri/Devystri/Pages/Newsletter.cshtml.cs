@@ -47,7 +47,7 @@ namespace Devystri.Pages
 
         public async Task OnGetAsync()
         { 
-            await PageCounter.CountPage(dbContext, );
+                await PageCounter.CountPage(dbContext, 1);
         }
     }
         
