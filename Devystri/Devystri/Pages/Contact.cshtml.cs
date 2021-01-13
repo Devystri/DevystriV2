@@ -8,7 +8,7 @@ using Data;
 using Devystri.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Modules.Attributes;
+
 
 namespace Devystri.Pages
 {
