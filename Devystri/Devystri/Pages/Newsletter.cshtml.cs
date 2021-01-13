@@ -6,7 +6,6 @@ using Data.Models;
 using Devystri.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Modules.Statistics;
 
 namespace Devystri.Pages
 {
