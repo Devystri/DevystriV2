@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{appName}"
 @model Devystri.Pages.Applications.IndexModel
 @{
     ViewData["Title"] = "Présentation application";
@@ -9,26 +9,26 @@
 <section id="product-description">
     <div class="alert">Notre projet à été annulé en raison d'un manque de budget.</div>
     <div class="container-description-img">
-        <img draggable="false" class="product-description-img" alt="Motivation application" src="~/Assets/Images/applicationList/application-image-motivation.png" />
+        <img draggable="false" class="product-description-img" alt="Motivation application" src="~/Assets/Images/applicationList/@Model.Application.PresentationRessource" />
     </div>
     <div id="detailed-description">
         <figure class="product-logo">
-            <img draggable="false" class="logo-product" alt="Logo de l'application Motivation" src="~/Assets/Images/applicationList/motivation-logo.png" />
+            <img draggable="false" class="logo-product" alt="Logo de l'application Motivation" src="~/Assets/Images/applicationList/@Model.Application.AppLogoName" />
         </figure>
-        <h1 class="title-product">Motivation</h1>
+        <h1 class="title-product">@Model.Application.Name</h1>
         <div id="product-features">
             <span>Âge : 12+ ans</span>
             <span>Langue : FR</span>
             <span>Taille : 200 mo</span>
         </div>
-        <p id="product-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+        <p id="product-description-text">@Model.Application.Description</p>
         <div id="download">
             <a title="Télécharger sur l'AppStore" class="download-button" id="appstore-button"></a>
             <a title="Télécharger sur le PlayStore" class="download-button" id="playstore-button"></a>
         </div>
     </div>
     <div class="container-description-img">
-        <img draggable="false" class="product-description-img" alt="Motivation application" src="~/Assets/Images/applications/application-motivation-3d.png" />
+        <img draggable="false" class="product-description-img" alt="@Model.Application.Name application presentation" src="~/Assets/Images/applications/application-motivation-3d.png" />
     </div>
 </section>
 <section id="product-feature">
