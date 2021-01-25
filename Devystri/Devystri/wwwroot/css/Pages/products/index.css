@@ -12,11 +12,12 @@
 .container-description-img {
     display: flex;
     place-content: center;
+    width: 18%;
 }
 
 
 .product-description-img { /*image in left and right description*/
-    width: 80%;
+    width: 100%;
 }
 
 #detailed-description {
