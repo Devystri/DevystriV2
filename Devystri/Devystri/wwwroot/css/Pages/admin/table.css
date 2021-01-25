@@ -1,0 +1,242 @@
+﻿/* header-section */
+
+#header-section {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    align-items: center;
+    min-height: 295px;
+}
+
+#page-title {
+    font-size: min(max(63px), 11vw);
+    color: var(--dark-blue);
+    font-weight: 600;
+    margin: 35px 0 14px 0;
+}
+
+#search-box{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
+/* Search */
+#search-bar {
+    width: 70%;
+    display: flex;
+    max-width : 700px;
+}
+
+#search-bar input{
+    border: none;
+    outline: none;
+}
+
+#search {
+    height: 52px;
+    padding: 10px 25px;
+    border-radius: 26px 0 0 26px;
+    width: 90%;
+    background-color: var(--input-area-color);
+    font-size: 24px;
+    color: var(--dark-blue);
+}
+    #search::placeholder {
+        color: var(--light-blue);
+        font-weight: 600;
+    }
+
+#button-submit {
+    width: 10%;
+    height: 52px;
+    border-radius: 0 26px 26px 0;
+    background-color: var(--grey-blue);
+    color: transparent;
+    background-image: url(../../../Assets/elements/loupe.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+    #button-submit:hover {
+        animation: hover-button-submit 0.2s forwards;
+    }
+@keyframes hover-button-submit {
+    from {
+        background-color: var(--grey-blue);
+    }
+
+    to {
+        background-color: var(--light-blue);
+    }
+}
+
+/* Add button */
+
+#add-user {
+    height: 52px;
+    max-width: 360px;
+    min-width: 300px;
+    width: 21vw;
+    background-color: var(--grey-blue);
+    border-radius: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 19px;
+    font-weight: 400;
+    position: absolute;
+    right: 77px;
+}
+    #add-user:hover {
+        animation: hover-button-submit 0.2s forwards;
+    }
+@media screen and (max-width: 1500px) {
+    #add-user {
+        position: inherit;
+        margin: 10px 0;
+    }
+    #search-box {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+    /* table-section */
+    #table-section {
+        height: 200vh;
+    }
+
+/* TABLE */
+
+table {
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+    table tr:first-child {
+        background-color: var(--grey-blue);
+        height: 67px;
+        color: var(--white-button);
+    }
+
+    table th {
+        font-size: 24px;
+        font-weight: 500;
+        text-align: left;
+        padding: 0px 0 0 20px;
+    }
+
+#table-id{
+    width: 10%;
+}
+#table-email {
+    width: 45%;
+}
+#table-date {
+    width: 30%
+}
+#table-modification {
+    width: 15%;
+    text-align: end;
+    padding-right: 20px;
+}
+
+
+/* Lignes table */
+
+tr {
+    height: 67px;
+}
+
+tr:nth-child(2n+1){
+    background-color: #D0E3F3;
+}
+
+tr td:first-child{
+    font-weight: bold;
+}
+
+
+td{
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+
+    /* Table small button */
+.user-edit {
+    display: flex;
+    height: inherit;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.table-edit, .table-delete {
+    width: 39px;
+    height: 39px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0px 8px;
+}
+
+.table-edit{
+    background-image: url(../../../Assets/elements/edit.svg)
+}
+.table-delete {
+    background-image: url(../../../Assets/elements/delete.svg)
+}
+
+
+/* table-footer */
+
+#table-footer {
+    height: 160px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: var(--grey-blue);
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#table-footer ul{
+    display: flex;
+}
+
+    #table-footer li {
+        width: 73px;
+        height: 73px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--light-blue);
+        color: var(--grey-blue);
+        font-size: 35px;
+        font-weight: bold;
+        margin: 0 6px;
+        cursor: pointer;
+    }
+
+#left-arrow, #right-arrow {
+    width: 33px;
+    height: 60px;
+    background: url(../../../Assets/elements/admin-arrow.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    background-position-y: center;
+    margin: 0 10px;
+}
+
+#right-arrow {
+    transform: rotate(180deg);
+}

@@ -57,7 +57,7 @@ body{
     background: var(--white-background);
 }
 
-a, h1, h2, h3, h4, h5, p, span, li, figcaption {
+a, h1, h2, h3, h4, h5, p, span, li, figcaption, th, td {
     font-family: 'Roboto', sans-serif;
 }
 
