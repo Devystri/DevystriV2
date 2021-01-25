@@ -140,6 +140,7 @@ input, textarea {
         outline: none;
         max-width: 324px;
         width: 90%;
+        text-align-last: justify;
     }
 
 #description-logo {
@@ -148,7 +149,8 @@ input, textarea {
 }
 
 #input-description {
-    width: 70%;
+    width: 63%;
+    max-width: none;
 }
 
     #input-description textarea {
@@ -184,6 +186,7 @@ input, textarea {
     align-items: center;
     width: 73%;
     justify-content: space-between;
+    margin: 25px 0;
 }
 /* platform */
 #platform {
@@ -228,14 +231,32 @@ input, textarea {
             background: var(--dark-blue);
         }
 
+
+/* URL WebSite */
+
+#website-link {
+    width: 65%;
+}
+
+#website-link input{
+    width: 100%;
+    height: 24px;
+    padding: 10px;
+    max-width: none;
+}
+
 /* product-condition (liste déroulante) */
+
+#product-condition{
+    width: 30%;
+}
 
 select[name=product-condition] {
     height: 44px;
     border-radius: 15px;
     outline: none;
     cursor: pointer;
-    width: 30%;
+    width: 100%;
     padding: 10px;
 }
 
@@ -337,8 +358,14 @@ select[name=product-condition] {
     }
         #fast-information .input-box {
             max-width: 1000px;
-            width: 76%;
+            width: 91%;
             order: 2;
+        }
+        #website-link{
+            width: 75%;
+        }
+        #product-condition{
+            width: 91%;
         }
     #input-description {
         width: 76%;

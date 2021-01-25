@@ -30,8 +30,8 @@
     <form>
         <div id="fast-information">
             <div class="input-box">
-                <span>Nom de l'application</span>
-                <input placeholder="Nom de l'application" />
+                <span>Nom du SiteWeb</span>
+                <input placeholder="Nom du SiteWeb" />
             </div>
             <div class="input-box">
                 <span>Âge minimum</span>
@@ -54,28 +54,20 @@
             </div>
         </div>
         <div id="product-option">
-            <div id="platform">
-                <div class="platform-element">
-                    <span>
-                        <img src="~/Assets/elements/appstroe.svg" />
-                    </span>
-                    <input type="checkbox" /> @*Avec before de AppStore*@
-                    <input placeholder="URL vers l'AppStore" type="url" />
-                </div>
-                <div class="platform-element">
-                    <span>
-                        <img src="~/Assets/elements/playstore.svg" />
-                    </span>
-                    <input type="checkbox" /> @*Avec before de AppStore*@
-                    <input placeholder="URL vers le Playstore" type="url" />
-                </div>
+            <div id="website-link" class="input-box">
+                <span>Lien du SiteWeb</span>
+                <input type="url" placeholder="Lien du SiteWeb" />
             </div>
-            <select name="product-condition">
-                <option>Non commercialisé</option>
-                <option>Projet annulé</option>
-                <option>Non téléchargable</option>
-                <option>Nécessite le hub</option>
-            </select>
+            <div id="product-condition" class="input-box">
+                <span>Statue du projet</span>
+                <select name="product-condition">
+                    <option>Aucun</option>
+                    <option>Non commercialisé</option>
+                    <option>Projet annulé</option>
+                    <option>Non téléchargable</option>
+                    <option>Nécessite le hub</option>
+                </select>
+            </div>
         </div>
         <div id="first-image-product">
             <div class="input-box">

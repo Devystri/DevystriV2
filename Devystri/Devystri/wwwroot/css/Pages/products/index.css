@@ -166,6 +166,7 @@
         color: var(--dark-blue);
     }
 }
+
 /* Alert */
 .alert {
     position: absolute;
