@@ -1,0 +1,74 @@
+﻿@page
+@model Devystri.Pages.Admin.tableUsersModel
+@{
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/Pages/admin/table.css" />
+}
+<section id="header-section">
+    <h2 id="page-title">Comptes administrateur</h2>
+    <div id="search-box">
+        <form id="search-bar">
+            <input id="search" placeholder="Rechercher" type="search" />
+            <input placeholder=" " id="button-submit" type="submit" />
+        </form>
+        <a id="add-user">Ajouter un utilisateur</a>
+    </div>
+</section>
+<section id="table-section">
+    <table order="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th id="table-id">ID</th>
+            <th id="table-email">Email</th>
+            <th id="table-date">Date d'ajout</th>
+            <th id="table-modification">Modification</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>dimitri.timoz@orange.fr</td>
+            <td>2020-09-07 16:14:40</td>
+            <td class="user-edit">
+                <a class="table-edit"></a>
+                <a class="table-delete"></a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>dimitri.timoz@orange.fr</td>
+            <td>2020-09-07 16:14:40</td>
+            <td class="user-edit">
+                <a class="table-edit"></a>
+                <a class="table-delete"></a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>dimitri.timoz@orange.fr</td>
+            <td>2020-09-07 16:14:40</td>
+            <td class="user-edit">
+                <a class="table-edit"></a>
+                <a class="table-delete"></a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>dimitri.timoz@orange.fr</td>
+            <td>2020-09-07 16:14:40</td>
+            <td class="user-edit">
+                <a class="table-edit"></a>
+                <a class="table-delete"></a>
+            </td>
+        </tr>
+    </table>
+</section>
+<div id="rotation-message">
+    <img draggable="false" src="~/Assets/elements/rotate.svg" />
+    <span>Tourner votre appareil</span>
+    <p>Cette page présente des caractéristiques qui ne peuvent pas être affiché en mode portrait.</p>
+</div>
+
+
+@section Scripts{
+
+}
