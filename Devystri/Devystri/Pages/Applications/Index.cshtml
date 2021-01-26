@@ -17,14 +17,21 @@
         </figure>
         <h1 class="title-product">@Model.Application.Name</h1>
         <div id="product-features">
-            <span>Âge : 12+ ans</span>
-            <span>Langue : FR</span>
+            <span>Âge : @Model.Application.MinAge+ ans</span>
+            <span>Langue : @Model.Application.Languages</span>
             <span>Taille : 200 mo</span>
         </div>
         <p id="product-description-text">@Model.Application.Description</p>
         <div id="download">
-            <a title="Télécharger sur l'AppStore" class="download-button" id="appstore-button"></a>
-            <a title="Télécharger sur le PlayStore" class="download-button" id="playstore-button"></a>
+            @if (Model.Application.IsOnAppStore)
+            {
+                <a href="@Model.Application.AppStoreLink" title="Télécharger sur l'AppStore" class="download-button" id="appstore-button"></a>
+
+            }
+            @if (Model.Application.IsOnPlayStore)
+            {
+                <a href="@Model.Application.PlayStoreLink" title="Télécharger sur le PlayStore" class="download-button" id="playstore-button"></a>
+            }
         </div>
     </div>
     <div class="container-description-img">
@@ -32,24 +39,19 @@
     </div>
 </section>
 <section id="product-feature">
-    <div class="feature-container">
-        <div class="feature-text">
-            <h2 class="feature-title">Inscription simple et rapide.</h2>
-            <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+    @for(int i = 0; i <Model.Setions.Count; i++)
+    {
+        <div class="feature-container">
+            <div class="feature-text">
+                <h2 class="feature-title">@Model.Setions[i].Title</h2>
+                <p class="feature-description">@Model.Setions[i].Description</p>
+            </div>
+            <div class="container-image">
+                @*<img draggable="false" class="feature-image" alt="Image décrivant l'application @Model.Application.Name" src="~/Assets/Images/applications/@Model.Setions[i].ImageSrc" />*@
+            </div>
         </div>
-        <div class="container-image">
-            <img draggable="false" class="feature-image" alt="Page connexion et inscription de l'application Motivation" src="~/Assets/Images/applications/application-motivation-inscription.png" />
-        </div>
-    </div>
-    <div class="feature-container">
-        <div class="feature-text">
-            <h2 class="feature-title">Récupérer la motivation dont vous avez besoin. </h2>
-            <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
-        </div>
-        <div class="container-image">
-            <img draggable="false" class="feature-image" alt="Page connexion et inscription de l'application Motivation" src="~/Assets/Images/applicationList/application-image-motivation.png" />
-        </div>
-    </div>
+    }
+
 </section>
 
 

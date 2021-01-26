@@ -35,18 +35,18 @@
             <h2 class="product-description">@item.Description</h2>
             <div class="compatibility">
                 <div class="platform">
-                    @if (item.IsOnAppStore == 1)
+                    @if (item.IsOnAppStore )
                     {
                         <span class="platform-logo" title="AppStore"><img draggable="false" src="~/Assets/elements/appstroe.svg" /></span>
                     }
-                    @if (item.IsOnPlayStore == 1)
+                    @if (item.IsOnPlayStore)
                     {
                         <span class="platform-logo" title="Playstore"><img draggable="false" src="~/Assets/elements/playstore.svg" /></span>
 
                     }
                 </div>
             </div>
-            <a asp-area="" asp-page="/Applications/index" title="En savoir plus sur l'application @item.Name" class="more-button more-button-list">En savoir plus</a>
+            <a href='@item.Name.Replace(" ", String.Empty)' title="En savoir plus sur l'application @item.Name" class="more-button more-button-list">En savoir plus</a>
         </div>
     </section>
 }

@@ -13,16 +13,17 @@ namespace Devystri.Pages.Applications
     {
         [BindProperty]
         public Application Application { get; set; }
+        public List<Section> Setions { get; set; }
         private MyDbContext dbContext;
         public IndexModel(MyDbContext context)
         {
             dbContext = context;
         }
-        public void OnGet(string appName)
+        public IActionResult OnGet(string appName)
         {
             if(appName == String.Empty)
             {
-                return;
+                return RedirectToPage("Index");
             }
             else
             {
@@ -32,9 +33,10 @@ namespace Devystri.Pages.Applications
                 {
                     Application = dbContext.Applications.First(item => item.Name.ToLower().Replace(" ", String.Empty) == appName);
                 }
+
                   
             }
-     
+            return Page();
         }
     }
 }
