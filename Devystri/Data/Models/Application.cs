@@ -19,14 +19,19 @@ namespace Data.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Veuillez spécifier une desciption.")]
         [DataType(DataType.Text)]
         public string Description { get; set; }
-        public int IsOnAppStore { get; set; }
-        public int IsOnPlayStore { get; set; }
-       
+        public int MinAge { get; set; }
+        public string Languages { get; set; }
+        public bool IsOnAppStore { get; set; }
+        public bool IsOnPlayStore { get; set; }
+      
+        public string AppStoreLink { get; set; }
+        public string PlayStoreLink { get; set; }
+
+
         [DataType(DataType.ImageUrl, ErrorMessage = "Vous n'avez pas saisi un nom d'image correct.")]
         [Required]
         public string AppLogoName { get; set; }
         
-        [MinLength(12)]
         [DataType(DataType.ImageUrl, ErrorMessage = "Vous n'avez pas saisi un nom d'image correct.")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Vous n'avez pas saisi un nom de ressource correct")]
         public string PresentationRessource { get; set; }

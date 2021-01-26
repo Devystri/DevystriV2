@@ -14,5 +14,6 @@ namespace Data.Models
         public string Title{ get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Veuillez spécifier une description.")]
         public string Description{ get; set; }
+        public string ImageSrc{ get; set; }
     }
 }
