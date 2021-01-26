@@ -1,23 +1,23 @@
 ﻿//Padding B of nav fold
-var SizeOfNavFold = 0
+var SizeOfNavFold = 71
 //Padding B of nav unfold
-var SizeOfNavUnfold = 137
+var SizeOfNavUnfold = document.getElementById("nav-location").offsetHeight + 110
 
 function menuStateChanhed() {
     if (!$('#header').is(':animated')) {
         if ($('input[name=menu-btn]').is(':checked')) {
             //Unfold the nav
-            $('#header').animate({ paddingBottom: SizeOfNavUnfold });
+            $('#header').animate({ height: SizeOfNavUnfold });
         } else {
             //Fold the nav
-            $('#header').animate({ paddingBottom: SizeOfNavFold });
+            $('#header').animate({ height: SizeOfNavFold });
         }
     }
 }
 // Closes the nav when the width of the page is greater than 
 $(window).resize(function () {
     if ((window.innerWidth >= 1000) && ($('input[name=menu-btn]').is(':checked'))) {
-        $('#header').animate({ paddingBottom: SizeOfNavFold });
+        $('#header').animate({ height: SizeOfNavUnfold });
         $("#menu-btn").prop("checked", false);
     }
 });
@@ -34,4 +34,19 @@ $(function () {
 
 })
 
+divInfo = document.getElementById('#user-admin-box')
+
+$('#user-admin').click(function () {
+    if ($("#user-admin-box").is(":hidden")) {
+        $("#user-admin-box").css("display", "flex");
+    }
+    else {
+        $("#user-admin-box").css("display", "none");
+    }
+});
+$('main').click(function () {
+    if ($("#user-admin-box").is(":visible")) {
+        $("#user-admin-box").css("display", "none");
+    }
+});
 

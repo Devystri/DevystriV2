@@ -14,10 +14,29 @@
                 <a asp-area="" asp-page="/Web-Sites/List">Sites web</a>
                 <a asp-area="" asp-page="/Internet-Of-Things/List">Objets connectés</a>
             </nav>
-            <nav>
-                <a asp-area="" asp-page="/Contact">Newsletter</a>
-                <a asp-area="" asp-page="/About">Utilisateur</a>
-            </nav>
+            <div id="header-admin-left">
+                <div id="header-admin-nav">
+                    <nav>
+                        <a asp-area="" asp-page="/Contact">Newsletter</a>
+                        <a asp-area="" asp-page="/About">Utilisateur</a>
+                    </nav>
+                    <div  id="user-admin">
+                        <img draggable="false" src="~/Assets/elements/admin-user-picture.png" />
+                        <div id="user-info">
+                            <span id="user-admin-name">Admin</span>
+                            <span id="user-admin-id">admon@devystri.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:none" id="user-admin-box">
+                    <span id="user-admin-box-name">Admin</span>
+                    <span id="user-admin-box-id">admon@devystri.com</span>
+                    <a class="admin-user-button" href="#">Changer de mot de passe</a>
+                    <a class="admin-user-button" href="#">Changer la photo de profil</a>
+                    <a class="admin-user-button" id="sign-out" href="#">Se déconnecter</a>
+                </div>
+            </div>
+
         }
         else
         {

@@ -12,11 +12,10 @@ header {
     box-shadow: 0px 3px 6px #00000029;
     position: fixed;
     z-index: 1;
-    overflow: hidden;
     user-select: none;
 }
 
-    header a { /*Button nav*/
+    header nav a { /*Button nav*/
         margin: 0 19px 0 19px;
         text-transform: uppercase;
         cursor: pointer;
@@ -28,7 +27,7 @@ header {
         border-radius: 25px;
     }
 
-    header a:hover {
+    header nav a:hover {
         transition: color 0.2s;
 
         color: var(--admin-blue);
@@ -41,6 +40,7 @@ header {
     display: flex;
     justify-content: space-between;
     width: 81vw;
+    align-items: center;
 }
 
 #header-logo { /*logo devystri in nav*/
@@ -48,15 +48,131 @@ header {
     height: 56%;
     width: 75px;
     justify-content: center;
+    height: 40px;
+    width: 75px;
 }
 
     #header-logo img {
         height: 100%;
     }
 
-/* For mobile */
+/* Admin */
+#header-admin-left {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
+#header-admin-nav {
+    display: flex;
+    align-items: center;
+}
+
+#user-admin {
+    width: 21%;
+    display: flex;
+    align-items: center;
+    color: var(--dark-blue);
+    cursor: pointer;
+    min-width: 253px;
+}
+#user-admin:active {
+    text-decoration: underline;
+}
+
+    #user-admin img {
+        margin-right: 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+#user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+#user-admin-name {
+    font-weight: 500;
+    font-size: 22px;
+}
+#user-admin-id {
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* user-admin-box */
+
+#user-admin-box-name{
+    font-size: 21px;
+    font-weight: 600;
+    margin-top: 16px;
+    user-select: text;
+}
+#user-admin-box-id{
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    user-select: all;
+}
+
+#user-admin-box {
+    height: 293px;
+    width: 278px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: -4px 3px 7px #00000029;
+    position: absolute;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    top: 71px;
+    z-index: 2;
+    transform: translate(60%, 0);
+    align-items: center;
+    color: var(--dark-blue);
+}
+
+.admin-user-button {
+    text-decoration: none;
+    color: white;
+    width: 238px;
+    height: 52px;
+    border-radius: 26px;
+    background-color: var(--grey-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 6px 0;
+}
+
+#user-admin-box a:not(#sign-out):hover {
+    animation: hover-send-button 0.2s forwards;
+}
+
+#sign-out{
+    background : #E23A3A;
+}
+    #sign-out:hover {
+        animation: hover-sign-out 0.2s forwards;
+    }
+
+@keyframes hover-sign-out {
+    from {
+        background: #E23A3A;
+    }
+
+    to {
+        background: #DE0B0B;
+    }
+}
+/* For mobile */
 @media screen and (max-width: 1000px) {
+    header{
+        overflow: hidden;
+    }
+    
     header nav {
         flex-direction: column;
         display: flex;
@@ -67,14 +183,30 @@ header {
         margin: 0;
 
     }
-
+    #header-logo {
+        position: absolute;
+        left: 0px;
+        top: 16px;
+    }
+    header .menu-icon {
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
     #nav-location {
         flex-direction: column;
-        margin-top: 190px;
+        height: auto;
+        width: 100%;
+        justify-content: end;
+        position: absolute;
+        top: 92px;
     }
 
     header .menu-icon {
         display: block;
+    }
+    #header-admin-left{
+        flex-direction: column;
     }
 }
 
