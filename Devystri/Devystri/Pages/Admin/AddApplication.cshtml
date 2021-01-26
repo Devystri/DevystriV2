@@ -10,34 +10,36 @@
 
 }
 <section id="add-products-nav">
-    <nav id="nav-products">
-        <ul>
-            @foreach (var app in Model.ListApp)
-            {
-            <li class="add-products-nav-element">
-                <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
-                <a asp-area="" asp-page="/Admin/AddApplication" asp-route-id="@app.Id" style="text-decoration: none">
-                    <span class="product-id-nav">@app.Id</span>
-                    <span class="product-name-nav">@app.Name</span>
-                    </a>
-                    @if (app.Id == Model.AppId)
-                    {
-                        <input class="product-checkbox-nav" type="checkbox" checked />
+    <form method="post">
+        <nav id="nav-products">
+            <ul>
+                @foreach (var app in Model.ListApp)
+                {
+                    <li class="add-products-nav-element">
+                        <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
+                        <a asp-area="" asp-page="/Admin/AddApplication" asp-route-id="@app.Id" style="text-decoration: none">
+                            <span class="product-id-nav">@app.Id</span>
+                            <span class="product-name-nav">@app.Name</span>
+                        </a>
+                        @if (app.Id == Model.AppId)
+                        {
+                            <input name="@app.Id" class="product-checkbox-nav" type="checkbox" checked />
 
-                    }
-                    else
-                    {
-                        <input class="product-checkbox-nav" type="checkbox" />
+                        }
+                        else
+                        {
+                            <input name="@app.Id" class="product-checkbox-nav" type="checkbox" />
 
-                    }
-            </li>
+                        }
+                    </li>
 
-            }
+                }
 
-        </ul>
-    </nav>
-    <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddApplication">Ajouter une nouvelle application</a>
-    <a class="add-products-nav-button" id="delete-product">Supprimer l'application</a>
+            </ul>
+        </nav>
+        <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddApplication" asp-route-id="0">Ajouter une nouvelle application</a>
+        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" asp-page-handler="Delete"/>
+    </form>
 </section>
 <section id="product-information">
     <form method="post">
@@ -45,7 +47,11 @@
             <div class="input-box">
                 <span>Nom de l'application</span>
                 <input placeholder="Nom de l'application" asp-for="Application.Name" />
-                <input asp-for="Application.Id" hidden/>
+                @if (Model.Application.Id != 0)
+                {
+                    <input asp-for="Application.Id" hidden />
+
+                }
             </div>
             <div class="input-box">
                 <span>Âge minimum</span>
@@ -53,9 +59,9 @@
             </div>
             <div class="input-box">
                 <span>Langue(s)</span>
-                <input placeholder="Langues(s)" asp-for="Application.Languages"/>
+                <input placeholder="Langues(s)" asp-for="Application.Languages" />
             </div>
-            <input id="button-submite-product" type="submit" value="Modifier" /> @*Boutton send*@
+            <input id="button-submite-product" type="submit" value="Sauvegarder" /> @*Boutton send*@
         </div>
         <div id="description-logo">
             <div id="input-description" class="input-box">
@@ -73,8 +79,8 @@
                     <span>
                         <img src="~/Assets/elements/appstroe.svg" />
                     </span>
-             
-                    <input asp-for="Application.IsOnAppStore"/> @*Avec before de AppStore*@
+
+                    <input asp-for="Application.IsOnAppStore" /> @*Avec before de AppStore*@
                     <input placeholder="URL vers l'AppStore" asp-for="Application.AppStoreLink" />
                 </div>
                 <div class="platform-element">
@@ -82,7 +88,7 @@
                         <img src="~/Assets/elements/playstore.svg" />
                     </span>
                     <input asp-for="Application.IsOnPlayStore" /> @*Avec before de AppStore*@
-                    <input placeholder="URL vers le Playstore" asp-for="Application.PlayStoreLink"/>
+                    <input placeholder="URL vers le Playstore" asp-for="Application.PlayStoreLink" />
                 </div>
             </div>
             <div id="product-condition" class="input-box">
@@ -109,7 +115,7 @@
                 </div>
             </div>
         </div>
-        @for(int i = 0; i < Model.Sections.Count; i++)
+        @for (int i = 0; i < Model.Sections.Count; i++)
         {
             <div class="section">
                 <span class="section-number"></span>
@@ -128,11 +134,10 @@
             </div>
         }
 
-
-        <a class="add-products-nav-button">Ajouter une nouvelle section</a>
-    </form>
+            <a class="add-products-nav-button">Ajouter une nouvelle section</a>
+        </form>
 </section>
 
 @section Scripts{ 
-
+    <script src="~/js/Pages/admin/ImageImporter.js"></script>
 } 

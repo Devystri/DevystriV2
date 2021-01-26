@@ -33,34 +33,14 @@ namespace Devystri.Pages.Admin
         public AddApplicationModel(MyDbContext context)
         {
             dbContext = context;
-            ListApp = context.Applications.ToList();
         }
+
+
         public void OnGet(int id = 0)
         {
-        
-            if(id == 0)
-            {
-                Application = new Application();
-                Sections = new List<Section>();
-            }
-            else
-            {
-                AppId = id;
-                if (ListApp.Exists(item=> item.Id == AppId))
-                {
-                    
-                    Application = ListApp.First(item => item.Id == AppId);
-                    Sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
-
-                }
-                else
-                {
-                    Sections = new List<Section>();
-                    Application = new Application();
-                    AppId = 0;
-                }
-            }
-            
+            AppId = id;
+            LoadPage();
+           
         }
 
         public void OnPost()
@@ -82,14 +62,13 @@ namespace Devystri.Pages.Admin
             }
             else
             {
-                Application.Id = 0;
+      
                 dbContext.Applications.Update(Application);
             }
             _ = HttpContext.Request.Form.Files;
             UploadedFileAsync();
             dbContext.SaveChanges();
-            ListApp = dbContext.Applications.ToList();
-            AppId = Application.Id;
+            LoadPage();
         }
 
         private void UploadedFileAsync()
@@ -112,11 +91,55 @@ namespace Devystri.Pages.Admin
                         using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
                         {
                             file.CopyTo(fileStream);
-                            Application.AppLogoName= file.FileName;
+                            Application.AppLogoName = file.FileName;
                         }
 
 
                     }
+                }
+            }
+
+        }
+
+        public IActionResult OnPostDelete()
+        {
+            var form = HttpContext.Request.Form;
+            foreach (var el in form)
+            {
+                if (el.Value[0] == "on")
+                {
+                    int id = int.Parse(el.Key);
+                    dbContext.Applications.Remove((Application)dbContext.Applications.First(item => item.Id == id));
+
+                }
+            }
+            dbContext.SaveChanges();
+            return RedirectToPage("/Admin/AddApplication");
+        }
+
+        public void LoadPage()
+        {
+            ListApp = dbContext.Applications.ToList();
+
+            if (AppId == 0)
+            {
+                Application = new Application();
+                Sections = new List<Section>();
+            }
+            else
+            {
+                if (ListApp.Exists(item => item.Id == AppId))
+                {
+
+                    Application = ListApp.First(item => item.Id == AppId);
+                    Sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
+
+                }
+                else
+                {
+                    Sections = new List<Section>();
+                    Application = new Application();
+                    AppId = 0;
                 }
             }
 
