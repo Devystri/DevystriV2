@@ -24,13 +24,13 @@
                         <img draggable="false" src="~/Assets/elements/admin-user-picture.png" />
                         <div id="user-info">
                             <span id="user-admin-name">Admin</span>
-                            <span id="user-admin-id">admon@devystri.com</span>
+                            <span id="user-admin-id">@User.Identity.Name</span>
                         </div>
                     </div>
                 </div>
                 <div style="display:none" id="user-admin-box">
                     <span id="user-admin-box-name">Admin</span>
-                    <span id="user-admin-box-id">admon@devystri.com</span>
+                    <span id="user-admin-box-id">@User.Identity.Name</span>
                     <a class="admin-user-button" asp-area="" asp-page="/Admin/ChangePassword">Changer de mot de passe</a>
                     <a class="admin-user-button" href="#">Changer la photo de profil</a>
                     <a class="admin-user-button" id="sign-out" asp-area="" asp-page="/Admin/LogOut">Se déconnecter</a>
