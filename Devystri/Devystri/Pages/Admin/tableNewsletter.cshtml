@@ -1,5 +1,5 @@
-﻿@page
-@model Devystri.Pages.Admin.table_newsletterModel
+﻿@page "{id=1}"
+@model Devystri.Pages.Admin.TableNewsletterModel
 @{
 }
 @section Styles{ 
@@ -12,7 +12,7 @@
             <input id="search" placeholder="Rechercher" type="search" />
             <input placeholder=" " id="button-submit" type="submit" />
         </form>
-        <a id="add-user">Ajouter un utilisateur</a>
+        <a id="add-user">Ajouter une adresse email</a>
     </div>
 </section>
 <section id="table-section">
@@ -23,132 +23,42 @@
             <th id="table-date">Date d'inscription</th>
             <th id="table-modification">Modification</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>dimitri.timoz@orange.fr</td>
-            <td>2020-09-07 16:14:40</td>
-            <td class="user-edit">
-                <a class="table-edit"></a>
-                <a class="table-delete"></a>
-            </td>
-        </tr>
+        @for (int i = 0; i < Model.Newsletters.Count; i++)
+        {
+            <tr>
+                <td>@Model.Newsletters[i].Id</td>
+                <td>@Model.Newsletters[i].Email</td>
+                <td>@Model.Newsletters[i].Date</td>
+                <td class="user-edit">
+                    <a href="@Model.Newsletters[i].Id" class="table-edit"></a>
+                    <a class="table-delete"></a>
+                </td>
+            </tr>
+        }
+
+        
     </table>
     <div id="table-footer">
-        <a id="left-arrow"></a>
-        <ul>
-            <li><a>1</a></li>
-            <li><a>2</a></li>
-            <li><a>3</a></li>
-        </ul>
-        <a id="right-arrow"></a>
+        @if (Model.ActualPage > 1)
+        {
+            <a id="left-arrow" asp-area="" asp-page="/Admin/tableNewsletter" asp-route-id="@(Model.ActualPage - 1)"></a>
+        }
+    <ul>
+
+        @if (Model.ActualPage > 1)
+        {
+            <li><a asp-area="" asp-page="/Admin/tableNewsletter" asp-route-id="@(Model.ActualPage - 1)">@(Model.ActualPage-1)</a></li>
+        }
+        <li><a asp-area="" asp-page="/Admin/tableNewsletter" asp-route-id="@(Model.ActualPage)">@(Model.ActualPage)</a></li>
+        @if (Model.ActualPage < Model.PageCount)
+        {
+            <li><a asp-area="" asp-page="/Admin/tableNewsletter" asp-route-id="@(Model.ActualPage+1)">@(Model.ActualPage+1)</a></li>
+        }
+    </ul>
+        @if (Model.ActualPage < Model.PageCount)
+        {
+            <a id="right-arrow" asp-area="" asp-page="/Admin/tableNewsletter" asp-route-id="@(Model.ActualPage + 1)"></a>
+        }
     </div>
 </section>
 <div id="rotation-message">
