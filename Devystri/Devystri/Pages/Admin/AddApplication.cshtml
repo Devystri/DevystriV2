@@ -38,7 +38,7 @@
             </ul>
         </nav>
         <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddApplication" asp-route-id="0">Ajouter une nouvelle application</a>
-        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" asp-page-handler="Delete"/>
+        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" onclick="javascript: popup('Attention !', 'Voulez vous vraiment la/les supprimer ? @Model.Application.Name')" asp-page-handler="Delete"/>
     </form>
 </section>
 <section id="product-information">
@@ -140,4 +140,5 @@
 
 @section Scripts{ 
     <script src="~/js/Pages/admin/ImageImporter.js"></script>
+    <script src="~/js/popup.js"></script>
 } 
