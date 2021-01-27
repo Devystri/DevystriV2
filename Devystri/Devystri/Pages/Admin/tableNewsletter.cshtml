@@ -16,28 +16,29 @@
     </div>
 </section>
 <section id="table-section">
-    <table order="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <th id="table-id">ID</th>
-            <th id="table-email">Email</th>
-            <th id="table-date">Date d'inscription</th>
-            <th id="table-modification">Modification</th>
-        </tr>
-        @for (int i = 0; i < Model.Newsletters.Count; i++)
-        {
+ 
+        <table order="0" cellspacing="0" cellpadding="0">
             <tr>
-                <td>@Model.Newsletters[i].Id</td>
-                <td>@Model.Newsletters[i].Email</td>
-                <td>@Model.Newsletters[i].Date</td>
-                <td class="user-edit">
-                    <a href="@Model.Newsletters[i].Id" class="table-edit"></a>
-                    <a class="table-delete"></a>
-                </td>
+                <th id="table-id">ID</th>
+                <th id="table-email">Email</th>
+                <th id="table-date">Date d'inscription</th>
+                <th id="table-modification">Modification</th>
             </tr>
-        }
-
-        
-    </table>
+            @for (int i = 0; i < Model.Newsletters.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Newsletters[i].Id</td>
+                    <td>@Model.Newsletters[i].Email</td>
+                    <td>@Model.Newsletters[i].Date</td>
+                    <td class="user-edit">
+                        <form method="post"  >
+                            <a href="@Model.Newsletters[i].Id" class="table-edit"></a>
+                            <input type="submit" name="id" value="@Model.Newsletters[i].Id" onsubmit="comfirm('Attention !', 'Etes vous certains de vouloir supprimer l\'adresse email: @Model.Newsletters[i].Email ?')" class="table-delete" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
     <div id="table-footer">
         @if (Model.ActualPage > 1)
         {

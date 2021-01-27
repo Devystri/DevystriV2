@@ -32,7 +32,7 @@ namespace Devystri
         {
             DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             var visitCount = context.Visits.FirstOrDefault(item => item.Date == today && item.Page == pageId);
-            GetRouteUrlWithAuthorizeAttribute();
+            _ = GetRouteUrlWithAuthorizeAttribute();
             if (visitCount == null)
             {
                 await context.Visits.AddAsync(new Visits()

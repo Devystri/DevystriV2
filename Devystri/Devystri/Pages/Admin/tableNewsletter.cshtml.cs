@@ -30,5 +30,17 @@ namespace Devystri.Pages.Admin
             PageCount = (dbContext.Newsletters.Count() / numElPerPage) + 1;
             Newsletters = dbContext.Newsletters.Skip((id-1)* numElPerPage).Take(numElPerPage).ToList();
         }
+        public IActionResult OnPost(int id)
+        {
+            var req = HttpContext.Request.Form;
+            if(dbContext.Newsletters.Any(item => item.Id == id))
+            {
+                dbContext.Newsletters.Remove(new Newsletter() { Id = id} );
+                dbContext.SaveChanges();
+            }
+
+
+            return RedirectToPage("/Admin/tableNewsletter");
+        }
     }
 }
