@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Data.Models.Statistics;
 using Devystri.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -38,6 +39,19 @@ namespace Devystri.Pages
                     Email = NewsletterInput.Email,
                     Date = DateTime.Now
                 });
+                DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                if(dbContext.NewsletterStats.Any(item => item.Date == today))
+                {
+                    dbContext.NewsletterStats.First(item => item.Date == today).Count += 1; 
+                }
+                else
+                {
+                    dbContext.NewsletterStats.Add(new NewsletterStats()
+                    {
+                        Count = 1,
+                        Date = today
+                    });
+                }
                 dbContext.SaveChanges();
             }
 
@@ -46,7 +60,7 @@ namespace Devystri.Pages
 
         public async Task OnGetAsync()
         { 
-                await PageCounter.CountPage(dbContext, 1);
+            await PageCounter.CountPage(dbContext, 1);
         }
     }
         
