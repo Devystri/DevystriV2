@@ -13,7 +13,7 @@ namespace Devystri.Pages.Applications
     {
         [BindProperty]
         public Application Application { get; set; }
-        public List<Section> Setions { get; set; }
+        public List<Section> Sections { get; set; }
         private MyDbContext dbContext;
         public IndexModel(MyDbContext context)
         {
@@ -32,6 +32,7 @@ namespace Devystri.Pages.Applications
                 if (dbContext.Applications.Any(item => item.Name.ToLower().Replace(" ", String.Empty) == appName))
                 {
                     Application = dbContext.Applications.First(item => item.Name.ToLower().Replace(" ", String.Empty) == appName);
+                    Sections = dbContext.Sections.Where(item => item.ProjectId == Application.Id).ToList();
                 }
 
                   
