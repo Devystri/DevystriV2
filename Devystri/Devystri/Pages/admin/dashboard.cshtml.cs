@@ -19,6 +19,7 @@ namespace Devystri.Pages.Admin
         [BindProperty]
         public List<OSStats> oSStats { get; set; }
         public List<NewsletterStats> NewsletterStats { get; set; }
+        public int ContactInWeek{ get; set; }
 
         private MyDbContext dbContext;
         public DashboardModel(MyDbContext context)
@@ -26,6 +27,16 @@ namespace Devystri.Pages.Admin
             dbContext = context;
             oSStats = dbContext.OSs.ToList();
             NewsletterStats = dbContext.NewsletterStats.ToList();
+            TimeSpan sevenDay = new TimeSpan(7, 0, 0, 0, 0);
+            DateTime lastWeek = DateTime.Now - sevenDay;
+            
+            if (dbContext.ContactStats.Any(item =>  item.Date > lastWeek))
+            {
+                var ofWek = dbContext.ContactStats.Where(item => item.Date > lastWeek   ).ToList();
+
+                ContactInWeek = ofWek.Sum(item => item.Count);
+            }
+ 
 
         }
         public void OnGet()
