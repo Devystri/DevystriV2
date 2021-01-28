@@ -96,17 +96,12 @@
             <div id="popular-os-graphic-box">
                 <canvas id="popular-os-graphic"></canvas>
             </div>
-            <div id="os-list">
-                <span id="macos">MacOS</span>
-                <span id="windows">Windows</span>
-                <span id="ios">IOS</span>
-                <span id="android">Android</span>
-            </div>
+
         </div>
         <div id="newsletter-suscribe">
             <div id="newsletter-suscribe-header">
                 <span class="graphic-title">Inscrit à la newsletter</span>
-                <span id="newsletter-users">44 752</span>
+                <span id="newsletter-users">@Model.NewsletterStats.Sum(item => item.Count)</span>
             </div>
             <div id="newsletter-users-graphic-box">
                 <canvas id="newsletter-users-graphic"></canvas>
@@ -116,8 +111,13 @@
 </section>
 
 @section Scripts{
-    <script>
-        var allVisits = [50, 400, 1500, 18000]
+    <script type="text/javascript">
+        var allVisits = [50, 400, 1500, 18000];
+        var Os = {"data" :@Json.Serialize(@Model.oSStats.Select(item => item.Counts)),
+            "labels": @Json.Serialize(@Model.oSStats.Select(item => item.OsName))};
+
+        var Newsletter = {"data" :@Json.Serialize(@Model.NewsletterStats.Select(item => item.Count)),
+                  "labels": @Json.Serialize(@Model.NewsletterStats.Select(item => item.Date.ToShortDateString()))};
     </script>
 
 
