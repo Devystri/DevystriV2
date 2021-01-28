@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware", "Middleware\Middleware.csproj", "{6D024AFC-09D8-47C8-B5DF-B067C3ACC43C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modules", "Modules\Modules.csproj", "{7BF343B1-AE76-4CE8-B203-9CEAF24B7B70}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{6D024AFC-09D8-47C8-B5DF-B067C3ACC43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D024AFC-09D8-47C8-B5DF-B067C3ACC43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D024AFC-09D8-47C8-B5DF-B067C3ACC43C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BF343B1-AE76-4CE8-B203-9CEAF24B7B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BF343B1-AE76-4CE8-B203-9CEAF24B7B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BF343B1-AE76-4CE8-B203-9CEAF24B7B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BF343B1-AE76-4CE8-B203-9CEAF24B7B70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,7 +36,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A05EB3F3-4597-4779-9C4C-0E7211C058DC} = {68460F48-5AAD-4578-9B31-DDFE83B0E734}
 		{6D024AFC-09D8-47C8-B5DF-B067C3ACC43C} = {68460F48-5AAD-4578-9B31-DDFE83B0E734}
-		{7BF343B1-AE76-4CE8-B203-9CEAF24B7B70} = {68460F48-5AAD-4578-9B31-DDFE83B0E734}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B2B09B3-7516-4521-868B-07D5B4E608C6}

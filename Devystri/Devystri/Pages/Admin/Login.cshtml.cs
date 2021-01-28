@@ -8,7 +8,6 @@ using Devystri.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Modules;
 using Microsoft.AspNetCore.Identity;
 using Data.Models.Entity;
 using Microsoft.AspNetCore.Authorization;

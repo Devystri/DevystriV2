@@ -36,7 +36,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Middleware\Middleware.csproj" />
-    <ProjectReference Include="..\Modules\Modules.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
