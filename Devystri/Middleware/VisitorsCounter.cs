@@ -100,10 +100,7 @@ namespace Middleware
                     Secure = false,
                 });
             }
-            
-            
-               
-            
+
 
             await _requestDelegate(context);
         }

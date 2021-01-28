@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Data;
+using Data.Models.Statistics;
 using Devystri.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,6 +17,12 @@ namespace Devystri.Pages
     {
         [BindProperty]
         public ContactInputForm ContactInputForm { get; set; }
+        private MyDbContext dbContext { get; set; }
+
+        public ContactModel(MyDbContext context)
+        {
+            dbContext = context;
+        }
 
         public void OnGet()
         {
@@ -46,6 +53,7 @@ namespace Devystri.Pages
                 try
                 {
                     smtp.Send(message);
+                    UpdateContactStats(ContactInputForm.Email);
                 }
                 catch (Exception)
                 {
@@ -55,6 +63,24 @@ namespace Devystri.Pages
         }
 
       
-    
+        private void UpdateContactStats(string email)
+        {
+            email = email.ToLower();
+            DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            if(dbContext.ContactStats.Any(item => item.Email == email && item.Date == today))
+            {
+                dbContext.ContactStats.First(item => item.Email == email && item.Date == today).Count += 1;
+            }
+            else
+            {
+                dbContext.ContactStats.Add(new ContactStats()
+                {
+                    Count = 1,
+                    Email = email,
+                    Date = today
+                });
+            }
+            dbContext.SaveChanges();
+        }
     }
 }

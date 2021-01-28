@@ -18,6 +18,7 @@ namespace Data
         public DbSet<Log> Logs { get; set; }
         public DbSet<Visits> Visits { get; set; }
         public DbSet<NewsletterStats> NewsletterStats { get; set; }
+        public DbSet<ContactStats> ContactStats { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         { 
         }
