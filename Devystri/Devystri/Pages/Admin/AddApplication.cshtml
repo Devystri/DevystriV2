@@ -42,7 +42,7 @@
     </form>
 </section>
 <section id="product-information">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data" >
         <div id="fast-information">
             <div class="input-box">
                 <span>Nom de l'application</span>
@@ -70,7 +70,7 @@
             </div>
             <div id="input-logo" class="input-box">
                 <span>Logo</span>
-                <input placeholder="Logo" type="file" accept="image/*" asp-for="Application.AppLogoName" /> @*Input logo*@
+                <input placeholder="Logo" type="file" accept="image/*" asp-for="Application.AppLogo" /> @*Input logo*@
             </div>
         </div>
         <div id="product-option">

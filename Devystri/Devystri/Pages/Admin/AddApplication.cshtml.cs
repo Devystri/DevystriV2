@@ -6,11 +6,14 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Devystri.Model.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
+using SixLabors.ImageSharp;
 
 namespace Devystri.Pages.Admin
 {
@@ -20,7 +23,7 @@ namespace Devystri.Pages.Admin
     public class AddApplicationModel : PageModel
     {
         [BindProperty]
-        public Application Application { get; set; }
+        public ApplicationImportModel Application { get; set; }
         [BindProperty]
         public List<Section> Sections { get; set; }
         [BindProperty]
@@ -45,10 +48,16 @@ namespace Devystri.Pages.Admin
 
         public void OnPost()
         {
+            foreach (var el in HttpContext.Request.Form.Files)
+            {
+                using var image = Image.Load(el.OpenReadStream());
+                image.SaveAsJpeg("wwwroot/upload/applications/" + el.FileName);   
+            }
+        
             if (ListApp.Exists(item => item.Id == Application.Id))
             {
                 var app = dbContext.Applications.First(item => item.Id == Application.Id);
-                app.AppLogoName = Application.AppLogoName;
+                app.AppLogoName = Application.AppLogo.FileName;
                 app.AppStoreLink = Application.AppStoreLink;
                 app.Description = Application.Description;
                 app.IsOnAppStore = Application.IsOnAppStore;
@@ -57,49 +66,19 @@ namespace Devystri.Pages.Admin
                 app.MinAge = Application.MinAge;
                 app.Name = Application.Name;
                 app.PlayStoreLink = Application.PlayStoreLink;
-                app.PresentationRessource = Application.PresentationRessource;
-                app.Stat = Application.Stat;
+                app.PresentationRessource = Application.PresentationRessource.FileName;
             }
             else
             {
       
-                dbContext.Applications.Update(Application);
+                dbContext.Applications.Update(Application.ToApplication());
             }
             _ = HttpContext.Request.Form.Files;
-            UploadedFileAsync();
             dbContext.SaveChanges();
             LoadPage();
         }
 
-        private void UploadedFileAsync()
-        {
-            var files = HttpContext.Request.Form.Files;
-            foreach (var Image in files)
-            {
-                if (Image != null && Image.Length > 0)
-                {
-
-                    var file = Image;
-                    var uploads = Path.Combine("", "uploads\\img\\app");
-
-                    if (file.Length > 0)
-                    {
-                        var fileName = ContentDispositionHeaderValue.Parse
-                            (file.ContentDisposition).FileName.Trim('"');
-
-                        System.Console.WriteLine(fileName);
-                        using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
-                        {
-                            file.CopyTo(fileStream);
-                            Application.AppLogoName = file.FileName;
-                        }
-
-
-                    }
-                }
-            }
-
-        }
+  
 
         public IActionResult OnPostDelete()
         {
@@ -123,7 +102,7 @@ namespace Devystri.Pages.Admin
 
             if (AppId == 0)
             {
-                Application = new Application();
+                Application = new ApplicationImportModel();
                 Sections = new List<Section>();
             }
             else
@@ -131,14 +110,14 @@ namespace Devystri.Pages.Admin
                 if (ListApp.Exists(item => item.Id == AppId))
                 {
 
-                    Application = ListApp.First(item => item.Id == AppId);
+                    Application = new ApplicationImportModel(ListApp.First(item => item.Id == AppId));
                     Sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
 
                 }
                 else
                 {
                     Sections = new List<Section>();
-                    Application = new Application();
+                    Application = new ApplicationImportModel();
                     AppId = 0;
                 }
             }
