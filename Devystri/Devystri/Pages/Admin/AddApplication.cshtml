@@ -106,12 +106,15 @@
             <div class="input-box">
                 <span>Image de la page application </span>
                 <input placeholder="Image de la page application" asp-for="Application.PresentationRessource" class="input-image-box" />
+                <img class="blah" src="#" alt="Image" />
             </div>
             <div class="input-box">
                 <span>Images qui entoure la fiche technique de l'application</span>
                 <div id="images-fact-sheet">
                     <input placeholder="Image de la fiche technique" type="file" class="input-image-box" />
+                    <img class="blah" src="#" alt="Image" />
                     <input placeholder="Image de la fiche technique" type="file" class="input-image-box" />
+                    <img class="blah" src="#" alt="Image" />
                 </div>
             </div>
         </div>
@@ -122,7 +125,7 @@
                 <div class="product-section">
                     <div class="section-image-box">
                         <span>Image</span>
-                        <input placeholder="Image" type="file" asp-for="Sections[i].ImageSrc" class="input-image-box" />
+                            <input placeholder="Image" type="file" asp-for="Sections[i].ImageSrc" class="input-image-box" />
                     </div>
                     <div class="input-box">
                         <span>Titre</span>
