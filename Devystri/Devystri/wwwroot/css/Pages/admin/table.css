@@ -90,6 +90,8 @@
     font-weight: 400;
     position: absolute;
     right: 77px;
+    user-select: none;
+    -webkit-user-select: none;
 }
     #add-user:hover {
         animation: hover-button-submit 0.2s forwards;
@@ -227,6 +229,13 @@ td{
         cursor: pointer;
     }
 
+    #table-footer a {
+        text-decoration: none;
+        color: var(--dark-blue);
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
 #left-arrow, #right-arrow {
     width: 27px;
     height: 45px;
@@ -270,6 +279,7 @@ td{
         margin-bottom: 12%;
         animation: rotation 2s infinite;
         user-select: none;
+        -webkit-user-select: none;
     }
     #rotation-message span {
         font-size: min(max(39px), 7vw);
@@ -295,8 +305,8 @@ td{
     @media only screen and (orientation: portrait) {
         #table-section {
         display: none;
+        ≠≠
     }
-
         #header-section:after {
             content: " ";
             height: 70vh;

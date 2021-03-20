@@ -13,18 +13,19 @@ header {
     position: fixed;
     z-index: 1;
     user-select: none;
+    -webkit-user-select: none;
 }
 
     header nav a { /*Button nav*/
-        margin: 0 19px 0 19px;
+        margin: 0 9px 0 9px;
         text-transform: uppercase;
         cursor: pointer;
         text-decoration: none;
         font-family: 'Roboto', sans-serif;
         color: var(--dark-blue);
         transition: color 0.6s;
-
         border-radius: 25px;
+        padding: 5px 10px;
     }
 
     header nav a:hover {
@@ -207,6 +208,15 @@ header {
     }
     #header-admin-left{
         flex-direction: column;
+    }
+
+    #header-admin-nav{
+        flex-direction: column;
+    }
+    #user-admin-box {
+        top: 334px;
+        position: fixed;
+        transform: none;
     }
 }
 
