@@ -70,7 +70,16 @@
             </div>
             <div id="input-logo" class="input-box">
                 <span>Logo</span>
-                <input placeholder="Logo" type="file" accept="image/*" asp-for="Application.AppLogo" /> @*Input logo*@
+                @if (Model.Application.AppLogoName != null)
+                {
+                    <input placeholder="Logo" accept="image/*" asp-for="Application.AppLogo" />@*Input logo*@
+
+                }
+                else
+                {
+                    <input placeholder="Logo" accept="image/*" asp-for="Application.AppLogoName" />@*Input logo*@
+
+                }
             </div>
         </div>
         <div id="product-option">

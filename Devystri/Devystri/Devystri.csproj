@@ -18,6 +18,7 @@
     <Folder Include="wwwroot\Assets\3D\" />
     <Folder Include="wwwroot\Assets\Objects3D\" />
     <Folder Include="wwwroot\upload\applications\" />
+    <Folder Include="Modules\" />
   </ItemGroup>
 
   <ItemGroup>

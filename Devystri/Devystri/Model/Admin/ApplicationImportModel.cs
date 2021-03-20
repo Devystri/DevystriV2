@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Devystri.Modules;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,10 @@ namespace Devystri.Model.Admin
         {
 
         }
+
         public ApplicationImportModel(Application application)
         {
-            Id = application.Id;   
+            Id = application.Id;
             Name = application.Name;
             Description = application.Description;
             MinAge = application.MinAge;
@@ -24,15 +26,15 @@ namespace Devystri.Model.Admin
             IsOnPlayStore = application.IsOnPlayStore;
             AppStoreLink = application.AppStoreLink;
             PlayStoreLink = application.PlayStoreLink;
-            AppLogoName = application.PlayStoreLink;
-            PresentationRessourceName = application.PlayStoreLink;
+            AppLogoName = application.AppLogoName;
+            PresentationRessourceName = application.PresentationRessource;
         }
         public Application ToApplication()
         {
             return new Application()
             {
                 Id = Id,
-                AppLogoName = AppLogoName,
+                AppLogoName = AppLogo.FileName,
                 AppStoreLink = AppStoreLink,
                 Description = Description,
                 IsOnAppStore = IsOnAppStore,
@@ -41,7 +43,7 @@ namespace Devystri.Model.Admin
                 MinAge = MinAge,
                 Name = Name,
                 PlayStoreLink = PlayStoreLink,
-                PresentationRessource = PresentationRessourceName,
+                PresentationRessource = PresentationRessource.FileName
             };
         }
         public int Id { get; set; }

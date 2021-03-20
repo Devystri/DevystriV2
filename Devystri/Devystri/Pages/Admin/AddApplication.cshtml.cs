@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Data;
 using Data.Models;
 using Devystri.Model.Admin;
+using Devystri.Modules;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +32,7 @@ namespace Devystri.Pages.Admin
         [BindProperty]
         public int AppId{ get; set; }
 
+        private ImageImport imageImport = new ImageImport("wwwroot/upload/applications/");
         private MyDbContext dbContext;
 
         public AddApplicationModel(MyDbContext context)
@@ -48,12 +50,7 @@ namespace Devystri.Pages.Admin
 
         public void OnPost()
         {
-            foreach (var el in HttpContext.Request.Form.Files)
-            {
-                using var image = Image.Load(el.OpenReadStream());
-                image.SaveAsJpeg("wwwroot/upload/applications/" + el.FileName);   
-            }
-        
+            imageImport.Import(HttpContext.Request.Form.Files);
             if (ListApp.Exists(item => item.Id == Application.Id))
             {
                 var app = dbContext.Applications.First(item => item.Id == Application.Id);
@@ -70,8 +67,8 @@ namespace Devystri.Pages.Admin
             }
             else
             {
-      
-                dbContext.Applications.Update(Application.ToApplication());
+                var app = Application.ToApplication();
+                dbContext.Applications.Update(app);
             }
             _ = HttpContext.Request.Form.Files;
             dbContext.SaveChanges();
