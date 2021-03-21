@@ -1,5 +1,5 @@
 ﻿//Padding B of nav fold
-var SizeOfNavFold = 71
+var SizeOfNavFold = 58
 //Padding B of nav unfold
 var SizeOfNavUnfold = document.getElementById("nav-location").offsetHeight + 110
 

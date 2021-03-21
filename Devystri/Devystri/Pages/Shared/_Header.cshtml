@@ -4,11 +4,12 @@
     url = url.ToLower();
 } 
 <header id="header">
-    <a id="header-logo" asp-area="" asp-page="/Index"><img draggable="false" src="~/Assets/Images/header/devystri-logo.png" /></a>
-    <div id="nav-location">
-        @if (User.Identity.IsAuthenticated && url.Contains("admin"))
-        {
-            //Ici pour le header admin
+    @if (User.Identity.IsAuthenticated && url.Contains("admin"))
+    {
+        //Ici pour le header admin
+        <a id="header-logo" asp-area="" asp-page="/Admin/dashboard"><img draggable="false" src="~/Assets/Images/header/devystri-logo.png" /></a>
+
+        <div id="nav-location">
             <nav>
                 <a asp-area="" asp-page="/Admin/AddApplication">Applications</a>
                 <a asp-area="" asp-page="/Admin/AddWebSite">Sites web</a>
@@ -20,7 +21,7 @@
                         <a asp-area="" asp-page="/Admin/tableNewsletter">Newsletter</a>
                         <a asp-area="" asp-page="/Admin/tableUsers">Utilisateur</a>
                     </nav>
-                    <div  id="user-admin">
+                    <div id="user-admin">
                         <img draggable="false" src="~/Assets/elements/admin-user-picture.png" />
                         <div id="user-info">
                             <span id="user-admin-name">Admin</span>
@@ -37,9 +38,14 @@
                 </div>
             </div>
 
-        }
-        else
-        {
+        </div>
+
+    }
+    else
+    {
+        <a id="header-logo" asp-area="" asp-page="/Index"><img draggable="false" src="~/Assets/Images/header/devystri-logo.png" /></a>
+        <div id="nav-location">
+
             <nav>
                 <a asp-area="" asp-page="/Applications/List">Applications</a>
                 <a asp-area="" asp-page="/Web-Sites/List">Sites web</a>
@@ -50,9 +56,10 @@
                 <a asp-area="" asp-page="/About">A propos</a>
 
             </nav>
-        }
 
-    </div>
+        </div>
+    }
+
     <input onchange="menuStateChanhed()" class="menu-btn" name="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 </header>

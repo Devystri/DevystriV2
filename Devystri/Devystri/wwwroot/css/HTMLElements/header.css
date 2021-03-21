@@ -2,13 +2,13 @@
 
 header {
     width: 100%;
-    height: 71px;
+    height: 58px;
     background: var(--white-background);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 15px;
     box-shadow: 0px 3px 6px #00000029;
     position: fixed;
     z-index: 1;
@@ -40,8 +40,14 @@ header {
 #nav-location {
     display: flex;
     justify-content: space-between;
-    width: 81vw;
+    width: 75vw;
     align-items: center;
+    min-width: fit-content;
+    max-width: 1150px;
+}
+
+#nav-location nav{
+    min-width: fit-content;
 }
 
 #header-logo { /*logo devystri in nav*/
@@ -49,7 +55,7 @@ header {
     height: 56%;
     width: 75px;
     justify-content: center;
-    height: 40px;
+    height: 30px;
     width: 75px;
 }
 
@@ -75,7 +81,7 @@ header {
     align-items: center;
     color: var(--dark-blue);
     cursor: pointer;
-    min-width: 253px;
+    min-width: 190px;
 }
 #user-admin:active {
     text-decoration: underline;
@@ -83,8 +89,8 @@ header {
 
     #user-admin img {
         margin-right: 10px;
-        width: 60px;
-        height: 60px;
+        width: 47px;
+        height: 47px;
         border-radius: 50%;
     }
 
@@ -95,11 +101,12 @@ header {
 
 #user-admin-name {
     font-weight: 500;
-    font-size: 22px;
+    font-size: 19px;
 }
 #user-admin-id {
     font-weight: 300;
     font-style: italic;
+    font-size: 14px;
 }
 
 /* user-admin-box */
@@ -121,14 +128,14 @@ header {
     height: 293px;
     width: 278px;
     border-radius: 0 0 15px 15px;
-    box-shadow: -4px 3px 7px #00000029;
+    box-shadow: -4px 3px 3px #00000029;
     position: absolute;
     background: #fff;
     display: flex;
     flex-direction: column;
-    top: 71px;
+    top: 58px;
     z-index: 2;
-    transform: translate(60%, 0);
+    transform: translate(44%, 0);
     align-items: center;
     color: var(--dark-blue);
 }
@@ -192,7 +199,7 @@ header {
     header .menu-icon {
         position: absolute;
         right: 0;
-        top: 10px;
+        top: 3px;
     }
     #nav-location {
         flex-direction: column;
@@ -214,7 +221,7 @@ header {
         flex-direction: column;
     }
     #user-admin-box {
-        top: 334px;
+        top: 292px;
         position: fixed;
         transform: none;
     }
