@@ -19,6 +19,7 @@ namespace Devystri.Pages.Admin
         [BindProperty]
         public List<OSStats> oSStats { get; set; }
         public List<NewsletterStats> NewsletterStats { get; set; }
+        public List<Visits> Visits { get; set; }
         public int ContactInWeek{ get; set; }
 
         private MyDbContext dbContext;
@@ -36,6 +37,8 @@ namespace Devystri.Pages.Admin
 
                 ContactInWeek = ofWek.Sum(item => item.Count);
             }
+
+            Visits = dbContext.Visits.ToList();
  
 
         }

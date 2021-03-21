@@ -117,7 +117,9 @@
             "labels": @Json.Serialize(@Model.oSStats.Select(item => item.OsName))};
 
         var Newsletter = {"data" :@Json.Serialize(@Model.NewsletterStats.Select(item => item.Count)),
-                  "labels": @Json.Serialize(@Model.NewsletterStats.Select(item => item.Date.ToShortDateString()))};
+            "labels": @Json.Serialize(@Model.NewsletterStats.Select(item => item.Date.ToShortDateString()))};
+        var Visits = {"data" :@Json.Serialize(@Model.Visits.Select(item => item.Count)),
+            "labels": @Json.Serialize(@Model.Visits.Select(item => item.Date.ToShortDateString()))};
     </script>
 
 

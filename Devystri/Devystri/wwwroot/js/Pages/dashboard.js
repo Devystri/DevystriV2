@@ -4,12 +4,12 @@
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+            labels: Visits["labels"],
             datasets: [{
                 label: 'Visites sur le site web',
                 backgroundColor: 'transparent',
                 borderColor: '#7CADD8',
-                data: [0, 10, 5, 2, 20, 30, 45, 200, 248, 150, 10, 350],
+                data: Visits["data"]
             }]
         },
         options: {}
