@@ -22,6 +22,9 @@
 
 /* SCROLLBAR */
 
+/*
+
+
 ::-webkit-scrollbar {
     width: 0.4em;
     background-color: transparent;
@@ -40,6 +43,7 @@
 ::-webkit-scrollbar-thumb:active {
     background-color: #4c4c4cbf;
 }
+*/
 
 
 /* Général */
@@ -69,8 +73,8 @@ li {
     list-style: none;
 }
 
-/* Arrow animate */
 
+/* Arrow animate */
 .down-arrow {
     background-image: url(../Assets/elements/arrow.svg);
     background-repeat: no-repeat;
