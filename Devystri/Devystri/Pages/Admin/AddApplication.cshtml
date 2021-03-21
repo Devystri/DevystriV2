@@ -73,12 +73,12 @@
                 <!-- Image Logo-->
                 @if (Model.Application.AppLogoName != null)
                 {
-                    <input id="fileLogo" accept="image/*" onchange="previewLogo();" name="file"  type="file" asp-for="Application.AppLogo" />@*Input logo*@
+                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" asp-for="Application.AppLogo" />@*Input logo*@
 
                 }
                 else
                 {
-                    <input id="fileLogo" accept="image/*" onchange="previewLogo();" name="file" type="file" asp-for="Application.AppLogoName" />@*Input logo*@
+                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')"  type="file" asp-for="Application.AppLogoName" />@*Input logo*@
 
                 }
                 <img id="previewLogoAdd" src="~/Assets/elements/addPicture.svg" />
@@ -117,7 +117,7 @@
             <div class="input-box">
                 <span>Image de la page application </span>
                 <!-- Image de la page application-->
-                <input type="file" name="file" id="file" accept="image/*" onchange="previewImageApp();" asp-for="Application.PresentationRessource" class="input-image-box" />
+                <input type="file" name="file" id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="Application.PresentationRessource" class="input-image-box" />
                 <img id="previewApp" class="blah" src="~/Assets/elements/addPicture.svg" />
 
             </div>
@@ -126,12 +126,12 @@
                 <div id="images-fact-sheet">
                     <!-- Image de la fiche technique 1-->
                     <div class="additional-images-box">
-                        <input type="file" name="file" id="file1" accept="image/*" onchange="previewImage();" class="input-image-box" />
+                        <input type="file" name="file" id="file1" accept="image/*" onchange="javascript: previewImage(this, 'preview')" class="input-image-box" />
                         <img class="blah" id="preview" src="~/Assets/elements/addPicture.svg" />
                     </div>
                     <!-- Image de la fiche technique 2-->
                     <div class="additional-images-box">
-                        <input type="file" name="file" id="file2" accept="image/*" onchange="previewImage2();" class="input-image-box" />
+                        <input type="file" name="file" id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" class="input-image-box" />
                         <img class="blah" id="preview2" src="~/Assets/elements/addPicture.svg" />
                     </div>
                 </div>
