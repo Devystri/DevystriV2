@@ -95,6 +95,7 @@ input::-webkit-file-upload-button {
 #add-new-product {
     background: #00529A;
     text-decoration: none;
+    text-align: center;
 }
 
 #delete-product {
@@ -148,7 +149,6 @@ input::-webkit-file-upload-button {
         width: 90%;
         text-align-last: justify;
         cursor: pointer;
-        z-index: 3;
     }
 
 #description-logo {
@@ -175,7 +175,9 @@ input::-webkit-file-upload-button {
     width: 140px;
     cursor: pointer;
 }
-
+input[type=file] {
+    color: transparent;
+}
 
 .blah {
     position: absolute;
@@ -186,6 +188,26 @@ input::-webkit-file-upload-button {
     margin-top: 19px;
     z-index: -1;
 }
+
+#previewLogoAdd {
+    position: absolute;
+    max-height: 201px;
+    max-width: 84px;
+    display: flex;
+    align-self: center;
+    margin-top: 15px;
+    z-index: -1;
+}
+
+.additional-images-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+    .additional-images-box img{
+        margin-top: 0;
+    }
 
     #button-submite-product {
         max-width: 360px;
@@ -290,7 +312,6 @@ select[name=product-condition] {
 
 #images-fact-sheet {
     display: flex;
-    width: max-content;
 }
 /* input-image-box */
 .input-image-box {
@@ -314,6 +335,7 @@ select[name=product-condition] {
 .input-box {
     display: flex;
     place-content: center;
+    width: fit-content;
 }
 
 .product-section .input-box{
@@ -355,7 +377,7 @@ select[name=product-condition] {
     max-width: 662px !important;
 }
 
-/* Mobile 1500 */
+/* Screen 1500px */
 
 @media screen and (max-width: 1500px) {
     main{
@@ -376,6 +398,8 @@ select[name=product-condition] {
         margin: 0 auto;
     }
 }
+
+/* Screen 1000px*/
 
 @media screen and (max-width: 1000px){
     #fast-information {
@@ -461,6 +485,10 @@ select[name=product-condition] {
     .product-section textarea {
         max-width: 94%;
         min-width: 94%;
+    }
+
+    .additional-images-box{
+        margin: 10px 0;
     }
 
 }

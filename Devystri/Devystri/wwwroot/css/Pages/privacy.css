@@ -42,7 +42,7 @@ p {
 }
 
 #summary-container a {
-    color: var(--very-light-blue);
+    color: white;
     background-size: 0% 100%;
     font-weight: 500;
     background-image: linear-gradient( transparent calc( 100% - 3px ), var(--light-blue) 3px );

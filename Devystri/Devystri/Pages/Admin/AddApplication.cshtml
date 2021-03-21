@@ -70,16 +70,18 @@
             </div>
             <div id="input-logo" class="input-box">
                 <span>Logo</span>
+                <!-- Image Logo-->
                 @if (Model.Application.AppLogoName != null)
                 {
-                    <input placeholder="Logo" accept="image/*" asp-for="Application.AppLogo" />@*Input logo*@
+                    <input id="fileLogo" accept="image/*" onchange="previewLogo();" name="file"  type="file" asp-for="Application.AppLogo" />@*Input logo*@
 
                 }
                 else
                 {
-                    <input placeholder="Logo" accept="image/*" asp-for="Application.AppLogoName" />@*Input logo*@
+                    <input id="fileLogo" accept="image/*" onchange="previewLogo();" name="file" type="file" asp-for="Application.AppLogoName" />@*Input logo*@
 
                 }
+                <img id="previewLogoAdd" src="~/Assets/elements/addPicture.svg" />
             </div>
         </div>
         <div id="product-option">
@@ -114,16 +116,24 @@
         <div id="first-image-product">
             <div class="input-box">
                 <span>Image de la page application </span>
-                <input placeholder="Image de la page application" asp-for="Application.PresentationRessource" class="input-image-box" />
-                <img class="blah" src="#" alt="Image" />
+                <!-- Image de la page application-->
+                <input type="file" name="file" id="file" accept="image/*" onchange="previewImageApp();" asp-for="Application.PresentationRessource" class="input-image-box" />
+                <img id="previewApp" class="blah" src="~/Assets/elements/addPicture.svg" />
+
             </div>
             <div class="input-box">
                 <span>Images qui entoure la fiche technique de l'application</span>
                 <div id="images-fact-sheet">
-                    <input placeholder="Image de la fiche technique" type="file" class="input-image-box" />
-                    <img class="blah" src="#" alt="Image" />
-                    <input placeholder="Image de la fiche technique" type="file" class="input-image-box" />
-                    <img class="blah" src="#" alt="Image" />
+                    <!-- Image de la fiche technique 1-->
+                    <div class="additional-images-box">
+                        <input type="file" name="file" id="file1" accept="image/*" onchange="previewImage();" class="input-image-box" />
+                        <img class="blah" id="preview" src="~/Assets/elements/addPicture.svg" />
+                    </div>
+                    <!-- Image de la fiche technique 2-->
+                    <div class="additional-images-box">
+                        <input type="file" name="file" id="file2" accept="image/*" onchange="previewImage2();" class="input-image-box" />
+                        <img class="blah" id="preview2" src="~/Assets/elements/addPicture.svg" />
+                    </div>
                 </div>
             </div>
         </div>
