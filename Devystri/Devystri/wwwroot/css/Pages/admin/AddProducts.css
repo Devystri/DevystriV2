@@ -177,6 +177,7 @@ input::-webkit-file-upload-button {
 }
 input[type=file] {
     color: transparent;
+
 }
 
 .blah {
@@ -187,6 +188,12 @@ input[type=file] {
     align-self: center;
     margin-top: 19px;
     z-index: -1;
+    background-image: url(/Assets/elements/addPicture.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    min-width: 77px;
+    min-height: 77px;
 }
 
 #previewLogoAdd {
@@ -197,6 +204,10 @@ input[type=file] {
     z-index: -1;
     width: 144px;
     border-radius: 15px;
+    background-image: url(/Assets/elements/addPicture.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 .additional-images-box {
@@ -302,6 +313,7 @@ select[name=product-condition] {
     width: 100%;
     padding: 10px;
     border: solid 2px var(--admin-blue);
+    -webkit-appearance: none;
 }
 
 /* first-image-product */
