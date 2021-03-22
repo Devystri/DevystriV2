@@ -79,7 +79,7 @@ input::-webkit-file-upload-button {
 
 .add-products-nav-button {
     height: 57px;
-    width: 95%;
+    width: 94%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,10 +281,20 @@ input[type=file] {
     outline: none;
     cursor: pointer;
 }
-        #platform input[type=checkbox]:checked {
-            background: var(--dark-blue);
-        }
+    #platform input[type=checkbox]:checked {
+        animation: checkbox-checked 0.2s forwards;
+    }
+@keyframes checkbox-checked {
+    from {
+        background: none;
+        border: solid 2px var(--admin-blue);
+    }
 
+    to {
+        background: var(--dark-blue);
+        border: none;
+    }
+}
 
 /* URL WebSite */
 

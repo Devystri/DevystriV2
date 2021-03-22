@@ -1,5 +1,5 @@
 ﻿//Padding B of nav fold
-var SizeOfNavFold = 58
+var SizeOfNavFold = 71
 //Padding B of nav unfold
 var SizeOfNavUnfold = document.getElementById("nav-location").offsetHeight + 110
 
@@ -50,3 +50,31 @@ $('main').click(function () {
     }
 });
 
+
+// Scroll for header
+
+//$(window).scroll(function () {
+
+//    if (document.documentElement.scrollTop > 80) {
+//        document.getElementById("header").style.height = "71px";
+//    }
+//    else {
+//        document.getElementById("header").style.height = "71px";
+
+//    }
+//)};
+
+
+$(function () {
+    $(window).scroll(function () {
+        if (!$('#header').is(':animated')) {
+            if ($(window).scrollTop() >= 300) {
+                $('#header').animate({ height: 58 }, 200);
+
+            } else {
+                $('#header').animate({ height: 71 }, 200);
+
+            }
+        }
+    });
+});
