@@ -43,7 +43,7 @@ namespace Devystri.Model.Admin
                 MinAge = MinAge,
                 Name = Name,
                 PlayStoreLink = PlayStoreLink,
-                PresentationRessource = PresentationRessource.FileName
+                PresentationRessource = ""
             };
         }
         public int Id { get; set; }

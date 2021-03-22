@@ -74,14 +74,14 @@
                 @if (Model.Application.AppLogoName != null)
                 {
                     <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" asp-for="Application.AppLogo" />@*Input logo*@
-
                 }
                 else
                 {
-                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')"  type="file" asp-for="Application.AppLogoName" />@*Input logo*@
+                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" asp-for="Application.AppLogoName" />@*Input logo*@
 
                 }
-                <img id="previewLogoAdd" src="~/Assets/elements/addPicture.svg" />
+                <img id="previewLogoAdd" src="~/upload/applications/@Model.Application.AppLogoName" />
+
             </div>
         </div>
         <div id="product-option">
