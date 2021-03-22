@@ -191,12 +191,12 @@ input[type=file] {
 
 #previewLogoAdd {
     position: absolute;
-    max-height: 201px;
-    max-width: 84px;
     display: flex;
     align-self: center;
-    margin-top: 15px;
+    margin-top: 14px;
     z-index: -1;
+    width: 144px;
+    border-radius: 15px;
 }
 
 .additional-images-box {
