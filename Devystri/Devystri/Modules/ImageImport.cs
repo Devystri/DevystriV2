@@ -21,7 +21,7 @@ namespace Devystri.Modules
                 if (el.ContentType.Contains("image"))
                 {
                     using var image = Image.Load(el.OpenReadStream());
-                    image.SaveAsJpeg(Path + el.FileName);
+                    image.SaveAsPng(Path + el.FileName);
                 }
                 
             }
