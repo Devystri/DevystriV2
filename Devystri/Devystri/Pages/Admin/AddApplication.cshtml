@@ -119,13 +119,13 @@
                 <div id="images-fact-sheet">
                     <!-- Image de la fiche technique 1-->
                     <div class="additional-images-box">
-                        <input id="file1" accept="image/*" onchange="javascript: previewImage(this, 'preview')" class="input-image-box" />
-                        <img class="blah" id="preview" />
+                        <input id="file1" accept="image/*" onchange="javascript: previewImage(this, 'preview')" asp-for="Application.Presentation2Ressource" class="input-image-box" />
+                        <img class="blah" id="preview" src="~/upload/applications/@Model.Application.Presentation2RessourceName" />
                     </div>
                     <!-- Image de la fiche technique 2-->
                     <div class="additional-images-box">
-                        <input id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" class="input-image-box" />
-                        <img class="blah" id="preview2" />
+                        <input id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" asp-for="Application.Presentation3Ressource" class="input-image-box" />
+                        <img class="blah" id="preview2" src="~/upload/applications/@Model.Application.Presentation3RessourceName" />
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
             </div>
         }
 
-        <a class="add-products-nav-button">Ajouter une nouvelle section</a>
+        <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
     </form>
 </section>
 

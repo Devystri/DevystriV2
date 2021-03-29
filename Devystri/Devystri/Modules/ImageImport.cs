@@ -22,6 +22,10 @@ namespace Devystri.Modules
                 if (el.ContentType.Contains("image"))
                 {
                     using var image = Image.Load(el.OpenReadStream());
+                    if(File.Exists(Path + el.FileName))
+                    {
+                        File.Delete(Path + el.FileName);
+                    }
                     image.SaveAsPng(Path + el.FileName);
                 }
                 

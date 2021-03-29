@@ -81,7 +81,7 @@ namespace Devystri.Pages.Admin
                 return;
             }
             dbContext.SaveChanges();
-            LoadPage();
+            //LoadPage();
         }
 
 
@@ -100,6 +100,15 @@ namespace Devystri.Pages.Admin
             }
             dbContext.SaveChanges();
             return RedirectToPage("/Admin/AddApplication");
+        }
+
+        public void OnGetAddSection()
+        {
+            Console.WriteLine("dd");
+            var newSection = new Section();
+            newSection.ProjectId = Application.Id;
+            dbContext.Sections.Add(newSection);
+            dbContext.SaveChanges();
         }
 
         public void LoadPage()

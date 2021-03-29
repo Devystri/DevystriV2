@@ -25,6 +25,8 @@ namespace Devystri.Model.Admin
             PlayStoreLink = application.PlayStoreLink;
             AppLogoName = application.AppLogoName;
             PresentationRessourceName = application.PresentationRessourceName;
+            Presentation2RessourceName = application.Presentation2RessourceName;
+            Presentation3RessourceName = application.Presentation3RessourceName;
         }
         public Application ToApplication(Application application)
         {
@@ -57,7 +59,9 @@ namespace Devystri.Model.Admin
                 MinAge = MinAge,
                 Name = Name,
                 PlayStoreLink = PlayStoreLink,
-                PresentationRessourceName = PresentationRessource.FileName
+                PresentationRessourceName = PresentationRessource.FileName,
+                Presentation2RessourceName = Presentation2Ressource.FileName,
+                Presentation3RessourceName = Presentation3Ressource.FileName
             };
         }
 
