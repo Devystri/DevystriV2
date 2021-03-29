@@ -34,7 +34,7 @@ namespace Data.Models
         
         [DataType(DataType.ImageUrl, ErrorMessage = "Vous n'avez pas saisi un nom d'image correct.")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Vous n'avez pas saisi un nom de ressource correct")]
-        public string PresentationRessource { get; set; }
+        public string PresentationRessourceName { get; set; }
         
         public int Stat { get; set; }
     }

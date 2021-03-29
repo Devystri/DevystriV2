@@ -2,10 +2,10 @@
 @model Devystri.Pages.Admin.AddApplicationModel
 @{
 }
-@section Styles{ 
+@section Styles{
     <link rel="stylesheet" href="~/css/Pages/admin/AddProducts.css" />
 }
-@{ 
+@{
 
 
 }
@@ -38,11 +38,11 @@
             </ul>
         </nav>
         <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddApplication" asp-route-id="0">Ajouter une nouvelle application</a>
-        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" onclick="javascript: popup('Attention !', 'Voulez vous vraiment la/les supprimer ? @Model.Application.Name')" asp-page-handler="Delete"/>
+        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" onclick="javascript: popup('Attention !', 'Voulez vous vraiment la/les supprimer ? @Model.Application.Name')" asp-page-handler="Delete" />
     </form>
 </section>
 <section id="product-information">
-    <form method="post" enctype="multipart/form-data" >
+    <form method="post" enctype="multipart/form-data">
         <div id="fast-information">
             <div class="input-box">
                 <span>Nom de l'application</span>
@@ -70,18 +70,11 @@
             </div>
             <div id="input-logo" class="input-box">
                 <span>Logo</span>
-                <!-- Image Logo-->
-                @if (Model.Application.AppLogoName != null)
-                {
-                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" asp-for="Application.AppLogo" />@*Input logo*@
-                }
-                else
-                {
-                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" asp-for="Application.AppLogoName" />@*Input logo*@
 
-                }
+                <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Application.AppLogo" />@*Input logo*@
+
                 <img id="previewLogoAdd" src="~/upload/applications/@Model.Application.AppLogoName" />
-
+                <span asp-validation-for="Application.AppLogoName"></span>
             </div>
         </div>
         <div id="product-option">
@@ -132,7 +125,7 @@
                     <!-- Image de la fiche technique 2-->
                     <div class="additional-images-box">
                         <input type="file" name="file" id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" class="input-image-box" />
-                        <img class="blah" id="preview2"  />
+                        <img class="blah" id="preview2" />
                     </div>
                 </div>
             </div>
@@ -144,7 +137,7 @@
                 <div class="product-section">
                     <div class="section-image-box">
                         <span>Image</span>
-                            <input placeholder="Image" type="file" asp-for="Sections[i].ImageSrc" class="input-image-box" />
+                        <input placeholder="Image" type="file" asp-for="Sections[i].ImageSrc" class="input-image-box" />
                     </div>
                     <div class="input-box">
                         <span>Titre</span>
@@ -156,11 +149,14 @@
             </div>
         }
 
-            <a class="add-products-nav-button">Ajouter une nouvelle section</a>
-        </form>
+        <a class="add-products-nav-button">Ajouter une nouvelle section</a>
+    </form>
 </section>
 
-@section Scripts{ 
+@section Scripts{
     <script src="~/js/Pages/admin/ImageImporter.js"></script>
-    <script src="~/js/popup.js"></script>
+    <environment include="Development">
+        <script src="~/js/popup.js"></script>
+
+    </environment>
 } 

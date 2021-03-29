@@ -1,10 +1,7 @@
-﻿using Data.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using Data.Models;
 using Devystri.Modules;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Devystri.Model.Admin
 {
@@ -27,14 +24,14 @@ namespace Devystri.Model.Admin
             AppStoreLink = application.AppStoreLink;
             PlayStoreLink = application.PlayStoreLink;
             AppLogoName = application.AppLogoName;
-            PresentationRessourceName = application.PresentationRessource;
+            PresentationRessourceName = application.PresentationRessourceName;
         }
-        public Application ToApplication()
+        public Application ToApplication(Application application)
         {
             return new Application()
             {
                 Id = Id,
-                AppLogoName = AppLogo.FileName,
+                AppLogoName = (application.AppLogoName == AppLogoName)? (AppLogoName):(application.AppLogoName),
                 AppStoreLink = AppStoreLink,
                 Description = Description,
                 IsOnAppStore = IsOnAppStore,
@@ -43,15 +40,54 @@ namespace Devystri.Model.Admin
                 MinAge = MinAge,
                 Name = Name,
                 PlayStoreLink = PlayStoreLink,
-                PresentationRessource = ""
+                PresentationRessourceName = (application.PresentationRessourceName == PresentationRessourceName) ? (PresentationRessourceName) : (application.PresentationRessourceName)
             };
         }
+        public Application ToApplication()
+        {
+            return new Application()
+            {
+                Id = Id,
+                AppLogoName = AppLogo.Name,
+                AppStoreLink = AppStoreLink,
+                Description = Description,
+                IsOnAppStore = IsOnAppStore,
+                IsOnPlayStore = IsOnPlayStore,
+                Languages = Languages,
+                MinAge = MinAge,
+                Name = Name,
+                PlayStoreLink = PlayStoreLink,
+                PresentationRessourceName = PresentationRessource.FileName
+            };
+        }
+
+        public string ImageName(IFormFile file, string actualName, ImageImport imageImport)
+        {
+            if (file is not null)
+            {
+                if (actualName != file.FileName)
+                {
+                    actualName = file.FileName;
+                    imageImport.Delete(actualName);
+                }
+
+            }
+
+            return actualName;
+        }
+
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
+        [Required]
         public int MinAge { get; set; }
+        [Required]
         public string Languages { get; set; }
+        [Required]
         public bool IsOnAppStore { get; set; }
+        [Required]
         public bool IsOnPlayStore { get; set; }
 
         public string AppStoreLink { get; set; }

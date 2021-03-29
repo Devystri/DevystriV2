@@ -50,32 +50,35 @@ namespace Devystri.Pages.Admin
 
         public void OnPost()
         {
+            ListApp = dbContext.Applications.ToList();
+
             imageImport.Import(HttpContext.Request.Form.Files);
             if (ListApp.Exists(item => item.Id == Application.Id))
             {
-                var app = dbContext.Applications.First(item => item.Id == Application.Id);
-                app.AppLogoName = Application.AppLogo.FileName;
-                app.AppStoreLink = Application.AppStoreLink;
-                app.Description = Application.Description;
-                app.IsOnAppStore = Application.IsOnAppStore;
-                app.IsOnPlayStore = Application.IsOnPlayStore;
-                app.Languages = Application.Languages;
-                app.MinAge = Application.MinAge;
-                app.Name = Application.Name;
-                app.PlayStoreLink = Application.PlayStoreLink;
-                app.PresentationRessource = Application.PresentationRessource.FileName;
+                var toEdit = ListApp.FirstOrDefault(item => item.Id == Application.Id);
+                if(toEdit != null)
+                {
+                    toEdit.Name = Application.Name;
+                    toEdit.Languages = Application.Languages;
+                    toEdit.Description = Application.Description;
+                    toEdit.AppStoreLink = Application.AppStoreLink;
+                    toEdit.PresentationRessourceName = "";
+                    toEdit.AppLogoName = Application.ImageName(Application.AppLogo, toEdit.AppLogoName, imageImport);
+                    dbContext.Applications.Update(toEdit);
+                }
+                
             }
             else
             {
                 var app = Application.ToApplication();
-                dbContext.Applications.Update(app);
+                dbContext.Applications.Add(app);
+
             }
-            _ = HttpContext.Request.Form.Files;
             dbContext.SaveChanges();
             LoadPage();
         }
 
-  
+
 
         public IActionResult OnPostDelete()
         {

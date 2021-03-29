@@ -1,20 +1,22 @@
 [
-  //{
-  //  "outputFileName": "wwwroot/css/site.min.css",
-  //  "inputFiles": [
-  //    "wwwroot/css/site.css",
-  //    "wwwroot/css/HTMLElements/footer.css",
-  //    "wwwroot/css/HTMLElements/header.css"
-  //  ],
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+        "wwwroot/css/site.css",
+        "wwwroot/css/HTMLElements/footer.css",
+        "wwwroot/css/HTMLElements/header.css"
+      ]
+  //,
   //  "minify": {
   //    "enabled": false,
   //    "commentMode": "all"
   //  }
-  //},
+  },
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
-      "wwwroot/js/site.js"
+      "wwwroot/js/site.js",
+      "wwwroot/js/popup.js"
     ],
     "minify": {
       "enabled": true,

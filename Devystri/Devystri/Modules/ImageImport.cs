@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Http;
 using SixLabors.ImageSharp;
 
@@ -28,7 +29,19 @@ namespace Devystri.Modules
             return true;
 
         }
-    
+
+        public bool Delete(string name)
+        {
+            try
+            {
+                File.Delete(Path + name);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }
