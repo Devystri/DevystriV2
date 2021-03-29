@@ -92,10 +92,17 @@ namespace Devystri.Model.Admin
 
         public string AppStoreLink { get; set; }
         public string PlayStoreLink { get; set; }
+
         public IFormFile AppLogo { get; set; }
         public string AppLogoName { get; set; }
 
         public IFormFile PresentationRessource { get; set; }
         public string PresentationRessourceName { get; set; }
+
+        public IFormFile Presentation2Ressource { get; set; }
+        public string Presentation2RessourceName { get; set; }
+
+        public IFormFile Presentation3Ressource { get; set; }
+        public string Presentation3RessourceName { get; set; }
     }
 }

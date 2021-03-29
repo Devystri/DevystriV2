@@ -51,8 +51,7 @@ namespace Devystri.Pages.Admin
         public void OnPost()
         {
             ListApp = dbContext.Applications.ToList();
-
-            imageImport.Import(HttpContext.Request.Form.Files);
+         
             if (ListApp.Exists(item => item.Id == Application.Id))
             {
                 var toEdit = ListApp.FirstOrDefault(item => item.Id == Application.Id);
@@ -62,8 +61,11 @@ namespace Devystri.Pages.Admin
                     toEdit.Languages = Application.Languages;
                     toEdit.Description = Application.Description;
                     toEdit.AppStoreLink = Application.AppStoreLink;
-                    toEdit.PresentationRessourceName = "";
+                    toEdit.PresentationRessourceName = Application.ImageName(Application.PresentationRessource, toEdit.PresentationRessourceName, imageImport);
                     toEdit.AppLogoName = Application.ImageName(Application.AppLogo, toEdit.AppLogoName, imageImport);
+                    toEdit.Presentation2RessourceName = Application.ImageName(Application.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
+                    toEdit.Presentation3RessourceName = Application.ImageName(Application.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
+
                     dbContext.Applications.Update(toEdit);
                 }
                 
@@ -73,6 +75,10 @@ namespace Devystri.Pages.Admin
                 var app = Application.ToApplication();
                 dbContext.Applications.Add(app);
 
+            }
+            if (!imageImport.Import(HttpContext.Request.Form.Files))
+            {
+                return;
             }
             dbContext.SaveChanges();
             LoadPage();
