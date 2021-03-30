@@ -102,13 +102,13 @@ namespace Devystri.Pages.Admin
             return RedirectToPage("/Admin/AddApplication");
         }
 
-        public void OnGetAddSection()
+        public void OnGetAddSection(int id)
         {
-            Console.WriteLine("dd");
             var newSection = new Section();
-            newSection.ProjectId = Application.Id;
+            newSection.ProjectId = id;
             dbContext.Sections.Add(newSection);
             dbContext.SaveChanges();
+            LoadPage();
         }
 
         public void LoadPage()
