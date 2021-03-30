@@ -70,11 +70,10 @@
             </div>
             <div id="input-logo" class="input-box">
                 <span>Logo</span>
-
-                <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Application.AppLogo" />@*Input logo*@
-
-                <img id="previewLogoAdd" src="~/upload/applications/@Model.Application.AppLogoName" />
-  
+                <div class="image-box">
+                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Application.AppLogo" />@*Input logo*@
+                    <img id="previewLogoAdd" src="~/upload/applications/@Model.Application.AppLogoName" />
+                </div>
             </div>
         </div>
         <div id="product-option">
@@ -110,9 +109,10 @@
             <div class="input-box">
                 <span>Image de la page application </span>
                 <!-- Image de la page application-->
-                <input id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="Application.PresentationRessource" class="input-image-box" />
-                <img id="previewApp" class="blah" src="~/upload/applications/@Model.Application.PresentationRessourceName" />
-         
+                <div class="image-box">
+                    <input id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="Application.PresentationRessource" class="input-image-box" />
+                    <img id="previewApp" class="blah" src="~/upload/applications/@Model.Application.PresentationRessourceName" />
+                </div>
             </div>
             <div class="input-box">
                 <span>Images qui entoure la fiche technique de l'application</span>
@@ -133,12 +133,14 @@
         @for (int i = 0; i < Model.Sections.Count; i++)
         {
             <div class="section">
-                <span class="section-number">@(i + 1)</span>
+                <span class="section-number">Section @(i + 1)</span>
                 <div class="product-section">
                     <div class="section-image-box">
                         <span>Image</span>
-                        <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
-                        <img class="blah" id="preview@(i+3)" src="~/upload/applications/@Model.Sections[i].ImageSrc" />
+                        <div class="image-box">
+                            <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
+                            <img class="blah" id="preview@(i+3)" src="~/upload/applications/@Model.Sections[i].ImageSrc" />
+                        </div>
                     </div>
                     <div class="input-box">
                         <span>Titre</span>

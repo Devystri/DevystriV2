@@ -45,10 +45,14 @@ input::-webkit-file-upload-button {
             cursor: grabbing;
         }
 
-        .product-id-nav {
-            margin-right: 30px;
-            font-weight: 500;
-        }
+.product-id-nav {
+    margin-right: 30px;
+    font-weight: 500;
+    margin-right: 30px;
+    font-weight: 500;
+    color: var(--dark-blue);
+    font-size: 20px;
+}
 
 #nav-products{
     height: 60vh;
@@ -57,6 +61,7 @@ input::-webkit-file-upload-button {
 .product-name-nav {
     font-size: 20px;
     font-weight: 500;
+    color: var(--dark-blue);
 }
 
 .product-checkbox-nav {
@@ -90,6 +95,7 @@ input::-webkit-file-upload-button {
     font-size: 17px;
     background: var(--grey-blue);
     max-width: 349px;
+    text-decoration : none;
 }
 
 #add-new-product {
@@ -135,10 +141,11 @@ input::-webkit-file-upload-button {
     margin: 0 16px;
     max-width: 662px;
 }
-        .input-box span{
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
+    .input-box span {
+        margin: 10px 0;
+        font-weight: 500;
+        color: var(--dark-blue);
+    }
 
 
     .input-box input {
@@ -186,7 +193,6 @@ input[type=file] {
     max-width: 300px;
     display: flex;
     align-self: center;
-    margin-top: 19px;
     z-index: -1;
     background-image: url(/Assets/elements/addPicture.svg);
     background-repeat: no-repeat;
@@ -200,13 +206,13 @@ input[type=file] {
     position: absolute;
     display: flex;
     align-self: center;
-    margin-top: 14px;
     z-index: -1;
     width: 144px;
     border-radius: 15px;
     background-image: url(/Assets/elements/addPicture.svg);
     background-repeat: no-repeat;
     background-position: center;
+    min-height: 96px;
 
 }
 
@@ -340,7 +346,7 @@ select[name=product-condition] {
     height: 245px;
     margin: 0 20px;
     border-radius: 15px;
-    border: solid 1px #073965;
+    border: solid 2px var(--admin-blue);
     outline: none;
 }
 
@@ -364,9 +370,10 @@ select[name=product-condition] {
     width: 100%;
 }
 
-.section-number{
+.section-number {
     font-weight: bold;
     font-size: 25px;
+    color: var(--dark-blue);
 }
 
 .section-image-box {
@@ -374,20 +381,26 @@ select[name=product-condition] {
     flex-direction: column;
 }
 
-    .section-image-box span {
-        margin-left: 20px;
-        margin-bottom: 10px;
-        font-size: 17px;
-    }
+.image-box {
+    display: flex;
+    justify-content: center;
+}
+
+.section-image-box span {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: var(--dark-blue);
+}
 
 .product-section textarea {
     max-width: 97%;
     min-width: 97%;
     min-height: 142px;
     border-radius: 15px;
-    border: solid 1px #073965;
     outline: none;
     padding: 10px;
+    border: solid 2px var(--admin-blue);
 }
 
          /* min-width: 662px; */

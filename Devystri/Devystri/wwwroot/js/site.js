@@ -54,22 +54,6 @@ $('main').click(function () {
 // Scroll for header
 
 
-
-//$(function () {
-//    $(window).scroll(function () {
-//        if (!$('#header').is(':animated')) {
-//            if ($(window).scrollTop() >= 300) {
-//                $('#header').animate({ height: 58 }, 200);
-//                //$('#header').animate({fontSize: "15px"}, 200);
-
-//            } else {
-//                $('#header').animate({ height: 71 }, 200);
-//                //$('#header').animate({ fontSize: "18px" }, 200);
-//            }
-//        }
-//    });
-//});
-
 $(function () {
     var headerSize = $('#header').height()
 
