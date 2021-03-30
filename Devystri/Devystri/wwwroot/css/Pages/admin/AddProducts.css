@@ -376,6 +376,64 @@ select[name=product-condition] {
     color: var(--dark-blue);
 }
 
+
+.delete-section {
+    width: 25px;
+    height: 25px;
+    background-color: #E23A3A;
+    display: inline-flex;
+    position: absolute;
+    margin: 0 20px;
+    border-radius: 13px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -1px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.delete-section:before{
+    content: "--";
+}
+
+    .delete-section:hover {
+        animation: hover-delete-section 0.3s forwards;
+    }
+        .delete-section:hover::before {
+            animation: hover-delete-section 0.3s forwards;
+            -webkit-animation: hover-delete-section 0.3s forwards;
+        }
+
+    @keyframes hover-delete-section {
+        from {
+            width: 25px;
+            content: "--";
+            letter-spacing: -1px;
+        }
+
+        to {
+            width: 131px;
+            content: "Supprimer";
+            letter-spacing: 0.5px;
+        }
+    }
+
+@-webkit-keyframes hover-delete-section{
+    from {
+        width: 25px;
+        content: "--";
+        letter-spacing: -1px;
+    }
+
+    to {
+        width: 131px;
+        content: "Supprimer";
+        letter-spacing: 0.5px;
+    }
+}
+
 .section-image-box {
     display: flex;
     flex-direction: column;
@@ -410,6 +468,7 @@ select[name=product-condition] {
     height: 33px;
     width: 97% !important;
     max-width: 662px !important;
+    cursor: auto !important;
 }
 
 /* Screen 1500px */
