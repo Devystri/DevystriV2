@@ -26,7 +26,7 @@ namespace Devystri.Pages.Admin
         [BindProperty]
         public ApplicationImportModel Application { get; set; }
         [BindProperty]
-        public List<Section> Sections { get; set; }
+        public List<SectionImport> Sections { get; set; }
         [BindProperty]
         public List<Application> ListApp { get; set; }
         [BindProperty]
@@ -61,13 +61,21 @@ namespace Devystri.Pages.Admin
                     toEdit.Languages = Application.Languages;
                     toEdit.Description = Application.Description;
                     toEdit.AppStoreLink = Application.AppStoreLink;
-                    toEdit.PresentationRessourceName = Application.ImageName(Application.PresentationRessource, toEdit.PresentationRessourceName, imageImport);
-                    toEdit.AppLogoName = Application.ImageName(Application.AppLogo, toEdit.AppLogoName, imageImport);
-                    toEdit.Presentation2RessourceName = Application.ImageName(Application.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
-                    toEdit.Presentation3RessourceName = Application.ImageName(Application.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
+                    toEdit.PresentationRessourceName = ImportTools.ImageName(Application.PresentationRessource, toEdit.PresentationRessourceName, imageImport);
+                    toEdit.AppLogoName = ImportTools.ImageName(Application.AppLogo, toEdit.AppLogoName, imageImport);
+                    toEdit.Presentation2RessourceName = ImportTools.ImageName(Application.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
+                    toEdit.Presentation3RessourceName = ImportTools.ImageName(Application.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
 
                     dbContext.Applications.Update(toEdit);
+
+                    foreach (var item in Sections)
+                    {
+                        item.ImageSrc = ImportTools.ImageName(item.Image, item.ImageSrc, imageImport);
+                        dbContext.Sections.Update(item.ToSection());
+                    }
+                    
                 }
+
                 
             }
             else
@@ -108,6 +116,7 @@ namespace Devystri.Pages.Admin
             newSection.ProjectId = id;
             dbContext.Sections.Add(newSection);
             dbContext.SaveChanges();
+            AppId = id;
             LoadPage();
         }
 
@@ -118,7 +127,7 @@ namespace Devystri.Pages.Admin
             if (AppId == 0)
             {
                 Application = new ApplicationImportModel();
-                Sections = new List<Section>();
+                Sections = new List<SectionImport>();
             }
             else
             {
@@ -126,12 +135,12 @@ namespace Devystri.Pages.Admin
                 {
 
                     Application = new ApplicationImportModel(ListApp.First(item => item.Id == AppId));
-                    Sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
+                    Sections = ImportTools.ToSectionImportList(dbContext.Sections.Where(item => item.ProjectId == AppId).ToList());
 
                 }
                 else
                 {
-                    Sections = new List<Section>();
+                    Sections = new List<SectionImport>();
                     Application = new ApplicationImportModel();
                     AppId = 0;
                 }

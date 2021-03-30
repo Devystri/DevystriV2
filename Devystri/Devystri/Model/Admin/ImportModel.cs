@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Data.Models;
 using Devystri.Modules;
 using Microsoft.AspNetCore.Http;
@@ -28,23 +29,7 @@ namespace Devystri.Model.Admin
             Presentation2RessourceName = application.Presentation2RessourceName;
             Presentation3RessourceName = application.Presentation3RessourceName;
         }
-        public Application ToApplication(Application application)
-        {
-            return new Application()
-            {
-                Id = Id,
-                AppLogoName = (application.AppLogoName == AppLogoName)? (AppLogoName):(application.AppLogoName),
-                AppStoreLink = AppStoreLink,
-                Description = Description,
-                IsOnAppStore = IsOnAppStore,
-                IsOnPlayStore = IsOnPlayStore,
-                Languages = Languages,
-                MinAge = MinAge,
-                Name = Name,
-                PlayStoreLink = PlayStoreLink,
-                PresentationRessourceName = (application.PresentationRessourceName == PresentationRessourceName) ? (PresentationRessourceName) : (application.PresentationRessourceName)
-            };
-        }
+   
         public Application ToApplication()
         {
             return new Application()
@@ -65,20 +50,7 @@ namespace Devystri.Model.Admin
             };
         }
 
-        public string ImageName(IFormFile file, string actualName, ImageImport imageImport)
-        {
-            if (file is not null)
-            {
-                if (actualName != file.FileName)
-                {
-                    actualName = file.FileName;
-                    imageImport.Delete(actualName);
-                }
 
-            }
-
-            return actualName;
-        }
 
         public int Id { get; set; }
         [Required]
@@ -108,5 +80,74 @@ namespace Devystri.Model.Admin
 
         public IFormFile Presentation3Ressource { get; set; }
         public string Presentation3RessourceName { get; set; }
+    }
+
+
+    public class SectionImport
+    {
+        public SectionImport()
+        {
+
+        }
+
+        public SectionImport(Section section)
+        {
+            Id = section.Id;
+            ProjectId = section.ProjectId;
+            Title = section.Title;
+            Description = section.Description;
+            ImageSrc = section.ImageSrc;
+        }
+
+        public Section ToSection()
+        {
+            return new Section()
+            {
+                Id = Id,
+                ProjectId = ProjectId,
+                ImageSrc = ImageSrc,
+                Description = Description,
+                Title = Title
+
+            };
+
+        }
+
+        public int Id { get; set; }
+
+        public int ProjectId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ImageSrc { get; set; }
+        public IFormFile Image { get; set; }
+    }
+
+    public static class ImportTools
+    {
+        public static string ImageName(IFormFile file, string actualName, ImageImport imageImport)
+        {
+            if (file is not null)
+            {
+                if (actualName != file.FileName)
+                {
+                    actualName = file.FileName;
+                    imageImport.Delete(actualName);
+                }
+
+            }
+
+            return actualName;
+        }
+
+       public static List<SectionImport> ToSectionImportList(List<Section> list)
+        {
+            List<SectionImport> sectionImports = new List<SectionImport>();
+            foreach (var item in list)
+            {
+                sectionImports.Add(new SectionImport(item));
+            }
+
+            return sectionImports;
+        }
     }
 }

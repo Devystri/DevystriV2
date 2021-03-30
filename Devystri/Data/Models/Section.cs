@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-
 namespace Data.Models
 {
     public class Section
@@ -15,4 +14,5 @@ namespace Data.Models
         public string Description{ get; set; }
         public string ImageSrc{ get; set; }
     }
+
 }
