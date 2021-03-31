@@ -1,4 +1,6 @@
-﻿/* about-devystri */
+﻿
+
+/* about-devystri */
 
 .about-part {
     width: 100%;
@@ -8,12 +10,13 @@
     align-items: center;
     text-align: center;
     color: var(--dark-blue);
+    min-height: 600px;
+    justify-content: center;
 }
 
 .about-title {
     font-size: min(max(161px), 13vw);
     font-weight: bold;
-    margin-top: 217px;
 }
 
 .about-description {

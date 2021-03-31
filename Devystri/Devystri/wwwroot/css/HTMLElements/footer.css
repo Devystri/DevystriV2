@@ -85,6 +85,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.2s;
 }
     .social-networks img {
         width: 69%;
@@ -92,18 +93,9 @@ footer {
     }
 
     .social-networks:hover {
-        animation: social-networks-hover 0.2s forwards;
-    }
-
-@keyframes social-networks-hover {
-    from {
-        background-color: var(--light-blue);
-    }
-
-    to {
         background-color: var(--very-light-blue);
     }
-}
+
 
 
     /* divider bar */
