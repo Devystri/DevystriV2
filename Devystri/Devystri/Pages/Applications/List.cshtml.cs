@@ -17,17 +17,13 @@ namespace Devystri.Pages.Applications
         public ListModel(MyDbContext context)
         {
             dbContext = context;
-            foreach (var item in dbContext.Applications.ToList())
-            {
-                dbContext.Applications.Remove(item);
-
-            }
-            
-            applications = dbContext.Applications.ToList();
+      
         }
 
         public void OnGet()
         {
+ 
+            applications = dbContext.Applications.ToList();
         }
     }
 }

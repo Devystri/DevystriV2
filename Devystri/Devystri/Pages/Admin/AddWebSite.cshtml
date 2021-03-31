@@ -13,7 +13,7 @@
             {
                 <li class="add-products-nav-element">
                     <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
-                    <a asp-area="" asp-page="/Admin/AddApplication" asp-route-id="@app.Id" style="text-decoration: none">
+                    <a asp-area="" asp-page="/Admin/AddWebsite" asp-route-id="@app.Id" style="text-decoration: none">
                         <span class="product-id-nav">@app.Id</span>
                         <span class="product-name-nav">@app.Name</span>
                     </a>
@@ -42,7 +42,7 @@
         <div id="fast-information">
             <div class="input-box">
                 <span>Nom du SiteWeb</span>
-                <input placeholder="Nom du SiteWeb" asp-for="WebSite.Name"/>
+                <input placeholder="Nom du SiteWeb" asp-for="WebSite.Name" />
                 @if (Model.WebSite.Id != 0)
                 {
                     <input asp-for="WebSite.Id" hidden />
@@ -73,7 +73,7 @@
         <div id="product-option">
             <div id="website-link" class="input-box">
                 <span>Lien du SiteWeb</span>
-                <input type="url" placeholder="Lien du SiteWeb" />
+                <input type="url" placeholder="Lien du SiteWeb" asp-for="WebSite.Link" />
             </div>
             <div id="product-condition" class="input-box">
                 <span>Statue du projet</span>
@@ -88,14 +88,22 @@
         </div>
         <div id="first-image-product">
             <div class="input-box">
-                <span>Image de la page application </span>
-                <input placeholder="Image de la page application" type="file" class="input-image-box" />
+                <input id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="WebSite.PresentationRessource" class="input-image-box" />
+                <img id="previewApp" class="blah" src="~/upload/websites/@Model.WebSite.PresentationRessourceName" />
             </div>
             <div class="input-box">
                 <span>Images qui entoure la fiche technique de l'application</span>
                 <div id="images-fact-sheet">
-                    <input placeholder="Image de la fiche technique" type="file" class="input-image-box" />
-                    <input placeholder="Image de la fiche technique" type="file" class="input-image-box" />
+                    <!-- Image de la fiche technique 1-->
+                    <div class="additional-images-box">
+                        <input id="file1" accept="image/*" onchange="javascript: previewImage(this, 'preview')" asp-for="WebSite.Presentation2Ressource" class="input-image-box" />
+                        <img class="blah" id="preview" src="~/upload/websites/@Model.WebSite.Presentation2RessourceName" />
+                    </div>
+                    <!-- Image de la fiche technique 2-->
+                    <div class="additional-images-box">
+                        <input id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" asp-for="WebSite.Presentation3Ressource" class="input-image-box" />
+                        <img class="blah" id="preview2" src="~/upload/websites/@Model.WebSite.Presentation3RessourceName" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,25 +122,37 @@
                 </div>
             </div>
         </div>
-        <div class="section">
-            <span class="section-number">Section 2</span>
-            <div class="product-section">
-                <div class="section-image-box">
-                    <span>Image</span>
-                    <input placeholder="Image" type="file" class="input-image-box" />
-                </div>
-                <div class="input-box">
-                    <span>Titre</span>
-                    <input placeholder="Titre" class="section-title" />
-                    <span>Description</span>
-                    <textarea placeholder="Description"></textarea>
+        @for (int i = 0; i < Model.Sections.Count; i++)
+        {
+            <div class="section">
+                <span class="section-number">Section @(i + 1)</span>
+                <a title="Supprimer la section" href="#" class="delete-section"></a> <!--Delete section button-->
+                <div class="product-section">
+                    <div class="section-image-box">
+                        <span>Image</span>
+                        <div class="image-box">
+                            <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
+                            <img class="blah" id="preview@(i+3)" src="~/upload/applications/@Model.Sections[i].ImageSrc" />
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input asp-for="Sections[i].Id" hidden />
+                        <span>Titre</span>
+                        <input placeholder="Titre" class="section-title" asp-for="Sections[i].Title" />
+                        <span>Description</span>
+                        <textarea placeholder="Description" asp-for="Sections[i].Description"></textarea>
+                    </div>
                 </div>
             </div>
-        </div>
-        <a class="add-products-nav-button">Ajouter une nouvelle section</a>
+        }
+        <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
     </form>
 </section>
 
 @section Scripts{
+    <script src="~/js/Pages/admin/ImageImporter.js"></script>
+    <environment include="Development">
+        <script src="~/js/popup.js"></script>
 
+    </environment>
 } 
