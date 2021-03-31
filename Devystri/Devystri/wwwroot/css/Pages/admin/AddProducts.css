@@ -394,45 +394,39 @@ select[name=product-condition] {
     font-size: 13px;
 }
 
-.delete-section:before{
-    content: "--";
-}
+    .delete-section:before {
+        content: "--";
+    }
 
     .delete-section:hover {
         animation: hover-delete-section 0.3s forwards;
     }
         .delete-section:hover::before {
-            animation: hover-delete-section 0.3s forwards;
-            -webkit-animation: hover-delete-section 0.3s forwards;
+            animation: hover-delete-section-before 0.3s forwards;
         }
 
     @keyframes hover-delete-section {
         from {
             width: 25px;
-            content: "--";
             letter-spacing: -1px;
         }
 
         to {
             width: 131px;
-            content: "Supprimer";
             letter-spacing: 0.5px;
+        }
+
+    }
+    @keyframes hover-delete-section-before {
+        from {
+            content: "--";
+        }
+
+        to {
+            content: "Supprimer";
         }
     }
 
-@-webkit-keyframes hover-delete-section{
-    from {
-        width: 25px;
-        content: "--";
-        letter-spacing: -1px;
-    }
-
-    to {
-        width: 131px;
-        content: "Supprimer";
-        letter-spacing: 0.5px;
-    }
-}
 
 .section-image-box {
     display: flex;
@@ -449,6 +443,7 @@ select[name=product-condition] {
     margin-bottom: 10px;
     font-size: 17px;
     color: var(--dark-blue);
+    font-weight: 500;
 }
 
 .product-section textarea {
@@ -467,7 +462,6 @@ select[name=product-condition] {
     padding: 10px;
     height: 33px;
     width: 97% !important;
-    max-width: 662px !important;
     cursor: auto !important;
 }
 
@@ -515,6 +509,9 @@ select[name=product-condition] {
     #input-description {
         width: 76%;
     }
+    .input-box{
+        max-width: none;
+    }
     .input-box input {
         max-width: none;
     }
@@ -546,6 +543,20 @@ select[name=product-condition] {
     select[name=product-condition]{
         width: 90%;
     }
+    .delete-section {
+        position: initial;
+        width: 131px;
+        letter-spacing: 0.5px;
+    }
+        .delete-section:hover {
+            animation: none;
+        }
+        .delete-section:before {
+            content: "Supprimer";
+        }
+        .delete-section:hover::before {
+            animation: none;
+        }
     #first-image-product {
         flex-direction: column;
         align-items: center;
@@ -566,12 +577,17 @@ select[name=product-condition] {
     }
     .product-section {
         flex-direction: column;
+        width: 92%;
     }
     .section {
         display: flex;
         text-align-last: center;
         flex-direction: column;
         align-items: center;
+    }
+    .section-image-box span {
+        margin-left: 0;
+        text-align: center;
     }
     .section-title {
         width: 94% !important;
