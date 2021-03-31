@@ -50,12 +50,19 @@ namespace Devystri.Pages.Admin
 
         public void OnPost()
         {
+            AppId = Application.Id;
+            SaveApp();
+            LoadPage();
+        }
+
+        public void SaveApp()
+        {
             ListApp = dbContext.Applications.ToList();
-         
+
             if (ListApp.Exists(item => item.Id == Application.Id))
             {
                 var toEdit = ListApp.FirstOrDefault(item => item.Id == Application.Id);
-                if(toEdit != null)
+                if (toEdit != null)
                 {
                     toEdit.Name = Application.Name;
                     toEdit.Languages = Application.Languages;
@@ -67,16 +74,20 @@ namespace Devystri.Pages.Admin
                     toEdit.Presentation3RessourceName = ImportTools.ImageName(Application.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
 
                     dbContext.Applications.Update(toEdit);
-
+                    var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
                     foreach (var item in Sections)
                     {
-                        item.ImageSrc = ImportTools.ImageName(item.Image, item.ImageSrc, imageImport);
-                        dbContext.Sections.Update(item.ToSection());
+                       
+                        var el = sections.FirstOrDefault(el => item.Id == el.Id);
+                        el.Description = item.Description;
+                        el.ImageSrc = ImportTools.ImageName(item.Image, item.ImageSrc, imageImport);
+                        el.Title = item.Title;
+                        dbContext.Sections.Update(el);
                     }
-                    
+
                 }
 
-                
+
             }
             else
             {
@@ -89,7 +100,6 @@ namespace Devystri.Pages.Admin
                 return;
             }
             dbContext.SaveChanges();
-            //LoadPage();
         }
 
 
