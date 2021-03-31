@@ -183,6 +183,7 @@ input::-webkit-file-upload-button {
 }
 input[type=file] {
     color: transparent;
+    cursor: pointer;
 
 }
 
