@@ -8,6 +8,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\js\HTMLElements\header.js" />
     <Content Remove="wwwroot\js\HTMLElements\JavaScript.js" />
+    <Content Remove="wwwroot\upload\applications\Gromard-Alexys.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
     <Folder Include="wwwroot\Assets\Objects3D\" />
     <Folder Include="wwwroot\upload\applications\" />
     <Folder Include="Modules\" />
+    <Folder Include="wwwroot\upload\websites\" />
   </ItemGroup>
 
   <ItemGroup>

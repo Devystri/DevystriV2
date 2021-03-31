@@ -26,7 +26,7 @@ namespace Devystri.Pages.Web_Sites
                 AppLogoName = "Logo-whatIsIt.svg",
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.",
                 Link = "http://what-is-it.fr/",
-                PresentationRessource = "WhatIsItMacbook.png",
+                PresentationRessourceName = "WhatIsItMacbook.png",
                 Stat = (int)Stats.CANCEL
             });
             context.SaveChanges();

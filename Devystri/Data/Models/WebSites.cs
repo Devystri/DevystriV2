@@ -27,9 +27,23 @@ namespace Data.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Veuillez spécifier une nom de logo.")]
         public string AppLogoName { get; set; }
 
-        [DataType(DataType.ImageUrl, ErrorMessage = "Veuillez une ressource.")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Veuillez une ressource.")]
-        public string PresentationRessource{ get; set; }
+        public string Language { get; set; }
+
+        public int MinAge { get; set; }
+
+
+        [DataType(DataType.ImageUrl, ErrorMessage = "Vous n'avez pas saisi un nom d'image correct.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Vous n'avez pas saisi un nom de ressource correct")]
+        public string PresentationRessourceName { get; set; }
+
+        [DataType(DataType.ImageUrl, ErrorMessage = "Vous n'avez pas saisi un nom d'image correct.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Vous n'avez pas saisi un nom de ressource correct")]
+        public string Presentation2RessourceName { get; set; }
+
+        [DataType(DataType.ImageUrl, ErrorMessage = "Vous n'avez pas saisi un nom d'image correct.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Vous n'avez pas saisi un nom de ressource correct")]
+        public string Presentation3RessourceName { get; set; }
+
         [Required]
         public int Stat { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id=0}"
 @model Devystri.Pages.Admin.AddWebSiteModel
 @{
 }
@@ -9,48 +9,65 @@
 <section id="add-products-nav">
     <nav id="nav-products">
         <ul>
-            <li class="add-products-nav-element">
-                <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
-                <span class="product-id-nav">1</span>
-                <span class="product-name-nav">Motivation</span>
-                <input class="product-checkbox-nav" type="checkbox" />
-            </li>
-            <li class="add-products-nav-element">
-                <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
-                <span class="product-id-nav">2</span>
-                <span class="product-name-nav">HomeConnect</span>
-                <input class="product-checkbox-nav" type="checkbox" />
-            </li>
+            @foreach (var app in Model.ListWebSites)
+            {
+                <li class="add-products-nav-element">
+                    <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
+                    <a asp-area="" asp-page="/Admin/AddApplication" asp-route-id="@app.Id" style="text-decoration: none">
+                        <span class="product-id-nav">@app.Id</span>
+                        <span class="product-name-nav">@app.Name</span>
+                    </a>
+                    @if (app.Id == Model.AppId)
+                    {
+                        <input name="@app.Id" class="product-checkbox-nav" type="checkbox" checked />
+
+                    }
+                    else
+                    {
+                        <input name="@app.Id" class="product-checkbox-nav" type="checkbox" />
+
+                    }
+                </li>
+
+            }
         </ul>
     </nav>
-    <a class="add-products-nav-button" id="add-new-product">Ajouter une nouvelle application</a>
+
+    <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddWebSite" asp-route-id="0">Ajouter une nouvelle application</a>
+
     <a class="add-products-nav-button" id="delete-product">Supprimer l'application</a>
 </section>
 <section id="product-information">
-    <form>
+    <form method="post" enctype="multipart/form-data">
         <div id="fast-information">
             <div class="input-box">
                 <span>Nom du SiteWeb</span>
-                <input placeholder="Nom du SiteWeb" />
+                <input placeholder="Nom du SiteWeb" asp-for="WebSite.Name"/>
+                @if (Model.WebSite.Id != 0)
+                {
+                    <input asp-for="WebSite.Id" hidden />
+
+                }
             </div>
             <div class="input-box">
                 <span>Âge minimum</span>
-                <input placeholder="Âge minimum" />
+                <input placeholder="Âge minimum" asp-for="WebSite.MinAge" />
             </div>
             <div class="input-box">
                 <span>Langue(s)</span>
-                <input placeholder="Langues(s)" />
+                <input placeholder="Langues(s)" asp-for="WebSite.Language" />
             </div>
-            <input id="button-submite-product" type="submit" value="Modifier" /> @*Boutton send*@
+            <input id="button-submite-product" type="submit" value="Sauvegarder" /> @*Boutton send*@
         </div>
         <div id="description-logo">
             <div id="input-description" class="input-box">
                 <span>Description</span>
-                <textarea placeholder="Description"></textarea>
+                <textarea placeholder="Description" asp-for="WebSite.Description"></textarea>
             </div>
             <div id="input-logo" class="input-box">
-                <span>Logo</span>
-                <input placeholder="Logo" type="file" /> @*Input logo*@
+                <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="WebSite.AppLogo" />@*Input logo*@
+                <img id="previewLogoAdd" src="~/upload/websites/@Model.WebSite.AppLogoName" />
+
             </div>
         </div>
         <div id="product-option">
