@@ -108,7 +108,7 @@
                 <!-- Image de la page application-->
                 <div class="image-box">
                     <input id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="Application.PresentationRessource" class="input-image-box" />
-                    <img id="previewApp" class="blah" src="~/upload/applications/@Model.Application.PresentationRessourceName" />
+                    <img alt="" id="previewApp" class="blah" src="~/upload/applications/@Model.Application.PresentationRessourceName" />
                 </div>
             </div>
             <div class="input-box">
@@ -117,12 +117,12 @@
                     <!-- Image de la fiche technique 1-->
                     <div class="additional-images-box">
                         <input id="file1" accept="image/*" onchange="javascript: previewImage(this, 'preview')" asp-for="Application.Presentation2Ressource" class="input-image-box" />
-                        <img class="blah" id="preview" src="~/upload/applications/@Model.Application.Presentation2RessourceName" />
+                        <img alt="" class="blah" id="preview" src="~/upload/applications/@Model.Application.Presentation2RessourceName" />
                     </div>
                     <!-- Image de la fiche technique 2-->
                     <div class="additional-images-box">
                         <input id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" asp-for="Application.Presentation3Ressource" class="input-image-box" />
-                        <img class="blah" id="preview2" src="~/upload/applications/@Model.Application.Presentation3RessourceName" />
+                        <img alt="" class="blah" id="preview2" src="~/upload/applications/@Model.Application.Presentation3RessourceName" />
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                         <span>Image</span>
                         <div class="image-box">
                             <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
-                            <img class="blah" id="preview@(i+3)" src="~/upload/applications/@Model.Sections[i].ImageSrc" />
+                            <img alt="" class="blah" id="preview@(i+3)" src="~/upload/applications/@Model.Sections[i].ImageSrc" />
                         </div>
                     </div>
                     <div class="input-box">
