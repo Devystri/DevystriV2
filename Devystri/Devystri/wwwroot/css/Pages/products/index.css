@@ -41,7 +41,7 @@
     }
 
 .title-product { /*Title product*/
-    font-size: min(max(60px), 10vw);
+    font-size: min(max(45px), 10vw);
     margin-top: 20px;
 }
 
@@ -53,14 +53,14 @@
 }
 
     #product-features span {
-        font-size: min(max(19px), 4vw);
+        font-size: min(max(16px), 4vw);
         margin: 4px;
     }
 
 #product-description-text { /*Product description*/
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
-    width: 86%;
+    width: 70%;
     margin-top: 13px;
 }
 
@@ -137,16 +137,16 @@
 /*redirect-button*/
 
 .redirect-button {
-    max-width: 524px;
+    max-width: 440px;
     width: 100%;
-    height: 69px;
+    height: 56px;
     border-radius: 55px;
     background: var(--grey-blue);
     color: var(--white-button);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: bold;
     user-select: none;
 }
