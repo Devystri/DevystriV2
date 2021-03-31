@@ -11,7 +11,7 @@
 {
     <section id="website-@item.Name.Replace(' ', '-').ToLower()" class="section">
         <div class="left-part computer">
-            <device-viewer src="../Assets/Images/websiteList/@item.PresentationRessourceName" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
+            <device-viewer src="../upload/websites/@item.PresentationRessourceName" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
         </div>
         <div class="right-part">
             @if (item.Stat == (int)Stats.CANCEL)
@@ -27,7 +27,7 @@
                 <span class="project-status not-downloadable"></span>
             }
             <figure>
-                <img draggable="false" class="logo-product" alt="Logo du site web" src="~/Assets/Images/websiteList/@item.AppLogoName" />
+                <img draggable="false" class="logo-product" alt="Logo du site web" src="~/upload/websites/@item.AppLogoName" />
             </figure>
             <h1 class="title-product">@item.Name</h1>
             <h2 class="product-description">@item.Description</h2>
@@ -42,5 +42,4 @@
 </section>
 
 @section Scripts{
-    <script src="~/js/HTMLElements/deviceViewer.js" asp-append-version="true"></script>
 }
