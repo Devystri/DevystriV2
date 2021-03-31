@@ -67,6 +67,7 @@ namespace Devystri.Pages.Admin
                     toEdit.Language = WebSite.Language;
                     toEdit.Description = WebSite.Description;
                     toEdit.Link = WebSite.Link;
+                    toEdit.MinAge = WebSite.MinAge;
                     toEdit.PresentationRessourceName = ImportTools.ImageName(WebSite.PresentationRessource, toEdit.PresentationRessourceName, imageImport);
                     toEdit.AppLogoName = ImportTools.ImageName(WebSite.AppLogo, toEdit.AppLogoName, imageImport);
                     toEdit.Presentation2RessourceName = ImportTools.ImageName(WebSite.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using Microsoft.AspNetCore.Http;
 using SixLabors.ImageSharp;
 
@@ -21,14 +22,30 @@ namespace Devystri.Modules
             {
                 if (el.ContentType.Contains("image"))
                 {
-                    using var image = Image.Load(el.OpenReadStream());
-                    if(File.Exists(Path + el.FileName))
+                    if (el.ContentType.Contains("svg"))
                     {
-                        File.Delete(Path + el.FileName);
+                        using (var streamReader = new MemoryStream())
+                        {
+                            el.OpenReadStream().CopyTo(streamReader);
+                            using (FileStream fs = File.Create(Path + el.FileName))
+                            {
+                                fs.Write(streamReader.ToArray(), 0, streamReader.ToArray().Length);
+                               
+                            }
+                        }
                     }
-                    image.SaveAsPng(Path + el.FileName);
+                    else
+                    {
+                        using var image = Image.Load(el.OpenReadStream());
+                        if (File.Exists(Path + el.FileName))
+                        {
+                            File.Delete(Path + el.FileName);
+                        }
+                        image.SaveAsPng(Path + el.FileName);
+                    }
+                 
                 }
-                
+
             }
             return true;
 
@@ -40,7 +57,7 @@ namespace Devystri.Modules
             {
                 File.Delete(Path + name);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

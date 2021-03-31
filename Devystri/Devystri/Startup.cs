@@ -56,7 +56,8 @@ namespace Devystri
             {
                 options.Conventions.AddPageRoute("/Admin/Login", "/admin/"); 
                 options.Conventions.AddPageRoute("/Admin/ChangePassword", "/admin/change-password"); 
-                options.Conventions.AddPageRoute("/Admin/AddApplication", "/admin/manage-application/{id=0}"); 
+                options.Conventions.AddPageRoute("/Admin/AddApplication", "/admin/manage-applications/{id=0}");
+                options.Conventions.AddPageRoute("/Admin/AddWebSite", "/admin/manage-websites/{id=0}");
                 options.Conventions.AddPageRoute("/Admin/TableNewsletter", "/admin/manage-newsletter/{id=1}"); 
                 options.Conventions.AddPageRoute("/Admin/tableUsers", "/admin/manage-user/{id=1}");         
             });
