@@ -69,7 +69,7 @@
                 <span>Logo</span>
                 <div class="image-box">
                     <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Application.AppLogo" />@*Input logo*@
-                    <img id="previewLogoAdd" src="~/upload/applications/@Model.Application.AppLogoName" />
+                    <img alt="" id="previewLogoAdd" src="~/upload/applications/@Model.Application.AppLogoName" />
                 </div>
             </div>
         </div>
