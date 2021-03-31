@@ -152,7 +152,6 @@ input::-webkit-file-upload-button {
         border-radius: 15px;
         border: solid 2px var(--admin-blue);
         outline: none;
-        max-width: 324px;
         width: 90%;
         text-align-last: justify;
         cursor: pointer;
@@ -420,6 +419,7 @@ select[name=product-condition] {
 .image-box {
     display: flex;
     justify-content: center;
+    max-width: 331px;
 }
 
 .section-image-box span {
