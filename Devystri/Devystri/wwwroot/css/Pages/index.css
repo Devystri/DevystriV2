@@ -69,21 +69,12 @@
 .more-button-main {
     background-color: var(--dark-blue);
     margin-top: 165px;
+    transition: background-color 0.2s;
 }
 
-.more-button-main:hover {
-    animation: hover-button-main 0.2s forwards;
-}
-
-@keyframes hover-button-main {
-    from {
-        background-color: var(--dark-blue);
-    }
-
-    to {
+    .more-button-main:hover {
         background-color: var(--grey-blue);
     }
-}
 
     /* Image */
 
