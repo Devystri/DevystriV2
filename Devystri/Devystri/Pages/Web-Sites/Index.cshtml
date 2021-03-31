@@ -1,7 +1,7 @@
-﻿@page
+﻿@page "{appName}"
 @model Devystri.Pages.Web_Sites.IndexModel
 @{
-    ViewData["Title"] = "Présentation site";
+    ViewData["Title"] = "Présentation du site "+ Model.webSite.Name;
 }
 @section Styles{
     <link rel="stylesheet" href="~/css/Pages/products/index.css" />
@@ -9,45 +9,40 @@
 <section id="product-description">
     <div class="alert">Notre projet à été annulé en raison d'un manque de budget.</div>
     <div class="container-description-img">
-        <img draggable="false" class="product-description-img" alt="What is it sur Macbook" src="~/Assets/Images/website/question-page-wahtisit.png" />
+        <img draggable="false" class="product-description-img" alt="@Model.webSite.Name sur Macbook" src="~/upload/websites/@Model.webSite.Presentation2RessourceName" />
     </div>
     <div id="detailed-description">
         <figure class="product-logo">
-            <img draggable="false" class="logo-product" alt="Logo de what is it" src="~/Assets/Images/websiteList/Logo-whatIsIt.svg" />
+            <img draggable="false" class="logo-product" alt="Logo de @Model.webSite.Name" src="~/upload/websites/@Model.webSite.AppLogoName" />
         </figure>
-        <h1 class="title-product">What Is It ?</h1>
+        <h1 class="title-product">@Model.webSite.Name</h1>
         <div id="product-features">
-            <span>Âge : 12+ ans</span>
-            <span>Langue : FR</span>
+            <span>Âge : @Model.webSite.MinAge+ ans</span>
+            <span>Langue : @Model.webSite.Language</span>
         </div>
-        <p id="product-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+        <p id="product-description-text">@Model.webSite.Description</p>
         <div id="download">
-            <a class="redirect-button" title="Être redirigé vers What is it">Être redirigé vers What is it</a>
+            <a class="redirect-button" title="Vous allez être redirigé vers @Model.webSite.Name">Être redirigé vers @Model.webSite.Name</a>
         </div>
     </div>
     <div class="container-description-img">
-        <img draggable="false" class="product-description-img" alt="what is it sur Iphone" src="~/Assets/Images/website/whatisit-iphone.png" />
+        <img draggable="false" class="product-description-img" alt="@Model.webSite.Name sur Iphone" src="~/upload/websites/@Model.webSite.Presentation3RessourceName" />
     </div>
 </section>
 <section id="product-feature">
-    <div class="feature-container">
-        <div class="feature-text">
-            <h2 class="feature-title">Facile d'utilisation.</h2>
-            <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
+
+    @for (int i = 0; i < Model.Sections.Count; i++)
+    {
+        <div class="feature-container">
+            <div class="feature-text">
+                <h2 class="feature-title">@Model.Sections[i].Title</h2>
+                <p class="feature-description">@Model.Sections[i].Description</p>
+            </div>
+            <div class="container-image">
+                <img draggable="false" class="feature-image" alt="Image décrivant le site @Model.webSite.Name" src="~/upload/websites/@Model.Sections[i].ImageSrc" />
+            </div>
         </div>
-        <div class="container-image">
-            <img draggable="false" class="feature-image" alt="Page question de what is it" src="~/Assets/Images/website/question-page-wahtisit.png" />
-        </div>
-    </div>
-    <div class="feature-container">
-        <div class="feature-text">
-            <h2 class="feature-title">Notre IA apprend Grâce à vous.</h2>
-            <p class="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis lorem odio, et vestibulum mi bibendum in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sodales nibh vel felis hendrerit, ac luctus felis accumsan. Vivamus vitae elit commodo, lacinia elit ut, porttitor felis. In magna lorem, malesuada ut vehicula vel, gravida ac mauris.</p>
-        </div>
-        <div class="container-image">
-            <img draggable="false" class="feature-image" alt="Page réponse de what is it" src="~/Assets/Images/website/whatisit-réponse-macbook.png" />
-        </div>
-    </div>
+    }
 </section>
 
 
