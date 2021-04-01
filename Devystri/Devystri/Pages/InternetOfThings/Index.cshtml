@@ -28,18 +28,7 @@
 </section>
 <section id="product-feature">
 
-    @for (int i = 0; i < Model.Sections.Count; i++)
-    {
-        <div class="feature-container">
-            <div class="feature-text">
-                <h2 class="feature-title">@Model.Sections[i].Title</h2>
-                <p class="feature-description">@Model.Sections[i].Description</p>
-            </div>
-            <div class="container-image">
-                <img draggable="false" class="feature-image" alt="Image décrivant le site @Model.Iot.Name" src="~/upload/iots/@Model.Sections[i].ImageSrc" />
-            </div>
-        </div>
-    }
+    <partial name="_Sections" model="Model.sectionsModel"/>
 </section>
 
 

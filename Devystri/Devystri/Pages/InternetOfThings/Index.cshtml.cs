@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Devystri.Modules;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,7 +14,8 @@ namespace Devystri.Pages.InternetOfThings
     {
         [BindProperty]
         public IoT Iot { get; set; }
-        public List<Section> Sections { get; set; }
+        public SectionsModel sectionsModel {get; set;}
+
         private MyDbContext dbContext;
 
         public IndexModel(MyDbContext context)
@@ -35,7 +37,7 @@ namespace Devystri.Pages.InternetOfThings
                 if (listIots.Any(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName))
                 {
                     Iot = listIots.First(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName);
-                    Sections = dbContext.Sections.Where(item => item.ProjectId == Iot.Id).ToList();
+                    sectionsModel = new SectionsModel(dbContext, Iot.Id, Iot.Name);
                 }
 
 

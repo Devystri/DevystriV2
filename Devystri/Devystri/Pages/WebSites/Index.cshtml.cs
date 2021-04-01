@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Devystri.Modules;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,7 +14,7 @@ namespace Devystri.Pages.Web_Sites
     {
         [BindProperty]
         public WebSites webSite { get; set; }
-        public List<Section> Sections { get; set; }
+        public SectionsModel sectionsModel { get; set; }
         private MyDbContext dbContext;
 
         public IndexModel(MyDbContext context)
@@ -35,7 +36,7 @@ namespace Devystri.Pages.Web_Sites
                 if (listSites.Any(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName))
                 {
                     webSite = listSites.First(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName);
-                    Sections = dbContext.Sections.Where(item => item.ProjectId == webSite.Id).ToList();
+                    sectionsModel = new SectionsModel(dbContext, webSite.Id, webSite.Name );
                 }
 
 
