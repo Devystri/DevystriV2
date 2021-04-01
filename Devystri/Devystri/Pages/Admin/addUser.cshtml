@@ -1,0 +1,36 @@
+﻿@page
+@model Devystri.Pages.Admin.addUserModel
+@{
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/Pages/admin/addUser.css" />
+}
+
+<section>
+    <div class="add-user">
+        <h2 class="page-title">Devystri</h2>
+        <p class="page-description">Administration</p>
+        <!-- Form -->
+        <form method="post" novalidate="novalidate">
+            <span class="form-title">Ajout d'un nouveau compte utilisateur</span>
+            <input class="input-area" placeholder="Nom" type="text" />
+            <span class="error-span field-validation-valid" data-valmsg-for="Login.Email" data-valmsg-replace="true"></span>
+            <input class="input-area" placeholder="Email" type="email" data-val="true" data-val-email="Adresse email invalide." data-val-required="The Email field is required." id="Login_Email" name="Login.Email" value="">
+            <span class="error-span field-validation-valid" data-valmsg-for="Login.Email" data-valmsg-replace="true"></span>
+            <input class="input-area" placeholder="Mot de passe" type="password" data-val="true" data-val-maxlength="La longueur du mot de passe doit être comprise entre 8 et 16 caractères." data-val-maxlength-max="16" data-val-minlength="La longueur du mot de passe doit être comprise entre 8 et 16 caractères." data-val-minlength-min="8" data-val-required="The Password field is required." id="Login_Password" maxlength="16" name="Login.Password">
+            <span class="error-span field-validation-valid" data-valmsg-for="Login.Password" data-valmsg-replace="true"></span>
+            <input class="input-area" placeholder="Confirmation du mot de passe" type="password" data-val="true" data-val-maxlength="La longueur du mot de passe doit être comprise entre 8 et 16 caractères." data-val-maxlength-max="16" data-val-minlength="La longueur du mot de passe doit être comprise entre 8 et 16 caractères." data-val-minlength-min="8" data-val-required="The Password field is required." id="Login_Password" maxlength="16" name="Login.Password">
+            <span class="error-span field-validation-valid" data-valmsg-for="Login.Password" data-valmsg-replace="true"></span>
+            <input class="send-button" type="submit" value="Ajouter">
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B0g7yJkcLVEtJJ-4oCo96Baqzu9bR4QCKeTAHj1aRP2X9PvwuscgM4RGnggKz6p_uVXfFHnWaO4VSUvXkd99XNTDSnkBlak4HORZFhdN5xpid7V1tNhO98QRY7Jm8MDMz9VEH92vHqjk0rpRbgr2Zk">
+        </form>
+    </div>
+
+
+</section>
+
+
+
+@section Scripts{
+
+}

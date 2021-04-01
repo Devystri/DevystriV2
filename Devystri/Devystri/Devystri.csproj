@@ -9,6 +9,7 @@
     <Content Remove="wwwroot\js\HTMLElements\header.js" />
     <Content Remove="wwwroot\js\HTMLElements\JavaScript.js" />
     <Content Remove="wwwroot\upload\applications\Gromard-Alexys.jpeg" />
+    <Content Remove="wwwroot\css\HTMLElements\header.css" />
   </ItemGroup>
 
   <ItemGroup>

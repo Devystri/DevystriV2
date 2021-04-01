@@ -219,6 +219,15 @@ input{
     color: #E23A3A;
 }
 
+.error-span span {
+    margin-left: 10px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    color: #E23A3A;
+    margin-bottom: 10px;
+}
+
 .error-span > span::before {
     content: " ";
     display: block;
