@@ -75,7 +75,7 @@ namespace Devystri
 
                 options.Conventions.AddPageRoute("/Privacy", "/mentions-legales/");
 
-                options.Conventions.AddPageRoute("/Privacy", "/mentions-legales/");
+                options.Conventions.AddPageRoute("/About", "/a-propos/");
 
 
 
