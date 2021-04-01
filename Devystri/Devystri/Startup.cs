@@ -73,7 +73,9 @@ namespace Devystri
                 options.Conventions.AddPageRoute("/Applications/List", "/applications/");
                 options.Conventions.AddPageRoute("/Applications/Index", "/application/{appName}");
 
-                options.Conventions.AddPageRoute("/Privacy/", "/mentions-legales/");
+                options.Conventions.AddPageRoute("/Privacy", "/mentions-legales/");
+
+                options.Conventions.AddPageRoute("/Privacy", "/mentions-legales/");
 
 
 
