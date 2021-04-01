@@ -119,3 +119,31 @@ function popup(title, message){
 }
 
 
+// Error popup
+
+//Status: 1 : Error
+//        2 : Warning
+//        3 : succes
+
+
+
+function errorPopup(popupStatus, errorMessage ) {
+    if (popupStatus == 1) {
+        document.getElementById('head-popup').className = 'popup-color-error';
+        document.getElementById('close-popup').className = 'popup-color-error';
+        document.getElementById("popup-title").innerHTML = "Error!";
+
+    }
+    else if (popupStatus == 2) {
+        document.getElementById('head-popup').className = 'popup-color-warning';
+        document.getElementById('close-popup').className = 'popup-color-warning';
+        document.getElementById("popup-title").innerHTML = "Warning !";
+
+    }
+    else if (popupStatus == 3) {
+        document.getElementById('head-popup').className = 'popup-color-success';
+        document.getElementById('close-popup').className = 'popup-color-success';
+        document.getElementById("popup-title").innerHTML = "Success !";
+    }
+    document.getElementById("popup-error-text").innerHTML = errorMessage;
+}

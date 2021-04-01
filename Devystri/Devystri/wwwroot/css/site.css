@@ -246,3 +246,88 @@ input{
         height: auto;
     }
 }
+
+/* PopUp */
+
+
+#popup-error {
+    box-shadow: 0px 3px 6px #00000029;
+    width: 81vw;
+    min-width: 200px;
+    max-width: 460px;
+    border-radius: 35px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#head-popup {
+    height: 105px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+#head-popup img{
+    height: 62%;
+}
+
+#content-popup {
+    min-height: 325px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+#popup-title {
+    color: var(--dark-blue);
+    font-size: 31px;
+    font-weight: 500;
+    margin: 22px 0;
+}
+
+#popup-error-text {
+    color: var(--dark-blue);
+    width: 80%;
+    font-size: 15px;
+    height: 162px;
+}
+
+#close-popup {
+    width: 28%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 15px 0;
+    transition: filter 0.2s;
+}
+
+    #close-popup:hover {
+        filter: opacity(0.8);
+    }
+
+    /* Classes for diférents styles */
+
+
+
+    .popup-color-error {
+        background-color: rgb(251, 67, 76);
+        color: white;
+    }
+
+    .popup-color-warning {
+        background-color: rgb(255, 185, 20);
+        color: var(--dark-blue);
+    }
+    .popup-color-success {
+        background-color: rgb(0, 127, 74);
+        color: white;
+    }
