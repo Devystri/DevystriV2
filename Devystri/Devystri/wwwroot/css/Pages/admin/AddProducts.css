@@ -89,13 +89,13 @@ input::-webkit-file-upload-button {
     align-items: center;
     justify-content: center;
     border-radius: 29px;
-    margin: 7px auto 30px auto;
+    margin: 30px auto;
     color: var(--white-button);
     font-weight: 500;
     font-size: 17px;
     background: var(--grey-blue);
     max-width: 349px;
-    text-decoration : none;
+    text-decoration: none;
 }
 
 #add-new-product {
