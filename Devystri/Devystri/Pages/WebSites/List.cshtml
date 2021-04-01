@@ -32,7 +32,7 @@
             <h1 class="title-product">@item.Name</h1>
             <h2 class="product-description">@item.Description</h2>
             <div class="compatibility"></div>
-            <a href='@item.Name.ToLower().Replace(" ", String.Empty)' title="En savoir plus sur @item.Name" class="more-button more-button-list">En savoir plus</a>
+            <a href='../site/@item.Name.ToLower().Replace(" ", "-")' title="En savoir plus sur @item.Name" class="more-button more-button-list">En savoir plus</a>
         </div>
     </section>
 }
