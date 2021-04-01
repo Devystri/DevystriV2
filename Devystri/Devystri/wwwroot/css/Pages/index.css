@@ -33,7 +33,8 @@
 /* Général section */
 
 .description-section {
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 600px;
     padding: 0 5%;
     margin: 0px auto;
     display: flex;

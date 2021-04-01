@@ -1,4 +1,10 @@
-﻿/* product description */
+﻿/* Général */
+
+main {
+    overflow: hidden;
+}
+
+/* product description */
 
 #product-description {
     width: 100%;
@@ -17,7 +23,8 @@
 
 
 .product-description-img { /*image in left and right description*/
-    width: 100%;
+    min-height: 100px;
+    max-height: 450px;
 }
 
 #detailed-description {
