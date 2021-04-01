@@ -1,0 +1,135 @@
+﻿@page "{id=0}"
+@model Devystri.Pages.Admin.AddInternetOfThingsModel
+@{
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/Pages/admin/AddProducts.css" />
+}
+
+<section id="add-products-nav">
+    <nav id="nav-products">
+        <ul>
+            @foreach (var app in Model.ListIots)
+            {
+                <li class="add-products-nav-element">
+                    <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
+                    <a asp-area="" asp-page="/Admin/AddInternetOfThings" asp-route-id="@app.Id" style="text-decoration: none">
+                        <span class="product-id-nav">@app.Id</span>
+                        <span class="product-name-nav">@app.Name</span>
+                    </a>
+                    @if (app.Id == Model.Id)
+                    {
+                        <input name="@app.Id" class="product-checkbox-nav" type="checkbox" checked />
+
+                    }
+                    else
+                    {
+                        <input name="@app.Id" class="product-checkbox-nav" type="checkbox" />
+
+                    }
+                </li>
+
+            }
+        </ul>
+    </nav>
+    <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddInternetOfThings" asp-route-id="0">Ajouter une nouvelle application</a>
+
+    <a class="add-products-nav-button" id="delete-product">Supprimer l'application</a>
+</section>
+<section id="product-information">
+    <form method="post" enctype="multipart/form-data">
+        <div id="fast-information">
+            <div class="input-box">
+                <span>Nom de l'objet</span>
+                <input placeholder="Nom du l'objet" asp-for="Iot.Name" />
+                @if (Model.Iot.Id != 0)
+                {
+                    <input asp-for="Iot.Id" hidden />
+
+                }
+            </div>
+            <div class="input-box">
+                <span>Prix</span>
+                <input placeholder="Prix (€)" asp-for="Iot.Price" />
+            </div>
+
+            <input id="button-submite-product" type="submit" value="Sauvegarder" /> @*Boutton send*@
+        </div>
+        <div id="description-logo">
+            <div id="input-description" class="input-box">
+                <span>Description</span>
+                <textarea placeholder="Description" asp-for="Iot.Description"></textarea>
+            </div>
+            <div id="input-logo" class="input-box">
+                <span>Logo</span>
+                <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Iot.Logo" />@*Input logo*@
+                <img id="previewLogoAdd" src="~/upload/iots/@Model.Iot.LogoName" />
+
+            </div>
+        </div>
+        <div id="product-option">
+            <div id="product-condition" class="input-box">
+                <span>Statue du projet</span>
+                <select name="product-condition">
+                    <option>Aucun</option>
+                    <option>Non commercialisé</option>
+                    <option>Projet annulé</option>
+                    <option>Non téléchargable</option>
+                    <option>Nécessite le hub</option>
+                </select>
+            </div>
+        </div>
+        <div id="first-image-product">
+            <div class="input-box">
+                <span>Fichier de présentation de l'objet </span>
+                <input placeholder="Image de la page application" type="file" class="input-image-box" />
+            </div>
+            <div class="input-box">
+                <span>Images qui entoure la fiche technique de l'application</span>
+                <div id="images-fact-sheet">
+                    <div class="additional-images-box">
+                        <input id="file1" accept="image/*" onchange="javascript: previewImage(this, 'preview')" asp-for="Iot.Presentation2Ressource" class="input-image-box" />
+                        <img class="blah" id="preview" src="~/upload/iots/@Model.Iot.Presentation2RessourceName" />
+                    </div>
+                    <!-- Image de la fiche technique 2-->
+                    <div class="additional-images-box">
+                        <input id="file2" accept="image/*" onchange="javascript: previewImage(this, 'preview2')" asp-for="Iot.Presentation3Ressource" class="input-image-box" />
+                        <img class="blah" id="preview2" src="~/upload/iots/@Model.Iot.Presentation3RessourceName" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        @for (int i = 0; i < Model.Sections.Count; i++)
+        {
+            <div class="section">
+                <span class="section-number">Section @(i + 1)</span>
+                <a title="Supprimer la section" href="#" class="delete-section"></a> <!--Delete section button-->
+                <div class="product-section">
+                    <div class="section-image-box">
+                        <span>Image</span>
+                        <div class="image-box">
+                            <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
+                            <img class="blah" id="preview@(i+3)" src="~/upload/applications/@Model.Sections[i].ImageSrc" />
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input asp-for="Sections[i].Id" hidden />
+                        <span>Titre</span>
+                        <input placeholder="Titre" class="section-title" asp-for="Sections[i].Title" />
+                        <span>Description</span>
+                        <textarea placeholder="Description" asp-for="Sections[i].Description"></textarea>
+                    </div>
+                </div>
+            </div>
+        }
+        <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
+    </form>
+</section>
+
+@section Scripts{
+    <script src="~/js/Pages/admin/ImageImporter.js"></script>
+    <environment include="Development">
+        <script src="~/js/popup.js"></script>
+
+    </environment>
+} 

@@ -91,7 +91,7 @@ namespace Devystri.Pages.Admin
             }
             else
             {
-                var app = WebSite.ToApplication();
+                var app = WebSite.ToWebSite();
                 dbContext.WebSites.Add(app);
 
             }

@@ -21,6 +21,7 @@
     <Folder Include="wwwroot\upload\applications\" />
     <Folder Include="Modules\" />
     <Folder Include="wwwroot\upload\websites\" />
+    <Folder Include="wwwroot\upload\iots\" />
   </ItemGroup>
 
   <ItemGroup>

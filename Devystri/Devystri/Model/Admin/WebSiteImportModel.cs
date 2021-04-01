@@ -27,7 +27,7 @@ namespace Devystri.Model.Admin
             Statut = web.Stat;
         }
 
-        public WebSites ToApplication()
+        public WebSites ToWebSite()
         {
             return new WebSites()
             {
