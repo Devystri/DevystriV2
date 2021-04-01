@@ -1,6 +1,6 @@
 ﻿@page
 @using Data.Models;
-@model Devystri.Pages.Internet_Of_Things.ListModel
+@model Devystri.Pages.InternetOfThings.ListModel
 @{
     ViewData["Title"] = "Liste objets connectés";
 }
@@ -35,7 +35,7 @@
                     <span class="constraint">Nécessite l'application HomeConnect</span>
                 </div>
             </div>
-            <a asp-area="" asp-page="/Internet-Of-Things/index" title="En savoir plus sur @item.Name" class="more-button more-button-list">En savoir plus</a>
+            <a href='@item.Name.Replace(" ", String.Empty)' title="En savoir plus sur @item.Name" class="more-button more-button-list">En savoir plus</a>
         </div>
     </section>
 }
