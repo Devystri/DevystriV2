@@ -14,7 +14,7 @@ namespace Devystri.Pages.InternetOfThings
     {
         [BindProperty]
         public IoT Iot { get; set; }
-        public SectionsLoad SectionsLoad { get; set;}
+        public SectionsModel sectionsModel {get; set;}
 
         private MyDbContext dbContext;
 
@@ -37,7 +37,7 @@ namespace Devystri.Pages.InternetOfThings
                 if (listIots.Any(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName))
                 {
                     Iot = listIots.First(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName);
-                    SectionsLoad = new SectionsLoad(dbContext, Iot.Id, Iot.Name);
+                    sectionsModel = new SectionsModel(dbContext, Iot.Id, Iot.Name);
                 }
 
 
