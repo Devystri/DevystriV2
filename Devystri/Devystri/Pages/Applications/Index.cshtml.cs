@@ -14,7 +14,7 @@ namespace Devystri.Pages.Applications
     {
         [BindProperty]
         public Application Application { get; set; }
-        public SectionsModel sectionsModel { get; set; }
+        public SectionLoadManage SectionLoadManage { get; set; }
         private MyDbContext dbContext;
         public IndexModel(MyDbContext context)
         {
@@ -33,7 +33,7 @@ namespace Devystri.Pages.Applications
                 if (dbContext.Applications.Any(item => item.Name.ToLower().Replace(" ", String.Empty) == appName))
                 {
                     Application = dbContext.Applications.First(item => item.Name.ToLower().Replace(" ", String.Empty) == appName);
-                    sectionsModel = new SectionsModel(dbContext, Application.Id, Application.Name);
+                    SectionLoadManage = new SectionLoadManage(dbContext, Application.Id, Application.Name);
                 }
 
                   

@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Devystri.Modules
 {
-    public class SectionsModel
+    public class SectionLoadManage
     {
         [BindProperty]
         public List<Section> Sections { get; set; }
         public string Name { get; set; }
 
-        public SectionsModel(MyDbContext context, int id, string name)
+        public SectionLoadManage(MyDbContext context, int id, string name)
         {
             if (id == 0)
             {
@@ -27,7 +27,6 @@ namespace Devystri.Modules
                 {
                     Sections = sections.Where(item => item.ProjectId == id).ToList();
                 }
-
 
             }
         }
