@@ -16,7 +16,6 @@ namespace Devystri.Pages.Admin
 {
     public class LoginModel : PageModel
     {
-        private MyDbContext myDbContext;
         public string Message;
         private SignInManager<AdminUser> SignInManager;
 
@@ -26,7 +25,6 @@ namespace Devystri.Pages.Admin
         public LoginModel(MyDbContext context, SignInManager<AdminUser> signInManager)
         {
             SignInManager = signInManager;
-            myDbContext = context;
 
         }
         public void OnGet()

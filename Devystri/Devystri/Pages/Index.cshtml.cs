@@ -15,35 +15,8 @@ namespace Devystri.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
 
-        private MyDbContext myDbContext;
-
-        public IndexModel(ILogger<IndexModel> logger, MyDbContext context, UserManager<AdminUser> userManager)
-        {
-#if DEBUG
-            _ = Register(userManager);
-#endif
-            if (context != null)
-            {
-                myDbContext = context;
-            }   
-
-            _logger = logger;
-        }
-        private async Task Register(UserManager<AdminUser> userManager)
-        {
-            var user = await userManager.FindByNameAsync("Pseudo");
-            //await userManager.DeleteAsync(user);
-            await userManager.CreateAsync(new AdminUser()
-            {
-                Email = "dev@devystri.com",
-                FirstName = "Develpper",
-                LastName = "Debug",
-                UserName = "dev@devystri.com"
-            }, "Password1234!");
-        }
-        public void OnGet()
+        public IndexModel()
         {
 
         }

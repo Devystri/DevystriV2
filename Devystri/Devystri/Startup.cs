@@ -155,9 +155,7 @@ namespace Devystri
             app.UseRouting();
 
             app.UseAuthentication();
-#if RELEASE
             app.UseAuthorization();
-#endif
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

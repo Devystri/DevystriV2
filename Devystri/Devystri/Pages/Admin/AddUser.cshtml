@@ -1,0 +1,36 @@
+﻿@page
+@model Devystri.Pages.Admin.AddUserModel
+@{
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/Pages/admin/addUser.css" />
+}
+
+<section>
+    <div class="add-user">
+        <h2 class="page-title">Devystri</h2>
+        <p class="page-description">Administration</p>
+        <!-- Form -->
+        <form method="post" >
+            <span class="form-title">Ajout d'un nouveau compte utilisateur</span>
+            <input class="input-area" placeholder="Nom" asp-for="AccountInput.UserName" />
+            <span class="error-span field-validation-valid" asp-validation-for="AccountInput.UserName"></span>
+            <input class="input-area" placeholder="Email" asp-for="AccountInput.Email">
+            <span class="error-span field-validation-valid" asp-validation-for="AccountInput.Email"></span>
+            <input class="input-area" placeholder="Mot de passe" asp-for="AccountInput.Password">
+            <span class="error-span field-validation-valid" asp-validation-for="AccountInput.Password"></span>
+            <input class="input-area" placeholder="Confirmation du mot de passe" asp-for="AccountInput.ComfirmationPassword">
+            <span class="error-span field-validation-valid" asp-validation-for="AccountInput.ComfirmationPassword"></span>
+            <input class="send-button" type="submit" value="Ajouter">
+        </form>
+        @Model.Message
+    </div>
+
+
+</section>
+
+
+
+@section Scripts{
+
+}
