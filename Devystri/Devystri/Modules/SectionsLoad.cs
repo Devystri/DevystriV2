@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Devystri.Modules
 {
-    public class SectionsModel
+    public class SectionsLoad
     {
         [BindProperty]
         public List<Section> Sections { get; set; }
         public string Name { get; set; }
 
-        public SectionsModel(MyDbContext context, int id, string name)
+        public SectionsLoad(MyDbContext context, int id, string name)
         {
             if (id == 0)
             {

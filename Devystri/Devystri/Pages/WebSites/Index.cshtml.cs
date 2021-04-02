@@ -14,7 +14,7 @@ namespace Devystri.Pages.Web_Sites
     {
         [BindProperty]
         public WebSites webSite { get; set; }
-        public SectionsModel sectionsModel { get; set; }
+        public SectionsLoad SectionsLoad { get; set; }
         private MyDbContext dbContext;
 
         public IndexModel(MyDbContext context)
@@ -36,7 +36,7 @@ namespace Devystri.Pages.Web_Sites
                 if (listSites.Any(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName))
                 {
                     webSite = listSites.First(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName);
-                    sectionsModel = new SectionsModel(dbContext, webSite.Id, webSite.Name );
+                    SectionsLoad = new SectionsLoad(dbContext, webSite.Id, webSite.Name );
                 }
 
 
