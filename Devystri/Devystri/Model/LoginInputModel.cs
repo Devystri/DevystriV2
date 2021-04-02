@@ -15,8 +15,8 @@ namespace Devystri.Model
         [Required]
         [DataType(DataType.Password, ErrorMessage = "Le mot de ne respecte pas les contraintes.")]
     
-        [MinLength(8, ErrorMessage = "La longueur du mot de passe doit être comprise entre 8 et 16 caractères.")]
-        [MaxLength(16, ErrorMessage = "La longueur du mot de passe doit être comprise entre 8 et 16 caractères.")]
+        [MinLength(8, ErrorMessage = "La longueur du mot de passe doit être comprise entre 8 et 24 caractères.")]
+        [MaxLength(24, ErrorMessage = "La longueur du mot de passe doit être comprise entre 8 et 24 caractères.")]
         public string Password { get; set; }
     }
 }
