@@ -20,37 +20,33 @@ namespace Devystri.Modules
         {
             foreach (var el in collection)
             {
-                if (el.ContentType.Contains("image"))
+                if (el.Length > 0 && CorrectFileExtension(el.FileName))
                 {
-                    if (el.ContentType.Contains("svg"))
+                    string filePath = Path + el.FileName;
+                    if (File.Exists(filePath))
                     {
-                        using (var streamReader = new MemoryStream())
-                        {
-                            el.OpenReadStream().CopyTo(streamReader);
-                            using (FileStream fs = File.Create(Path + el.FileName))
-                            {
-                                fs.Write(streamReader.ToArray(), 0, streamReader.ToArray().Length);
-                               
-                            }
-                        }
+                        Delete(filePath);
                     }
-                    else
+                    using (Stream fileStream = new FileStream(filePath, FileMode.Create))
                     {
-                        using var image = Image.Load(el.OpenReadStream());
-                        if (File.Exists(Path + el.FileName))
-                        {
-                            File.Delete(Path + el.FileName);
-                        }
-                        image.SaveAsPng(Path + el.FileName);
+                        el.CopyTo(fileStream);
                     }
-                 
                 }
-
             }
             return true;
 
         }
-
+        private static bool CorrectFileExtension(string filename)
+        {
+            var extentions = new string[] { "png", "jpeg", "svg", "glb" };
+            foreach (var extention in extentions)
+            {
+                if (filename.Contains(extention))
+                    return true;
+                
+            }
+            return false;
+        }
         public bool Delete(string name)
         {
             try

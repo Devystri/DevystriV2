@@ -23,7 +23,6 @@
             <span class="error-span field-validation-valid" asp-validation-for="AccountInput.ComfirmationPassword"></span>
             <input class="send-button" type="submit" value="Ajouter">
         </form>
-        @Model.Message
     </div>
 
 
@@ -32,5 +31,8 @@
 
 
 @section Scripts{
-
+    @if (Model.Message is not null)
+    {
+        <script> errorPopup(1, "@Model.Message"); </script>
+    }
 }

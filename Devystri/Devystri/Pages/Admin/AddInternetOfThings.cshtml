@@ -62,7 +62,7 @@
             </div>
             <div id="input-logo" class="input-box">
                 <span>Logo</span>
-                <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Iot.Logo" />@*Input logo*@
+                <input id="fileLogo" accept="" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="Iot.Logo" />@*Input logo*@
                 <img id="previewLogoAdd" src="~/upload/iots/@Model.Iot.LogoName" />
 
             </div>
@@ -82,7 +82,8 @@
         <div id="first-image-product">
             <div class="input-box">
                 <span>Fichier de présentation de l'objet </span>
-                <input placeholder="Image de la page application" type="file" class="input-image-box" />
+                <input placeholder="Fichier de présentation de l'objet" class="input-image-box" asp-for="Iot.PresentationRessource" onchange="javascript: previewImage(this, 'preview3d')"  />
+                <object-viewer background-color="#073965" id="preview3d" style="width: 100%; height: 30em; background-color: var(--dark-blue);" src="/upload/iots/@Model.Iot.PresentationRessourceName" zoom="0.1" />
             </div>
             <div class="input-box">
                 <span>Images qui entoure la fiche technique de l'application</span>
@@ -128,8 +129,15 @@
 
 @section Scripts{
     <script src="~/js/Pages/admin/ImageImporter.js"></script>
-    <environment include="Development">
-        <script src="~/js/popup.js"></script>
+    <script src="~/js/popup.js"></script>
 
+    <environment include="Development">
+        <script src="~/lib/ThreeJS/three.js"></script>
+        <script src="~/lib/ThreeJS/GLTFLoader.js"></script>
+        <script src="~/js/HTMLElements/objectVisualisator.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/three.min.js"></script>
+        <script src="~/js/HTMLElements/objectVisualisator.js"></script>
     </environment>
 } 

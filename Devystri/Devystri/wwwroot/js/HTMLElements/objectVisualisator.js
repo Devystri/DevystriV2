@@ -28,7 +28,8 @@ class Visualisator3D extends HTMLElement {
         this.camera.position.z = (this.zoom*100/min)*10;
     }
 
-    init(){
+    init() {
+        this.clear();
         this.maxAngX = 3/5;
         this.maxAngY = 3.14/5;   
 
@@ -102,7 +103,22 @@ class Visualisator3D extends HTMLElement {
             console.error("Error: GLB source not specified.");
         this.init();
     }   
-    
+    clear() {
+        this.innerHTML = "";
+    }
+    static get observedAttributes() {
+        return ["src"];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        switch (name) {
+            case 'src':
+                this.clear();
+                this.init();
+                break;
+        }
+    }
+
 }
 
 customElements.define("object-viewer", Visualisator3D);
