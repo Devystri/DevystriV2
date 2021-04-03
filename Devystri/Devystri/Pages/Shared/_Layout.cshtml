@@ -12,17 +12,13 @@
     <script src="~/js/HTMLElements/loader.js"></script>
     <loader-element>
         <div id="links">
-            <environment include="Development">
+       
                 <link rel="stylesheet" href="~/css/site.css" />
                 <link rel="stylesheet" href="~/lib/locomotive/locomotive-scroll.min.css" />
                 <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
                 <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
-            </environment>
-            <environment exclude="Development">
-                <link rel="stylesheet" href="~/css/site.css" />
-                <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
-                <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
-            </environment>
+           
+ 
             @await RenderSectionAsync("Styles", required: false)
         </div>
         <div id="loadscreen">
@@ -51,9 +47,9 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/locomotive/locomotive-scroll.min.js"></script>
-  
+    <script src="~/js/popup.js" asp-append-version="true"></script>
+
     <environment include="Development">
-        <script src="~/js/popup.js" asp-append-version="true"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">

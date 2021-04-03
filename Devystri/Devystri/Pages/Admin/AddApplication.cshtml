@@ -131,7 +131,7 @@
         {
             <div class="section">
                 <span class="section-number">Section @(i + 1)</span>
-                <a title="Supprimer la section" href="#" class="delete-section"></a> <!--Delete section button-->
+                <a title="Supprimer la section" href="../DeleteSection/@Model.Sections[i].Id" class="delete-section"></a> <!--Delete section button-->
                 <div class="product-section">
                     <div class="section-image-box">
                         <span>Image</span>
@@ -157,8 +157,5 @@
 
 @section Scripts{
     <script src="~/js/Pages/admin/ImageImporter.js"></script>
-    <environment include="Development">
-        <script src="~/js/popup.js"></script>
-
-    </environment>
+   
 } 

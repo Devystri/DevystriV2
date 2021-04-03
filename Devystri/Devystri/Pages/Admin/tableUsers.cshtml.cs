@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Devystri.Pages.Admin
 {
+#if REALESE
+    [Authorize]
+#endif
     public class tableUsersModel : PageModel
     {
         [BindProperty]

@@ -14,6 +14,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Devystri.Pages.Admin
 {
+#if REALESE
+    [Authorize]
+#endif
     public class LoginModel : PageModel
     {
         public string Message;

@@ -8,9 +8,13 @@ using Microsoft.AspNetCore.Identity;
 using Data.Models.Entity;
 using Devystri.Model.Admin;
 using Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Devystri.Pages.Admin
 {
+#if REALESE
+    [Authorize]
+#endif
     public class AddUserModel : PageModel
     {
         [BindProperty]
@@ -37,7 +41,7 @@ namespace Devystri.Pages.Admin
 
         public async Task<bool> CreateUser()
         {
-            if (await UserManager.FindByEmailAsync(AccountInput.Email) == null)
+            if (await UserManager.FindByEmailAsync(AccountInput.Email) is not null)
             {
                 Message = "L'adresse email " + AccountInput.Email +  " existe déjà.";
                 return false;
