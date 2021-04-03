@@ -34,7 +34,7 @@
 
 .description-section {
     height: 100vh;
-    min-height: 1115px;
+    min-height: 1000px;
     padding: 0 5%;
     margin: 0px auto;
     display: flex;
@@ -80,7 +80,7 @@
     /* Image */
 
 .image-section {
-    width: 90%;
+    width: 43vw;
     max-width: 512px;
     display: flex;
     justify-content: center;

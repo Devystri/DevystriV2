@@ -5,6 +5,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    position: fixed;
+    height: 100%;
+    width: 100%;
 }
 
 #loadscreen h1 {

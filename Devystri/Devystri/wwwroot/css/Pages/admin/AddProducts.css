@@ -415,7 +415,6 @@ select[name=product-condition] {
 .image-box {
     display: flex;
     justify-content: center;
-    max-width: 331px;
     background-image: url(/Assets/elements/addPicture.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -549,8 +548,9 @@ select[name=product-condition] {
         width: 100%;
         align-items: center;
     }
-    .input-image-box{
+    .input-image-box {
         margin: 0;
+        width: 100%;
     }
     .input-box {
         align-items: center;
