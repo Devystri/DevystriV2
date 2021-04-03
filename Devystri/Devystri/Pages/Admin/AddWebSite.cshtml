@@ -65,9 +65,11 @@
                 <textarea placeholder="Description" asp-for="WebSite.Description"></textarea>
             </div>
             <div id="input-logo" class="input-box">
-                <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="WebSite.AppLogo" />@*Input logo*@
-                <img id="previewLogoAdd" src="~/upload/websites/@Model.WebSite.AppLogoName" />
-
+                <span>Logo</span>
+                <div class="image-box">
+                    <input id="fileLogo" accept="image/*" onchange="javascript: previewImage(this, 'previewLogoAdd')" type="file" sr asp-for="WebSite.AppLogo" />@*Input logo*@
+                    <img id="previewLogoAdd" src="~/upload/websites/@Model.WebSite.AppLogoName" />
+                </div>
             </div>
         </div>
         <div id="product-option">
@@ -88,8 +90,11 @@
         </div>
         <div id="first-image-product">
             <div class="input-box">
-                <input id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="WebSite.PresentationRessource" class="input-image-box" />
-                <img id="previewApp" class="blah" src="~/upload/websites/@Model.WebSite.PresentationRessourceName" />
+                <span>Image de présentation du site</span>
+                <div class="image-box">
+                    <input id="file" accept="image/*" onchange="javascript: previewImage(this, 'previewApp')" asp-for="WebSite.PresentationRessource" class="input-image-box" />
+                    <img id="previewApp" class="blah" src="~/upload/websites/@Model.WebSite.PresentationRessourceName" />
+                </div>
             </div>
             <div class="input-box">
                 <span>Images qui entoure la fiche technique de l'application</span>
