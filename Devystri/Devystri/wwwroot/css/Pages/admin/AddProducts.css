@@ -184,20 +184,16 @@ input::-webkit-file-upload-button {
 input[type=file] {
     color: transparent;
     cursor: pointer;
+    z-index: 1;
 
 }
 
 .blah {
     position: absolute;
     max-height: 201px;
-    max-width: 300px;
+    max-width: 277px;
     display: flex;
     align-self: center;
-    z-index: -1;
-    background-image: url(/Assets/elements/addPicture.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
     min-width: 77px;
     min-height: 77px;
 }
@@ -206,12 +202,8 @@ input[type=file] {
     position: absolute;
     display: flex;
     align-self: center;
-    z-index: -1;
     width: 144px;
     border-radius: 15px;
-    background-image: url(/Assets/elements/addPicture.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     min-height: 96px;
 
 }
@@ -220,6 +212,9 @@ input[type=file] {
     display: flex;
     justify-content: center;
     width: 100%;
+    background-image: url(/Assets/elements/addPicture.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
     .additional-images-box img{
@@ -421,6 +416,9 @@ select[name=product-condition] {
     display: flex;
     justify-content: center;
     max-width: 331px;
+    background-image: url(/Assets/elements/addPicture.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .section-image-box span {
@@ -434,7 +432,7 @@ select[name=product-condition] {
 .product-section textarea {
     max-width: 97%;
     min-width: 97%;
-    min-height: 142px;
+    min-height: 121px;
     border-radius: 15px;
     outline: none;
     padding: 10px;
