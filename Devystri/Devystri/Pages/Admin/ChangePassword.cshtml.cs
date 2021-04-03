@@ -28,13 +28,18 @@ namespace Devystri.Pages.Admin
             UserManager = userManager;
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task OnPost()
+        {
+             await ChangePassword();
+        }
+
+        public async Task ChangePassword()
         {
             Success = false;
 
             if (changePasswordInput.NewPassword == changePasswordInput.NewPasswordConfirm)
             {
-                var user = await UserManager.FindByEmailAsync(changePasswordInput.Email.ToUpper());
+                var user = await UserManager.FindByEmailAsync(changePasswordInput.Email);
                 if(user is null)
                 {
                     Message = "Cet utilisateur n'existe pas.";
@@ -43,7 +48,7 @@ namespace Devystri.Pages.Admin
                 if (result.Succeeded)
                 {
                     Success = true;
-                    return RedirectToPage("Login");
+                    Message = "Mot de passe changé avec succès.";
                 }
                 else
                 {
@@ -61,7 +66,6 @@ namespace Devystri.Pages.Admin
 
             }
 
-            return Page();
         }
     }
 }

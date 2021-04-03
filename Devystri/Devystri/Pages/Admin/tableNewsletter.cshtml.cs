@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Devystri.Pages.Admin
 {
-#if REALESE
+#if RELEASE
     [Authorize]
 #endif
     public class TableNewsletterModel : PageModel

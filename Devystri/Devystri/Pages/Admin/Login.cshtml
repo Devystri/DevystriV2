@@ -26,5 +26,12 @@
     </div>
 </section>
 
+@{
+    int statement = (Model.Success) ? 3 : 1;
+}
 @section Scripts{
+    @if (Model.Message is not null)
+    {
+        <script> errorPopup(@statement, "@Model.Message"); </script>
+    }
 }

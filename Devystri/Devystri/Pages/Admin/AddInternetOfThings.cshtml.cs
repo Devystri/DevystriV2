@@ -6,12 +6,13 @@ using Data;
 using Data.Models;
 using Devystri.Model.Admin;
 using Devystri.Modules;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Devystri.Pages.Admin
 {
-#if REALESE
+#if RELEASE
     [Authorize]
 #endif
     public class AddInternetOfThingsModel : PageModel

@@ -18,7 +18,7 @@ using SixLabors.ImageSharp;
 
 namespace Devystri.Pages.Admin
 {
-#if REALESE
+#if RELEASE
     [Authorize]
 #endif
     public class AddApplicationModel : PageModel

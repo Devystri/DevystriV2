@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Devystri.Pages.Admin
 {
-#if REALESE
+#if RELEASE
     [Authorize]
 #endif
     public class AddUserModel : PageModel
@@ -20,6 +20,8 @@ namespace Devystri.Pages.Admin
         [BindProperty]
         public NewAccountInput AccountInput { get; set; }
         public string Message { get; set; }
+        public bool Success{ get; set; }
+
         private UserManager<AdminUser> UserManager { get; set; }
 
         public AddUserModel(UserManager<AdminUser> userManager)
@@ -31,9 +33,10 @@ namespace Devystri.Pages.Admin
 
         public async Task OnPost()
         {
-
-            if(AccountInput.ComfirmationPassword != AccountInput.Password)
+            Success = false;
+            if (AccountInput.ComfirmationPassword != AccountInput.Password)
             {
+                Message = "Les mots de passe ne correspondent pas";
                 return;
             }
             await CreateUser();
@@ -67,6 +70,7 @@ namespace Devystri.Pages.Admin
             if (result.Succeeded)
             {
                 Message = AccountInput.UserName + " a été ajouté avec succès.";
+                Success = true
                 return true;
             }
             else
