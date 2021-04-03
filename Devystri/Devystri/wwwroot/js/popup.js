@@ -94,9 +94,9 @@ button{
 }
 `
 
-function popupDelete(){
-    $("#popup-comfirm").css("display", "none");
-    var div = document.getElementById("popup-content");
+function popupDelete(id){
+    $("#" + id).css("display", "none");
+    var div = document.getElementById(id);
     div.remove();
 }   
 
@@ -107,13 +107,13 @@ function popup(title, message){
     $("#popup-comfirm").css("display", "block");
     $("#cancel").click(function (e) { 
         e.preventDefault();
-        popupDelete();
+        popupDelete("popup-content");
         return false;   
         
     });
     $("#confirm").click(function (e) { 
         e.preventDefault();
-        popupDelete();
+        popupDelete("popup-content");
         return true;
     });
 }
@@ -127,7 +127,8 @@ function popup(title, message){
 
 
 
-function errorPopup(popupStatus, errorMessage ) {
+function errorPopup(popupStatus, errorMessage) {
+    document.getElementsByTagName('body')[0].innerHTML += loadPage('../Pages/popup-error.html');
     if (popupStatus == 1) {
         document.getElementById('head-popup').className = 'popup-color-error';
         document.getElementById('close-popup').className = 'popup-color-error';
@@ -146,4 +147,18 @@ function errorPopup(popupStatus, errorMessage ) {
         document.getElementById("popup-title").innerHTML = "Success !";
     }
     document.getElementById("popup-error-text").innerHTML = errorMessage;
+
+    $("#close-popup").click(function (e) {
+        e.preventDefault();
+        popupDelete("popup-error");
+        return true;
+    });
+
 }
+function loadPage(href) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", href, false);
+        xmlhttp.send();
+        return xmlhttp.responseText;
+};
+

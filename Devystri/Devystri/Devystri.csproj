@@ -23,6 +23,7 @@
     <Folder Include="Modules\" />
     <Folder Include="wwwroot\upload\websites\" />
     <Folder Include="wwwroot\upload\iots\" />
+    <Folder Include="wwwroot\Pages\" />
   </ItemGroup>
 
   <ItemGroup>
