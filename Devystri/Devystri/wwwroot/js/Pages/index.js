@@ -8,7 +8,5 @@ scroll.on('scroll', (args) => {
         let blur = parseInt(progress * 20);
         let el = $("#homepage-big-title")[0];
         el.style = "filter: blur(" + blur + "px);";
-        console.log(blur);
-     
     }
 });

@@ -296,6 +296,8 @@ input{
     width: 80%;
     font-size: 15px;
     height: 162px;
+    word-break: break-all;
+    overflow: scroll;
 }
 
 #close-popup {
