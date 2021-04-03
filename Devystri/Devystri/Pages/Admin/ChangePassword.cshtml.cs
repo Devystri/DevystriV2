@@ -18,6 +18,9 @@ namespace Devystri.Pages.Admin
     {
         [BindProperty]
         public ChangePasswordInputModel changePasswordInput { get; set; }
+        public string Message { get; set; }
+        public bool Success { get; set; }
+
         private UserManager<AdminUser> UserManager;
 
         public ChangePasswordModel(UserManager<AdminUser> userManager)
@@ -25,23 +28,39 @@ namespace Devystri.Pages.Admin
             UserManager = userManager;
         }
 
-        public void OnGet()
-        {
-            
-        }
-
         public async Task<IActionResult> OnPostAsync()
         {
-            if(changePasswordInput.NewPassword == changePasswordInput.NewPasswordConfirm)
+            Success = false;
+
+            if (changePasswordInput.NewPassword == changePasswordInput.NewPasswordConfirm)
             {
                 var user = await UserManager.FindByEmailAsync(changePasswordInput.Email.ToUpper());
+                if(user is null)
+                {
+                    Message = "Cet utilisateur n'existe pas.";
+                }
                 var result = await UserManager.ChangePasswordAsync(user, changePasswordInput.Password, changePasswordInput.NewPassword);
                 if (result.Succeeded)
                 {
+                    Success = true;
                     return RedirectToPage("Login");
                 }
+                else
+                {
+                    Message = "Impossible de changer le mot de passe pour la/les raisons suivantes:";
+                    foreach (var error in result.Errors)
+                    {
+                        Message += "</br>" + " - " + error; 
+                    }
+
+                }
             }
-           
+            else
+            {
+                Message = "La comfirmation du mot de passe ne correspond pas au mot de passe.";
+
+            }
+
             return Page();
         }
     }
