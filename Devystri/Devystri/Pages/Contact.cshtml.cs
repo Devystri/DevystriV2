@@ -17,6 +17,9 @@ namespace Devystri.Pages
     {
         [BindProperty]
         public ContactInputForm ContactInputForm { get; set; }
+        public string Message { get; set; }
+        public bool Success { get; set; }
+
         private MyDbContext dbContext { get; set; }
 
         public ContactModel(MyDbContext context)
@@ -24,16 +27,19 @@ namespace Devystri.Pages
             dbContext = context;
         }
 
-        public void OnGet()
-        {
-        }
 
         public void OnPost()
         {
-            
+            Success = false;
             var fromAddress = new MailAddress("sender@devystri.com", ContactInputForm.Name + " " + ContactInputForm.FirstName);
             var toAddress = new MailAddress("contact@devystri.com", "Devystri Contact");
             const string fromPassword = "z-5@TQ)T7Y){";
+
+            if (!ModelState.IsValid)
+            {
+                Message = "Tous les champs de saisie ne sont pas correctement remplis.";
+                return;
+            }
 
             var smtp = new SmtpClient
             {
@@ -53,17 +59,20 @@ namespace Devystri.Pages
                 try
                 {
                     smtp.Send(message);
-                    UpdateContactStats(ContactInputForm.Email);
+                    Success = true;
+                    Message = "Email envoyé avec succès.";
+                    _ = UpdateContactStats(ContactInputForm.Email);
                 }
                 catch (Exception)
                 {
-;
+                    Message = "Cet email n'a pas pu être envoyé pour une raison inconnue, veuillez nous contacter à l'adresse: contact@devystri.com";
+
                 }
             }
         }
 
       
-        private void UpdateContactStats(string email)
+        private async Task UpdateContactStats(string email)
         {
             email = email.ToLower();
             DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -80,7 +89,8 @@ namespace Devystri.Pages
                     Date = today
                 });
             }
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
+            return;
         }
     }
 }

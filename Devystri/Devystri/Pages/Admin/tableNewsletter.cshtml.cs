@@ -13,11 +13,13 @@ namespace Devystri.Pages.Admin
     {
         [BindProperty]
         public List<Newsletter> Newsletters { get; set; }
-        [BindProperty]
         public int PageCount { get; set; }
-        [BindProperty]
         public int ActualPage { get; set; }
-        public MyDbContext dbContext;
+        public string Message { get; set; }
+        public bool Success { get; set; }
+
+        private MyDbContext dbContext;
+
         public TableNewsletterModel(MyDbContext context)
         {
             dbContext = context;
@@ -32,13 +34,32 @@ namespace Devystri.Pages.Admin
         }
         public IActionResult OnPost(int id)
         {
-            var req = HttpContext.Request.Form;
-            if(dbContext.Newsletters.Any(item => item.Id == id))
-            {
-                dbContext.Newsletters.Remove(new Newsletter() { Id = id} );
-                dbContext.SaveChanges();
-            }
+            Success = false;
 
+            var req = HttpContext.Request.Form;
+            try
+            {
+                if (dbContext.Newsletters.Any(item => item.Id == id))
+                {
+                    dbContext.Newsletters.Remove(new Newsletter() { Id = id });
+                    dbContext.SaveChanges();
+                    Success = true;
+                    Message = "Adresse email supprimée avec succès.";
+                }
+                else
+                {
+                    Message = "Cette adresse email n'existe pas.";
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Message = "Impossible de supprimer cette adresse email.";
+            }
+          
 
             return RedirectToPage("/Admin/tableNewsletter");
         }

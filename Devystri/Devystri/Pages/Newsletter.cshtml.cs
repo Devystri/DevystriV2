@@ -14,7 +14,10 @@ namespace Devystri.Pages
     {
         [BindProperty]
         public NewsletterInputModel NewsletterInput { get; set; }
-        
+
+        public string Message { get; set; }
+
+        public bool Success { get; set; }
         private MyDbContext dbContext;
         
         public NewsletterModel(MyDbContext context)
@@ -23,6 +26,7 @@ namespace Devystri.Pages
         }
         public void OnPost()
         {
+            Success = false;
             if (!ModelState.IsValid)
             {
                 return;
@@ -30,29 +34,41 @@ namespace Devystri.Pages
             int count = dbContext.Newsletters.Count(item => item.Email == NewsletterInput.Email);
             if (count > 0)
             {
+                Message = "Cette adresse email est déjà inscrite à la newsletter.";
                 return;
             }
             else
             {
-                dbContext.Newsletters.Add(new Newsletter()
+                try
                 {
-                    Email = NewsletterInput.Email,
-                    Date = DateTime.Now
-                });
-                DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-                if(dbContext.NewsletterStats.Any(item => item.Date == today))
-                {
-                    dbContext.NewsletterStats.First(item => item.Date == today).Count += 1; 
-                }
-                else
-                {
-                    dbContext.NewsletterStats.Add(new NewsletterStats()
+                    dbContext.Newsletters.Add(new Newsletter()
                     {
-                        Count = 1,
-                        Date = today
+                        Email = NewsletterInput.Email,
+                        Date = DateTime.Now
                     });
+                    DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                    if (dbContext.NewsletterStats.Any(item => item.Date == today))
+                    {
+                        dbContext.NewsletterStats.First(item => item.Date == today).Count += 1;
+                    }
+                    else
+                    {
+                        dbContext.NewsletterStats.Add(new NewsletterStats()
+                        {
+                            Count = 1,
+                            Date = today
+                        });
+                    }
+                    dbContext.SaveChanges();
+                    Message = "Adresse email ajoutée avec succès.";
+                    Success = true;
                 }
-                dbContext.SaveChanges();
+                catch (Exception)
+                {
+                    Success = false;
+                    Message = "Impossible d'ajouter cette adresse email pour une raison inconnue, veuillez nous contacter afin de signaler cette erreur.";
+                }
+                
             }
 
 
