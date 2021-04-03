@@ -129,6 +129,8 @@ function popup(title, message){
 
 function errorPopup(popupStatus, errorMessage) {
     document.getElementsByTagName('body')[0].innerHTML += loadPage('../Pages/popup-error.html');
+    $("#popup-error").hide();
+    
     if (popupStatus == 1) {
         document.getElementById('head-popup').className = 'popup-color-error';
         document.getElementById('close-popup').className = 'popup-color-error';
@@ -147,12 +149,16 @@ function errorPopup(popupStatus, errorMessage) {
         document.getElementById("popup-title").innerHTML = "Success !";
     }
     document.getElementById("popup-error-text").innerHTML = errorMessage;
-
-    $("#close-popup").click(function (e) {
-        e.preventDefault();
-        popupDelete("popup-error");
-        return true;
+    $("#popup-error").fadeIn(300, () => {
+        $("#close-popup").click(function (e) {
+            e.preventDefault();
+            $("#popup-error").fadeOut(300, () => {
+                popupDelete("popup-error");
+                return true;
+            });
+        });
     });
+
 
 }
 function loadPage(href) {
