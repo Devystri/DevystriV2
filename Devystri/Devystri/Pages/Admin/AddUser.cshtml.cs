@@ -70,7 +70,7 @@ namespace Devystri.Pages.Admin
             if (result.Succeeded)
             {
                 Message = AccountInput.UserName + " a été ajouté avec succès.";
-                Success = true
+                Success = true;
                 return true;
             }
             else

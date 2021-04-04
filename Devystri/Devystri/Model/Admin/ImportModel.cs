@@ -126,11 +126,13 @@ namespace Devystri.Model.Admin
     {
         public static string ImageName(IFormFile file, string actualName, ImageImport imageImport)
         {
+            if(actualName is not null)
+                actualName = actualName.Replace(" ", string.Empty);
             if (file is not null)
             {
-                if (actualName != file.FileName)
+                if (actualName != file.FileName.Replace(" ", string.Empty))
                 {
-                    actualName = file.FileName;
+                    actualName = file.FileName.Replace(" ", string.Empty);
                     imageImport.Delete(actualName);
                 }
 

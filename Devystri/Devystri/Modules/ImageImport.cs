@@ -20,9 +20,9 @@ namespace Devystri.Modules
         {
             foreach (var el in collection)
             {
-                if (el.Length > 0 && CorrectFileExtension(el.FileName))
+                if (el.Length > 0 && CorrectFileExtension(el.FileName.Replace(" ", string.Empty)))
                 {
-                    string filePath = Path + el.FileName;
+                    string filePath = Path + el.FileName.Replace(" ", string.Empty);
                     if (File.Exists(filePath))
                     {
                         Delete(filePath);
@@ -51,7 +51,7 @@ namespace Devystri.Modules
         {
             try
             {
-                File.Delete(Path + name);
+                File.Delete(Path + name.Replace(" ", string.Empty));
             }
             catch (Exception)
             {

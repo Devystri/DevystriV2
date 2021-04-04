@@ -64,12 +64,12 @@ namespace Devystri.Pages.Admin
                 if (el.Value[0] == "on")
                 {
                     int id = int.Parse(el.Key);
-                    dbContext.WebSites.Remove((WebSites)dbContext.WebSites.First(item => item.Id == id));
+                    dbContext.Iots.Remove((IoT)dbContext.Iots.First(item => item.Id == id));
 
                 }
             }
             dbContext.SaveChanges();
-            return RedirectToPage("/Admin/AddWebSite");
+            return RedirectToPage("/Admin/AddInternetOfThings");
         }
 
         public void LoadPage()
