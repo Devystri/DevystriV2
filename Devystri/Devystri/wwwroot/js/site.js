@@ -1,9 +1,9 @@
 ﻿//Padding B of nav fold
 var SizeOfNavFold = 71
-//Padding B of nav unfold
-var SizeOfNavUnfold = document.getElementById("nav-location").offsetHeight + 110
 
 function menuStateChanhed() {
+    //Padding B of nav unfold
+    var SizeOfNavUnfold = document.getElementById("nav-location").offsetHeight + 110
     if (!$('#header').is(':animated')) {
         if ($('input[name=menu-btn]').is(':checked')) {
             //Unfold the nav
@@ -14,12 +14,15 @@ function menuStateChanhed() {
         }
     }
 }
-// Closes the nav when the width of the page is greater than 
-$(window).resize(function () {
-    if ((window.innerWidth >= 1000) && ($('input[name=menu-btn]').is(':checked'))) {
-        $('#header').animate({ height: SizeOfNavUnfold });
-        $("#menu-btn").prop("checked", false);
-    }
+// Closes the nav when the width of the page is greater than
+
+$(function () {
+    $(window).resize(function () {
+        if ((window.innerWidth >= 1000) && ($('input[name=menu-btn]').is(':checked'))) {
+            $('#header').animate({ height: SizeOfNavFold });
+            $("#menu-btn").prop("checked", false);
+        }
+    });
 });
 
 
