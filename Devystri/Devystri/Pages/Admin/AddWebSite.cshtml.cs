@@ -84,7 +84,7 @@ namespace Devystri.Pages.Admin
 
                         var el = sections.FirstOrDefault(el => item.Id == el.Id);
                         el.Description = item.Description;
-                        el.ImageSrc = ImportTools.ImageName(item.Image, item.ImageSrc, imageImport);
+                        el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
                         el.Title = item.Title;
                         dbContext.Sections.Update(el);
                     }

@@ -38,10 +38,10 @@ namespace Devystri.Modules
         }
         private static bool CorrectFileExtension(string filename)
         {
-            var extentions = new string[] { "png", "jpeg", "svg", "glb" };
+            var extentions = new string[] { "png", "jpeg", "svg", "glb", "jpg" };
             foreach (var extention in extentions)
             {
-                if (filename.Contains(extention))
+                if (filename.ToLower().Contains(extention))
                     return true;
                 
             }
