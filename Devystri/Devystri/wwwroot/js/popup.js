@@ -128,7 +128,7 @@ function popup(title, message){
 
 
 function errorPopup(popupStatus, errorMessage) {
-    document.getElementsByTagName('body')[0].innerHTML += loadPage('../Pages/popup-error.html');
+    document.getElementsByTagName('body')[0].innerHTML += loadPage('../../../Pages/popup-error.html');
     $("#popup-error").hide();
     
     if (popupStatus == 1) {
