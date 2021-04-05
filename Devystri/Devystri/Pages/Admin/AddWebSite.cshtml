@@ -140,6 +140,9 @@
     </form>
 </section>
 
+@{
+    int statement = (Model.Success) ? 3 : 1;
+}
 <script src="~/js/Pages/admin/ImageImporter.js"></script>
 @if (Model.Message is not null)
 {

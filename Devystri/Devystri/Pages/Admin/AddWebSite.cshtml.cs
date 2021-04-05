@@ -19,6 +19,7 @@ namespace Devystri.Pages.Admin
     {
         [BindProperty]
         public WebSiteImportModel WebSite { get; set; }
+        [BindProperty]
 
         public List<SectionImport> Sections { get; set; }
 
@@ -84,14 +85,17 @@ namespace Devystri.Pages.Admin
 
                     dbContext.WebSites.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
-                    foreach (var item in Sections)
+                    if (Sections is not null)
                     {
+                        foreach (var item in Sections)
+                        {
 
-                        var el = sections.FirstOrDefault(el => item.Id == el.Id);
-                        el.Description = item.Description;
-                        el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
-                        el.Title = item.Title;
-                        dbContext.Sections.Update(el);
+                            var el = sections.FirstOrDefault(el => item.Id == el.Id);
+                            el.Description = item.Description;
+                            el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
+                            el.Title = item.Title;
+                            dbContext.Sections.Update(el);
+                        }
                     }
                     Success = true;
                     Message = "Les modifications ont été apportés avec succès";
@@ -107,6 +111,13 @@ namespace Devystri.Pages.Admin
             }
             else
             {
+                var empty = new WebSiteImportModel();
+                if (WebSite == empty)
+                {
+                    Success = false;
+                    Message = "Impossible d'ajouter un site web sans informations.";
+                    return;
+                }
                 var app = WebSite.ToWebSite();
                 dbContext.WebSites.Add(app);
                 Message = "Le site internet a été ajouté avec succès.";

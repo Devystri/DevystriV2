@@ -79,14 +79,17 @@ namespace Devystri.Pages.Admin
 
                     dbContext.Applications.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
-                    foreach (var item in Sections)
+                    if (Sections is not null)
                     {
-                       
-                        var el = sections.FirstOrDefault(el => item.Id == el.Id);
-                        el.Description = item.Description;
-                        el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
-                        el.Title = item.Title;
-                        dbContext.Sections.Update(el);
+                        foreach (var item in Sections)
+                        {
+
+                            var el = sections.FirstOrDefault(el => item.Id == el.Id);
+                            el.Description = item.Description;
+                            el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
+                            el.Title = item.Title;
+                            dbContext.Sections.Update(el);
+                        }
                     }
                     Message = "Application modifiée avec succès";
                     Success = true;
@@ -101,6 +104,13 @@ namespace Devystri.Pages.Admin
             }
             else
             {
+                var empty = new ApplicationImportModel();
+                if (Application == empty)
+                {
+                    Success = false;
+                    Message = "Impossible d'ajouter une application sans informations.";
+                    return;
+                }
                 var app = Application.ToApplication();
                 dbContext.Applications.Add(app);
                 Message = "Application ajoutée avec succès.";

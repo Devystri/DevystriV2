@@ -131,15 +131,19 @@ namespace Devystri.Pages.Admin
 
                     dbContext.Iots.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == Id).ToList();
-                    foreach (var item in Sections)
+                    if(Sections is not null)
                     {
+                        foreach (var item in Sections)
+                        {
 
-                        var el = sections.FirstOrDefault(el => item.Id == el.Id);
-                        el.Description = item.Description;
-                        el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
-                        el.Title = item.Title;
-                        dbContext.Sections.Update(el);
+                            var el = sections.FirstOrDefault(el => item.Id == el.Id);
+                            el.Description = item.Description;
+                            el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
+                            el.Title = item.Title;
+                            dbContext.Sections.Update(el);
+                        }
                     }
+                    
                     Success = true;
                     Message = "Les modifications ont été apportés avec succès.";
 
@@ -154,6 +158,14 @@ namespace Devystri.Pages.Admin
             }
             else
             {
+                var empty = new IotImportModel();
+
+                if (Iot == empty)
+                {
+                    Success = false;
+                    Message = "Impossible d'ajouter un objet connecté sans informations.";
+                    return;
+                }
                 var iot = Iot.ToIot();
                 dbContext.Iots.Add(iot);
                 Message = "L'objet a correctement été ajouté.";

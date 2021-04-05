@@ -142,12 +142,18 @@ namespace Devystri
             app.UseMiddleware(typeof(VisitorsCounter));
             app.Use(async (context, next) =>
             {
-                await next();
+         
                 if (context.Response.StatusCode == 404 || context.Response.StatusCode == 500)
                 {
-                    context.Request.Path = "/Error/404";
-                    await next();
+                    string path = context.Request.Path.Value;
+                    if (!path.Contains('.') && !path.Contains("upload"))
+                    {
+                        context.Request.Path = "/Error/404";
+
+                    }
                 }
+                await next();
+
             });
             app.UseHttpsRedirection();
             app.UseStaticFiles(options);

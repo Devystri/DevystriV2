@@ -28,9 +28,8 @@ namespace Devystri
                    dbIdentity.Database.Migrate();
 
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
-                    Console.WriteLine(e.Message);
                 }
                 
             }
