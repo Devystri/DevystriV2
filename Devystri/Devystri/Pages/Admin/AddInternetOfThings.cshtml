@@ -83,7 +83,7 @@
         <div id="first-image-product">
             <div class="input-box">
                 <span>Fichier de présentation de l'objet </span>
-                <input placeholder="Fichier de présentation de l'objet" class="input-image-box" asp-for="Iot.PresentationRessource" onchange="javascript: previewImage(this, 'preview3d')"  />
+                <input placeholder="Fichier de présentation de l'objet" class="input-image-box" asp-for="Iot.PresentationRessource" onchange="javascript: previewImage(this, 'preview3d')" />
                 <object-viewer class="blah" id="preview3d" style="width: 100%; height: 30em;" src="/upload/iots/@Model.Iot.PresentationRessourceName" zoom="0.1" />
             </div>
             <div class="input-box">
@@ -128,6 +128,10 @@
     </form>
 </section>
 
+@{
+    int statement = (Model.Success) ? 3 : 1;
+}
+
 @section Scripts{
     <script src="~/js/Pages/admin/ImageImporter.js"></script>
     <script src="~/js/popup.js"></script>
@@ -141,4 +145,9 @@
         <script src="~/lib/three.min.js"></script>
         <script src="~/js/HTMLElements/objectVisualisator.js"></script>
     </environment>
-} 
+    @if (Model.Message is not null)
+    {
+        <script> errorPopup(@statement, "@Model.Message"); </script>
+    }
+}
+

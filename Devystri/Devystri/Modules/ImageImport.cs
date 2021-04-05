@@ -9,11 +9,13 @@ namespace Devystri.Modules
     public class ImageImport
     {
      
-        public string Path { get; set; }
+        public string PathString { get; set; }
 
         public ImageImport(string path)
         {
-            Path = path;
+
+            PathString = Path.Combine(
+                  Directory.GetCurrentDirectory(), path);
         }
 
         public bool Import(IFormFileCollection collection)
@@ -22,7 +24,8 @@ namespace Devystri.Modules
             {
                 if (el.Length > 0 && CorrectFileExtension(el.FileName.Replace(" ", string.Empty)))
                 {
-                    string filePath = Path + el.FileName.Replace(" ", string.Empty);
+                    string fileName = el.FileName.Replace(" ", string.Empty);
+                    string filePath = Path.Combine(PathString, fileName);
                     if (File.Exists(filePath))
                     {
                         Delete(filePath);
@@ -47,11 +50,11 @@ namespace Devystri.Modules
             }
             return false;
         }
-        public bool Delete(string name)
+        public bool Delete(string path)
         {
             try
             {
-                File.Delete(Path + name.Replace(" ", string.Empty));
+                File.Delete(path.Replace(" ", string.Empty));
             }
             catch (Exception)
             {

@@ -32,6 +32,10 @@ namespace Devystri.Pages.Admin
         [BindProperty]
         public int AppId{ get; set; }
 
+        public string Message { get; set; }
+        public bool Success { get; set; }
+
+
         private ImageImport imageImport = new ImageImport("wwwroot/upload/applications/");
         private MyDbContext dbContext;
 
@@ -84,7 +88,13 @@ namespace Devystri.Pages.Admin
                         el.Title = item.Title;
                         dbContext.Sections.Update(el);
                     }
-
+                    Message = "Application modifiée avec succès";
+                    Success = true;
+                }
+                else
+                {
+                    Message = "L'application ne peut pas être modifié.";
+                    Success = false;
                 }
 
 
@@ -93,19 +103,39 @@ namespace Devystri.Pages.Admin
             {
                 var app = Application.ToApplication();
                 dbContext.Applications.Add(app);
-
+                Message = "Application ajoutée avec succès.";
+                Success = true;
             }
-            if (!imageImport.Import(HttpContext.Request.Form.Files))
+            try
             {
-                return;
+                if (!imageImport.Import(HttpContext.Request.Form.Files))
+                {
+                    Message = "Impossible d'importer les/l' image-s.";
+                    Success = false;
+                    return;
+                }
             }
-            dbContext.SaveChanges();
+            catch (Exception ex)
+            {
+                Message = ex.Message;
+            }
+
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Success = false;
+                Message = "Impossible de sauvegarder les modifications pour une raison inconnue.";
+            }
         }
 
 
 
         public IActionResult OnPostDelete()
         {
+            Success = false;
             var form = HttpContext.Request.Form;
             foreach (var el in form)
             {
@@ -116,7 +146,16 @@ namespace Devystri.Pages.Admin
 
                 }
             }
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+                Success = true;
+                Message = "Application supprimée avec succès.";
+            }
+            catch (Exception)
+            {
+                Message = "L'application n'a pas pu être supprimée.";
+            }
             return RedirectToPage("/Admin/AddApplication");
         }
 

@@ -14,8 +14,8 @@
                 <li class="add-products-nav-element">
                     <div><img draggable="false" src="~/Assets/elements/travel-bar.svg" /></div> @*Button*@
                     <a asp-area="" asp-page="/Admin/AddWebsite" asp-route-id="@app.Id" style="text-decoration: none">
-                    <span class="product-id-nav">@app.Id</span>
-                    <span class="product-name-nav">@app.Name</span>
+                        <span class="product-id-nav">@app.Id</span>
+                        <span class="product-name-nav">@app.Name</span>
                     </a>
                     @if (app.Id == Model.AppId)
                     {
@@ -140,10 +140,8 @@
     </form>
 </section>
 
-@section Scripts{
-    <script src="~/js/Pages/admin/ImageImporter.js"></script>
-    <environment include="Development">
-        <script src="~/js/popup.js"></script>
-
-    </environment>
-} 
+<script src="~/js/Pages/admin/ImageImporter.js"></script>
+@if (Model.Message is not null)
+{
+    <script> errorPopup(@statement, "@Model.Message"); </script>
+}

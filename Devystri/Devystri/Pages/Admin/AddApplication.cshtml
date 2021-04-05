@@ -35,7 +35,7 @@
             </ul>
         </nav>
         <a class="add-products-nav-button" id="add-new-product" asp-area="" asp-page="/Admin/AddApplication" asp-route-id="0">Ajouter une nouvelle application</a>
-        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" onclick="javascript: popup('Attention !', 'Voulez vous vraiment la/les supprimer ? @Model.Application.Name')" asp-page-handler="Delete" />
+        <input class="add-products-nav-button" id="delete-product" type="submit" value="Supprimer l'application" onclick="javascript: comfirm('Attention !', 'Voulez vous vraiment la/les supprimer ? @Model.Application.Name')" asp-page-handler="Delete" />
     </form>
 </section>
 <section id="product-information">
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                     <div class="input-box">
-                        <input asp-for="Sections[i].Id" hidden/>
+                        <input asp-for="Sections[i].Id" hidden />
                         <span>Titre</span>
                         <input placeholder="Titre" class="section-title" asp-for="Sections[i].Title" />
                         <span>Description</span>
@@ -153,9 +153,16 @@
 
         <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
     </form>
+    @Model.Message
 </section>
 
+@{
+    int statement = (Model.Success) ? 3 : 1;
+}
 @section Scripts{
     <script src="~/js/Pages/admin/ImageImporter.js"></script>
-   
+    @if (Model.Message is not null)
+    {
+        <script> errorPopup(@statement, "@Model.Message"); </script>
+    }
 } 

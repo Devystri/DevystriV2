@@ -19,12 +19,15 @@ namespace Devystri.Pages.Admin
     {
         [BindProperty]
         public WebSiteImportModel WebSite { get; set; }
-        [BindProperty]
+
         public List<SectionImport> Sections { get; set; }
-        [BindProperty]
+
         public List<WebSites> ListWebSites { get; set; }
-        [BindProperty]
+
         public int AppId { get; set; }
+
+        public bool Success { get; set; }
+        public string Message { get; set; }
 
         private ImageImport imageImport = new ImageImport("wwwroot/upload/websites/");
         private MyDbContext dbContext;
@@ -56,10 +59,12 @@ namespace Devystri.Pages.Admin
             dbContext.SaveChanges();
             AppId = id;
             LoadPage();
+
         }
 
         public void SaveApp()
         {
+            Success = false;
             ListWebSites = dbContext.WebSites.ToList();
 
             if (ListWebSites.Exists(item => item.Id == WebSite.Id))
@@ -88,6 +93,13 @@ namespace Devystri.Pages.Admin
                         el.Title = item.Title;
                         dbContext.Sections.Update(el);
                     }
+                    Success = true;
+                    Message = "Les modifications ont été apportés avec succès";
+                }
+                else
+                {
+                    Success = false;
+                    Message = "Le site internet n'a pas pu être modifié pour une raison inconnue.";
 
                 }
 
@@ -97,17 +109,31 @@ namespace Devystri.Pages.Admin
             {
                 var app = WebSite.ToWebSite();
                 dbContext.WebSites.Add(app);
+                Message = "Le site internet a été ajouté avec succès.";
+                Success = true;
 
             }
             if (!imageImport.Import(HttpContext.Request.Form.Files))
             {
+                Success = false;
+                Message = "Impossible d'ajouter ces images.";
                 return;
             }
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+                Success = true;
+            }
+            catch (Exception)
+            {
+                Success = false;
+                Message = "Le site internet n'a pas pu être modifié pour une raison inconnue.";
+            }
         }
 
         public IActionResult OnPostDelete()
         {
+            Success = false;
             var form = HttpContext.Request.Form;
             foreach (var el in form)
             {
@@ -118,7 +144,16 @@ namespace Devystri.Pages.Admin
 
                 }
             }
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+                Success = true;
+                Message = "Le site internet a été supprimé avec succès.";
+            }
+            catch (Exception)
+            {
+                Message = "Le site internet n'a pas pu être supprimé.";
+            }
             return RedirectToPage("/Admin/AddWebSite");
         }
 

@@ -19,12 +19,15 @@ namespace Devystri.Pages.Admin
     {
         [BindProperty]
         public IotImportModel Iot { get; set; }
-        [BindProperty]
+
         public List<SectionImport> Sections { get; set; }
-        [BindProperty]
+   
         public List<IoT> ListIots { get; set; }
-        [BindProperty]
+
         public int Id { get; set; }
+
+        public string Message { get; set; }
+        public bool Success { get; set; }
 
         private ImageImport imageImport = new ImageImport("wwwroot/upload/iots/");
         private MyDbContext dbContext;
@@ -68,7 +71,16 @@ namespace Devystri.Pages.Admin
 
                 }
             }
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+                Success = true;
+                Message = "L'objet a été supprimée avec succès.";
+            }
+            catch (Exception)
+            {
+                Message = "L'objet n'a pas pu être supprimé.";
+            }
             return RedirectToPage("/Admin/AddInternetOfThings");
         }
 
@@ -103,7 +115,7 @@ namespace Devystri.Pages.Admin
         public void SaveApp()
         {
             ListIots = dbContext.Iots.ToList();
-
+            Success = false;
             if (ListIots.Exists(item => item.Id == Iot.Id))
             {
                 var toEdit = ListIots.FirstOrDefault(item => item.Id == Iot.Id);
@@ -128,7 +140,14 @@ namespace Devystri.Pages.Admin
                         el.Title = item.Title;
                         dbContext.Sections.Update(el);
                     }
+                    Success = true;
+                    Message = "Les modifications ont été apportés avec succès.";
 
+                }
+                else
+                {
+                    Success = true;
+                    Message = "Impossible de modifier cet objet pour une raison inconnue.";
                 }
 
 
@@ -137,13 +156,27 @@ namespace Devystri.Pages.Admin
             {
                 var iot = Iot.ToIot();
                 dbContext.Iots.Add(iot);
+                Message = "L'objet a correctement été ajouté.";
+                Success = true;
 
             }
             if (!imageImport.Import(HttpContext.Request.Form.Files))
             {
+                Message = "Impossible d'ajouter les nouveaux fichiers pour une raison inconnue.";
+                Success = false;
                 return;
             }
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+                Success = true;
+
+            }
+            catch (Exception)
+            {
+                Success = false;
+                Message = "Impossible de sauvegarder les modifications pour une raison inconnue.";
+            }
         }
     }
 }
