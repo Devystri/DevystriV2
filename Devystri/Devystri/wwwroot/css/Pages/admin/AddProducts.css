@@ -130,8 +130,7 @@ input::-webkit-file-upload-button {
     }
 
     #fast-information .input-box {
-        max-width: 300px;
-        width: 24%;
+        width: 50%;
     }
 
 .input-box {
@@ -391,19 +390,24 @@ select[name=product-condition] {
     transition: width 0.3s,letter-spacing 0.3s;
 }
     .delete-section:hover {
-        animation: hover-delete-section 0.3s forwards;
         width: 131px;
         letter-spacing: 0.5px;
     }
 
     .delete-section:before {
-        content: "--";
-        transition: content 0.5s, width 0.3s;
-        width: 50%;
+        content: "";
+        transition: content 0.5s, width 0.3s, background-image 0.3s;
+        width: 43%;
+        height: 50%;
+        background-image: url(../../../Assets/elements/close.svg);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
     }
     .delete-section:hover::before {
         content: "Supprimer";
         width: 55%;
+        background-image: none;
     }
 
 
