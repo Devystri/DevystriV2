@@ -46,6 +46,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.2s;
 }
 
     .social-networks-newsletter img {
@@ -54,18 +55,9 @@ form {
     }
 
     .social-networks-newsletter:hover {
-        animation: social-networks-newsletter-hover 0.2s forwards;
-    }
-
-@keyframes social-networks-newsletter-hover {
-    from {
-        background-color: var(--dark-blue);
-    }
-
-    to {
         background-color: var(--grey-blue);
     }
-}
+
 
 
 /* Mobile */

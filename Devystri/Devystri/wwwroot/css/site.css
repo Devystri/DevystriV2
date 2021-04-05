@@ -183,24 +183,12 @@ input{
     outline: none;
     cursor: pointer;
     -webkit-appearance: none;
+    transition: background 0.2s;
 }
 
     .send-button:hover {
-        animation: hover-send-button 0.2s forwards;
-    }
-
-
-
-@keyframes hover-send-button {
-    from {
-        background: var(--grey-blue);
-    }
-
-    to {
         background: var(--light-blue);
     }
-}
-
 
 /* Alert message */
 

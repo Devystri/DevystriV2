@@ -7,10 +7,13 @@
     left: 50%;
     right: 50%;
     position: absolute;
+    color: var(--dark-blue);
 }
+    .element-arrow:hover {
+        color: var(--grey-blue)
+    }
 
 .text-arrow {
-    color: var(--dark-blue);
     font-size: 20px;
     width: max-content;
 }
@@ -34,7 +37,6 @@
 
 .description-section {
     height: 100vh;
-    min-height: 1000px;
     padding: 0 5%;
     margin: 0px auto;
     display: flex;
@@ -96,6 +98,7 @@
 @media screen and (max-width: 1000px) {
     .description-section {
         flex-direction: column-reverse;
+        height: fit-content;
     }
     .description-section-text {
         display: flex;
