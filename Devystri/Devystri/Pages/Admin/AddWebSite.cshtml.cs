@@ -23,7 +23,7 @@ namespace Devystri.Pages.Admin
 
         public List<SectionImport> Sections { get; set; }
 
-        public List<WebSites> ListWebSites { get; set; }
+        public List<WebSite> ListWebSites { get; set; }
 
         public int AppId { get; set; }
 
@@ -82,7 +82,7 @@ namespace Devystri.Pages.Admin
                     toEdit.AppLogoName = ImportTools.ImageName(WebSite.AppLogo, toEdit.AppLogoName, imageImport);
                     toEdit.Presentation2RessourceName = ImportTools.ImageName(WebSite.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
                     toEdit.Presentation3RessourceName = ImportTools.ImageName(WebSite.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
-                    toEdit.Stat = (int)WebSite.State;
+                    toEdit.Stat = WebSite.State;
 
                     dbContext.WebSites.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
@@ -152,7 +152,7 @@ namespace Devystri.Pages.Admin
                 if (el.Value[0] == "on")
                 {
                     int id = int.Parse(el.Key);
-                    dbContext.WebSites.Remove((WebSites)dbContext.WebSites.First(item => item.Id == id));
+                    dbContext.WebSites.Remove((WebSite)dbContext.WebSites.First(item => item.Id == id));
 
                 }
             }

@@ -128,7 +128,7 @@ namespace Devystri.Pages.Admin
                     toEdit.LogoName = ImportTools.ImageName(Iot.Logo, toEdit.LogoName, imageImport);
                     toEdit.Presentation2RessourceName = ImportTools.ImageName(Iot.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
                     toEdit.Presentation3RessourceName = ImportTools.ImageName(Iot.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
-                    toEdit.Stat = (int)Iot.State;
+                    toEdit.Stat = Iot.State;
                     dbContext.Iots.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == Id).ToList();
                     if(Sections is not null)

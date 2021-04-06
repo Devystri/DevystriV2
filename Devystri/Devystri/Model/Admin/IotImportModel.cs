@@ -39,7 +39,7 @@ namespace Devystri.Model.Admin
                 Presentation2RessourceName = Presentation2RessourceName,
                 Presentation3RessourceName = Presentation3RessourceName,
                 PresentationRessourceName = PresentationRessourceName,
-                Stat = (int) State
+                Stat = State
             };
         }
 

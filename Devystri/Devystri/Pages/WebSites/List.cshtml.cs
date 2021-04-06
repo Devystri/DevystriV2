@@ -12,7 +12,7 @@ namespace Devystri.Pages.Web_Sites
     public class ListModel : PageModel
     {
         private MyDbContext dbContext;
-        public List<WebSites> webSites;
+        public List<WebSite> webSites;
         public ListModel(MyDbContext context)
         {
             dbContext = context;

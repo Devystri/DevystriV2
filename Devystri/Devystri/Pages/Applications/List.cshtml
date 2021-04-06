@@ -15,15 +15,15 @@
             <img draggable="false" alt="Application" src="~/upload/applications/@item.PresentationRessourceName" />
         </div>
         <div class="right-part">
-            @if (item.Stat == (int)Stats.CANCEL)
+            @if (item.Stat == Stats.CANCEL)
             {
                 <span class="project-status project-cancelled"></span>
             }
-            else if (item.Stat == (int)Stats.NOT_MARKETED)
+            else if (item.Stat == Stats.NOT_MARKETED)
             {
                 <span class="project-status not-marketed"></span>
             }
-            else if (item.Stat == (int)Stats.NOT_DOWNLABLE)
+            else if (item.Stat == Stats.NOT_DOWNLABLE)
             {
                 <span class="project-status not-downloadable"></span>
             }

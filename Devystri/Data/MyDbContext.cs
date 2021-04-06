@@ -11,7 +11,7 @@ namespace Data
     {
         public DbSet<Application> Applications { get; set; }
         public DbSet<IoT> Iots { get; set; }
-        public DbSet<WebSites> WebSites { get; set; }
+        public DbSet<WebSite> WebSites { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<OSStats> OSs{ get; set; }

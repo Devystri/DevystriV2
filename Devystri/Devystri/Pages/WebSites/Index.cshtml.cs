@@ -13,7 +13,7 @@ namespace Devystri.Pages.Web_Sites
     public class IndexModel : PageModel
     {
         [BindProperty]
-        public WebSites webSite { get; set; }
+        public WebSite webSite { get; set; }
         public SectionLoadManage SectionLoadManage { get; set; }
         private MyDbContext dbContext;
 

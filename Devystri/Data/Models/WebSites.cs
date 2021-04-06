@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data.Models
 {
-    public class WebSites
+    public class WebSite
     {
         [Key]
         [Required]

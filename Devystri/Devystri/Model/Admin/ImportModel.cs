@@ -51,7 +51,7 @@ namespace Devystri.Model.Admin
                 PresentationRessourceName = PresentationRessource.FileName,
                 Presentation2RessourceName = Presentation2Ressource.FileName,
                 Presentation3RessourceName = Presentation3Ressource.FileName,
-                Stat = (int)State
+                Stat = State
             };
         }
 

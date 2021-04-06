@@ -15,7 +15,7 @@ namespace Devystri.Model.Admin
             Presentation3RessourceName = (Presentation3Ressource is null) ? "addPicture.svg" : Presentation3Ressource.FileName;
         }
 
-        public WebSiteImportModel(WebSites web)
+        public WebSiteImportModel(WebSite web)
         {
             Id = web.Id;
             Name = web.Name;
@@ -30,14 +30,14 @@ namespace Devystri.Model.Admin
             State = (Stats)web.Stat;
         }
 
-        public WebSites ToWebSite()
+        public WebSite ToWebSite()
         {
-            return new WebSites()
+            return new WebSite()
             {
                 Id = Id,
                 AppLogoName = AppLogo.Name,
                 Description = Description,
-                Stat = (int)State,
+                Stat = State,
                 Link = Link,
                 Language = Language,
                 MinAge = MinAge,
