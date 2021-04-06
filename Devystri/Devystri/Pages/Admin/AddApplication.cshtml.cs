@@ -81,14 +81,19 @@ namespace Devystri.Pages.Admin
                     var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();
                     if (Sections is not null)
                     {
-                        foreach (var item in Sections)
+                        foreach (var sec in Sections)
                         {
 
-                            var el = sections.FirstOrDefault(el => item.Id == el.Id);
-                            el.Description = item.Description;
-                            el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
-                            el.Title = item.Title;
+                            var el = sections.FirstOrDefault(el => sec.Id == el.Id);
+                            el.Description = sec.Description;
+                            el.ImageSrc = ImportTools.ImageName(sec.Image, el.ImageSrc, imageImport);
+                            el.Title = sec.Title;
+                            sections.Remove(sections.FirstOrDefault(item => item.Id == sec.Id));
                             dbContext.Sections.Update(el);
+                        }
+                        foreach (var section in sections)
+                        {
+                            dbContext.Sections.Remove(dbContext.Sections.FirstOrDefault(item => item.Id == section.Id));
                         }
                     }
                     Message = "Application modifiée avec succès";

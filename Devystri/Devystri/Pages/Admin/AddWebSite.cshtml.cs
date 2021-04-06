@@ -95,7 +95,13 @@ namespace Devystri.Pages.Admin
                             el.Description = item.Description;
                             el.ImageSrc = ImportTools.ImageName(item.Image, el.ImageSrc, imageImport);
                             el.Title = item.Title;
+                            sections.Remove(sections.FirstOrDefault(sec => sec.Id == item.Id));
                             dbContext.Sections.Update(el);
+                        }
+
+                        foreach (var section in sections)
+                        {
+                            dbContext.Sections.Remove(dbContext.Sections.FirstOrDefault(item => item.Id == section.Id));
                         }
                     }
                     Success = true;

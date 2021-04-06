@@ -37,7 +37,7 @@
     <a class="add-products-nav-button" id="delete-product">Supprimer l'application</a>
 </section>
 <section id="product-information">
-    <form method="post" enctype="multipart/form-data" >
+    <form method="post" enctype="multipart/form-data">
         <div id="fast-information">
             <div class="input-box">
                 <span>Nom de l'objet</span>
@@ -72,7 +72,6 @@
             <div id="product-condition" class="input-box">
                 <span>Statue du projet</span>
                 <select asp-for="Iot.State" asp-items="Html.GetEnumSelectList(Model.Iot.State.GetType())">
-
                 </select>
             </div>
         </div>
@@ -99,26 +98,26 @@
         </div>
         @for (int i = 0; i < Model.Sections.Count; i++)
         {
-            <div class="section">
-                <span class="section-number">Section @(i + 1)</span>
-                <a title="Supprimer la section" href="#" class="delete-section"></a> <!--Delete section button-->
-                <div class="product-section">
-                    <div class="section-image-box">
-                        <span>Image</span>
-                        <div class="image-box">
-                            <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
-                            <img class="blah" id="preview@(i+3)" src="~/upload/iots/@Model.Sections[i].ImageSrc" />
-                        </div>
-                    </div>
-                    <div class="input-box">
-                        <input asp-for="Sections[i].Id" hidden />
-                        <span>Titre</span>
-                        <input placeholder="Titre" class="section-title" asp-for="Sections[i].Title" />
-                        <span>Description</span>
-                        <textarea placeholder="Description" asp-for="Sections[i].Description"></textarea>
-                    </div>
+    <div class="section" id="section-@Model.Sections[i].Id">
+        <span class="section-number">Section @(i + 1)</span>
+        <button title="Supprimer la section" onclick="javascript: Delete(@Model.Sections[i].Id)" class="delete-section"></button> <!--Delete section button-->
+        <div class="product-section">
+            <div class="section-image-box">
+                <span>Image</span>
+                <div class="image-box">
+                    <input id="file@(i+3)" accept="image/*" onchange="javascript: previewImage(this, 'preview@(i+3)')" asp-for="Sections[i].Image" class="input-image-box" />
+                    <img class="blah" id="preview@(i+3)" src="~/upload/iots/@Model.Sections[i].ImageSrc" />
                 </div>
             </div>
+            <div class="input-box">
+                <input asp-for="Sections[i].Id" hidden />
+                <span>Titre</span>
+                <input placeholder="Titre" class="section-title" asp-for="Sections[i].Title" />
+                <span>Description</span>
+                <textarea placeholder="Description" asp-for="Sections[i].Description"></textarea>
+            </div>
+        </div>
+    </div>
         }
         <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
     </form>
@@ -145,5 +144,10 @@
     {
         <script> errorPopup(@statement, "@Model.Message"); </script>
     }
+    <script>
+        function Delete(id) {
+            document.getElementById("section-" + id).remove();
+        }
+    </script>
 }
 

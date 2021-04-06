@@ -125,9 +125,9 @@
         </div>
         @for (int i = 0; i < Model.Sections.Count; i++)
         {
-            <div class="section">
+            <div class="section" id="section-@Model.Sections[i].Id">
                 <span class="section-number">Section @(i + 1)</span>
-                <a title="Supprimer la section" href="../DeleteSection/@Model.Sections[i].Id" class="delete-section"></a> <!--Delete section button-->
+                <button title="Supprimer la section" onclick="javascript: Delete(@Model.Sections[i].Id)" class="delete-section"></button> <!--Delete section button-->
                 <div class="product-section">
                     <div class="section-image-box">
                         <span>Image</span>
@@ -149,7 +149,6 @@
 
         <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
     </form>
-    @Model.Message
 </section>
 
 @{
@@ -161,4 +160,12 @@
     {
         <script> errorPopup(@statement, "@Model.Message"); </script>
     }
+
+    <script>
+        function Delete(id) {
+            document.getElementById("section-" + id).remove();
+
+            
+        }
+    </script>
 } 

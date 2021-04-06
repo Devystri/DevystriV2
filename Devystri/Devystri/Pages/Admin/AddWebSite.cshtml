@@ -79,8 +79,7 @@
             </div>
             <div id="product-condition" class="input-box">
                 <span>Statue du projet</span>
-                <select  asp-for="WebSite.State" asp-items="Html.GetEnumSelectList(Model.WebSite.State.GetType())">
-
+                <select asp-for="WebSite.State" asp-items="Html.GetEnumSelectList(Model.WebSite.State.GetType())">
                 </select>
             </div>
         </div>
@@ -111,9 +110,9 @@
 
         @for (int i = 0; i < Model.Sections.Count; i++)
         {
-            <div class="section">
+            <div class="section" id="section-@Model.Sections[i].Id">
                 <span class="section-number">Section @(i + 1)</span>
-                <a title="Supprimer la section" href="#" class="delete-section"></a> <!--Delete section button-->
+                <button title="Supprimer la section" onclick="javascript: Delete(@Model.Sections[i].Id)" class="delete-section"></button> <!--Delete section button-->
                 <div class="product-section">
                     <div class="section-image-box">
                         <span>Image</span>
@@ -131,10 +130,10 @@
                     </div>
                 </div>
             </div>
-        }
-        <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
-    </form>
-</section>
+            }
+            <a class="add-products-nav-button" asp-page-handler="AddSection">Ajouter une nouvelle section</a>
+        </form>
+    </section>
 
 @{
     int statement = (Model.Success) ? 3 : 1;
@@ -144,3 +143,8 @@
 {
     <script> errorPopup(@statement, "@Model.Message"); </script>
 }
+<script>
+    function Delete(id) {
+        document.getElementById("section-" + id).remove();
+    }
+</script>
