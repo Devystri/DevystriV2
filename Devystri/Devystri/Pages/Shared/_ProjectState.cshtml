@@ -1,0 +1,11 @@
+﻿@namespace Devystri.Pages.Shared
+
+@model Data.Models.Stats
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@if ((int)Model != 0)
+{
+    <span class="project-status">@Model.ToString()</span>
+}
+

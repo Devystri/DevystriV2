@@ -45,6 +45,6 @@ namespace Data.Models
         public string Presentation3RessourceName { get; set; }
 
         [Required]
-        public int Stat { get; set; }
+        public Stats Stat { get; set; }
     }
 }

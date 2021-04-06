@@ -44,6 +44,6 @@ namespace Data.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Vous n'avez pas saisi un nom de ressource correct")]
         public string Presentation3RessourceName { get; set; }
 
-        public int Stat { get; set; }
+        public Stats Stat { get; set; }
     }
 }

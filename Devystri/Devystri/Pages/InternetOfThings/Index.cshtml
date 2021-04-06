@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/css/Pages/products/index.css" />
 }
 <section id="product-description">
-    <div class="alert">Notre HUB n'est pas commercialisé pour la vente.</div>
+    <partial name="_ProjectState" model="Model.Iot.Stat" />
     <div class="container-description-img">
         <img draggable="false" class="product-description-img" alt="@Model.Iot.Name application" src="~/upload/iots/@Model.Iot.Presentation2RessourceName" />
     </div>
