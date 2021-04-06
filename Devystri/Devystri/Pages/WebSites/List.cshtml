@@ -14,18 +14,8 @@
             <device-viewer src="../upload/websites/@item.PresentationRessourceName" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
         </div>
         <div class="right-part">
-            @if (item.Stat == Stats.CANCEL)
-            {
-                <span class="project-status project-cancelled"></span>
-            }
-            else if (item.Stat == Stats.NOT_MARKETED)
-            {
-                <span class="project-status not-marketed"></span>
-            }
-            else if (item.Stat == Stats.NOT_DOWNLABLE)
-            {
-                <span class="project-status not-downloadable"></span>
-            }
+            <partial name="_ProjectState" model="item.Stat" />
+
             <figure>
                 <img draggable="false" class="logo-product" alt="Logo du site web" src="~/upload/websites/@item.AppLogoName" />
             </figure>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/css/Pages/products/index.css" />
 }
 <section id="product-description">
-    <div class="alert">Notre projet à été annulé en raison d'un manque de budget.</div>
+    <partial name="_ProjectState" model="Model.webSite.Stat" />
     <div class="container-description-img">
         <img draggable="false" class="product-description-img" alt="@Model.webSite.Name sur Macbook" src="~/upload/websites/@Model.webSite.Presentation2RessourceName" />
     </div>

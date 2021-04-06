@@ -6,6 +6,6 @@
 
 @if ((int)Model != 0)
 {
-    <span class="project-status">@Model.ToString()</span>
+    <span class="project-status">@Html.GetEnumSelectList(@Model.GetType()).ToList()[(int)Model].Text</span>
 }
 

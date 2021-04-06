@@ -42,33 +42,8 @@
     text-align: center;
 }
 
-/* project-status */
 
-.project-status {
-    width: 206px;
-    height: 35px;
-    border-radius: 18px;
-    background-color: #E23A3A;
-    position: absolute;
-    top: 81px;
-    right: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: var(--white-first-section)
-}
 
-.project-cancelled:before{
-    content: "Projet annulé";
-}
-
-.not-marketed:before {
-    content: "Non commercialisé";
-}
-.not-downloadable:before {
-    content: "Non téléchargeable";
-}
 
 .logo-product {
     width: 153px;
