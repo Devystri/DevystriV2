@@ -8,7 +8,7 @@
 }
 <section id="product-description">
     <partial name="_ProjectState" model="Model.Iot.Stat" />
-    <div class="container-description-img">
+    <div data-aos-delay="1000" data-aos="fade-right" data-aos-duration="1000" class="container-description-img">
         <img draggable="false" class="product-description-img" alt="@Model.Iot.Name application" src="~/upload/iots/@Model.Iot.Presentation2RessourceName" />
     </div>
     <div id="detailed-description">
@@ -22,7 +22,7 @@
         <p id="product-description-text">@Model.Iot.Description </p>
 
     </div>
-    <div class="container-description-img">
+    <div data-aos-delay="1000" data-aos="fade-left" data-aos-duration="1000" class="container-description-img">
         <img draggable="false" class="product-description-img" alt="@Model.Iot.Name présentation" src="~/upload/iots/@Model.Iot.Presentation3RessourceName" />
     </div>
 </section>

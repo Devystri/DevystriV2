@@ -11,7 +11,7 @@
 @foreach (var item in Model.ioTs)
 {
     <section id="hub-@item.Name.Replace(' ','-').ToLower()" class="section">
-        <div class="left-part computer">
+        <div data-aos="zoom-in-down" class="left-part computer">
             <object-viewer background-color="#073965" style="width: 100%; height: 30em; background-color: var(--dark-blue);" src="/upload/iots/@item.PresentationRessourceName" zoom="0.1" />
 
         </div>

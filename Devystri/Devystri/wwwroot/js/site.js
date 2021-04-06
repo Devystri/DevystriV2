@@ -1,4 +1,7 @@
-﻿//Padding B of nav fold
+﻿//Animation library
+AOS.init();
+
+//Padding B of nav fold
 var SizeOfNavFold = 71
 
 function menuStateChanhed() {

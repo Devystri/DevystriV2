@@ -10,7 +10,7 @@
 @foreach (var item in Model.webSites)
 {
     <section id="website-@item.Name.Replace(' ', '-').ToLower()" class="section">
-        <div class="left-part computer">
+        <div data-aos="zoom-in-down" class="left-part computer">
             <device-viewer src="../upload/websites/@item.PresentationRessourceName" macbook-src="../Assets/Images/websiteList/MacbookPro.svg" iphone-src=""></device-viewer>
         </div>
         <div class="right-part">

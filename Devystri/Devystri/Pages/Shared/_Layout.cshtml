@@ -12,13 +12,13 @@
     <script src="~/js/HTMLElements/loader.js"></script>
     <loader-element>
         <div id="links">
-       
-                <link rel="stylesheet" href="~/css/site.css" />
-                <link rel="stylesheet" href="~/lib/locomotive/locomotive-scroll.min.css" />
-                <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
-                <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
-           
- 
+
+            <link rel="stylesheet" href="~/css/site.css" />
+            <link rel="stylesheet" href="~/lib/locomotive/locomotive-scroll.min.css" />
+            <link rel="stylesheet" href="~/css/HTMLElements/header.css" />
+            <link rel="stylesheet" href="~/css/HTMLElements/footer.css" />
+
+
             @await RenderSectionAsync("Styles", required: false)
         </div>
         <div id="loadscreen">
@@ -46,7 +46,10 @@
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/locomotive/locomotive-scroll.min.js"></script>
+    @* CDN *@
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="~/js/popup.js" asp-append-version="true"></script>
 
     <environment include="Development">

@@ -11,7 +11,7 @@
 @foreach (var item in Model.applications)
 {
     <section id="application-@item.Name" class="section">
-        <div class="left-part">
+        <div data-aos="zoom-in-down" class="left-part">
             <img draggable="false" alt="Application" src="~/upload/applications/@item.PresentationRessourceName" />
         </div>
         <div class="right-part">
