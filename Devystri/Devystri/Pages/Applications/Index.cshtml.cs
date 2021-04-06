@@ -33,7 +33,7 @@ namespace Devystri.Pages.Applications
                 if (dbContext.Applications.Any(item => item.Name.ToLower().Replace(" ", String.Empty) == appName))
                 {
                     Application = dbContext.Applications.First(item => item.Name.ToLower().Replace(" ", String.Empty) == appName);
-                    SectionLoadManage = new SectionLoadManage(dbContext, Application.Id, Application.Name);
+                    SectionLoadManage = new SectionLoadManage(dbContext, Application.Id, Application.Name, "upload/applications/");
                 }
 
                   

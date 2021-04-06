@@ -36,7 +36,7 @@ namespace Devystri.Pages.Web_Sites
                 if (listSites.Any(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName))
                 {
                     webSite = listSites.First(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName);
-                    SectionLoadManage = new SectionLoadManage(dbContext, webSite.Id, webSite.Name );
+                    SectionLoadManage = new SectionLoadManage(dbContext, webSite.Id, webSite.Name, "upload/websites/");
                 }
 
 

@@ -37,7 +37,7 @@ namespace Devystri.Pages.InternetOfThings
                 if (listIots.Any(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName))
                 {
                     Iot = listIots.First(item => item.Name.ToLower().Replace(" ", String.Empty).Replace("?", String.Empty).Replace("&", String.Empty) == appName);
-                    SectionLoadManage = new SectionLoadManage(dbContext, Iot.Id, Iot.Name);
+                    SectionLoadManage = new SectionLoadManage(dbContext, Iot.Id, Iot.Name, "upload/iots/");
                 }
 
 

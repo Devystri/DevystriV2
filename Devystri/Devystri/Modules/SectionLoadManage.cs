@@ -12,9 +12,11 @@ namespace Devystri.Modules
         [BindProperty]
         public List<Section> Sections { get; set; }
         public string Name { get; set; }
+        public string Path { get; set; }
 
-        public SectionLoadManage(MyDbContext context, int id, string name)
+        public SectionLoadManage(MyDbContext context, int id, string name, string path)
         {
+            Path = path;
             if (id == 0)
             {
                 return;

@@ -13,7 +13,7 @@
                 <p class="feature-description">@Model.Sections[i].Description</p>
             </div>
             <div class="container-image">
-                <img draggable="false" class="feature-image" alt="Image décrivant le site @Model.Name" src="~/upload/websites/@Model.Sections[i].ImageSrc" />
+                <img draggable="false" class="feature-image" alt="Image décrivant le site @Model.Name" src="~/@Model.Path@Model.Sections[i].ImageSrc" />
             </div>
         </div>
     }

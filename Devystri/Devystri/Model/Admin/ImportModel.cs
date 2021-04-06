@@ -10,7 +10,10 @@ namespace Devystri.Model.Admin
     {
         public ApplicationImportModel()
         {
-
+            AppLogoName = (AppLogo is null) ? "addPicture.svg" : AppLogo.FileName;
+            PresentationRessourceName = (PresentationRessource is null) ? "addPicture.svg" : PresentationRessource.FileName;
+            Presentation2RessourceName = (Presentation2Ressource is null) ? "addPicture.svg" : Presentation2Ressource.FileName;
+            Presentation3RessourceName = (Presentation3Ressource is null) ? "addPicture.svg" : Presentation3Ressource.FileName;
         }
 
         public ApplicationImportModel(Application application)
@@ -87,7 +90,8 @@ namespace Devystri.Model.Admin
     {
         public SectionImport()
         {
-
+            ImageSrc = (Image is null) ? "addPicture.svg" : Image.FileName;
+      
         }
 
         public SectionImport(Section section)
@@ -137,6 +141,8 @@ namespace Devystri.Model.Admin
                 }
 
             }
+            if (actualName is null && file is null)
+                return "addPicture.svg";
 
             return actualName;
         }

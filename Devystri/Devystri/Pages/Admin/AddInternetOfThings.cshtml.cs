@@ -19,9 +19,9 @@ namespace Devystri.Pages.Admin
     {
         [BindProperty]
         public IotImportModel Iot { get; set; }
-
+        [BindProperty]
         public List<SectionImport> Sections { get; set; }
-   
+        [BindProperty]
         public List<IoT> ListIots { get; set; }
 
         public int Id { get; set; }

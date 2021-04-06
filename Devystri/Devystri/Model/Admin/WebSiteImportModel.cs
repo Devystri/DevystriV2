@@ -9,7 +9,10 @@ namespace Devystri.Model.Admin
 
         public WebSiteImportModel()
         {
-
+            AppLogoName = (AppLogo is null) ? "addPicture.svg" : AppLogo.FileName;
+            PresentationRessourceName = (PresentationRessource is null) ? "addPicture.svg" : PresentationRessource.FileName;
+            Presentation2RessourceName = (Presentation2Ressource is null) ? "addPicture.svg" : Presentation2Ressource.FileName;
+            Presentation3RessourceName = (Presentation3Ressource is null) ? "addPicture.svg" : Presentation3Ressource.FileName;
         }
 
         public WebSiteImportModel(WebSites web)
