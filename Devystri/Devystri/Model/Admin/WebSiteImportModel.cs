@@ -27,7 +27,7 @@ namespace Devystri.Model.Admin
             PresentationRessourceName = web.PresentationRessourceName;
             Presentation2RessourceName = web.Presentation2RessourceName;
             Presentation3RessourceName = web.Presentation3RessourceName;
-            Statut = web.Stat;
+            State = (Stats)web.Stat;
         }
 
         public WebSites ToWebSite()
@@ -37,15 +37,17 @@ namespace Devystri.Model.Admin
                 Id = Id,
                 AppLogoName = AppLogo.Name,
                 Description = Description,
-                Stat = Statut,
+                Stat = (int)State,
                 Link = Link,
                 Language = Language,
                 MinAge = MinAge,
                 Name = Name,
-           
+                
                 PresentationRessourceName = PresentationRessource.FileName,
                 Presentation2RessourceName = Presentation2Ressource.FileName,
-                Presentation3RessourceName = Presentation3Ressource.FileName
+                Presentation3RessourceName = Presentation3Ressource.FileName,
+
+                
             };
         }
 
@@ -73,7 +75,7 @@ namespace Devystri.Model.Admin
         public IFormFile Presentation3Ressource { get; set; }
         public string Presentation3RessourceName { get; set; }
 
-        public int Statut { get; set; }
+        public Stats State { get; set; }
         
     }
 }

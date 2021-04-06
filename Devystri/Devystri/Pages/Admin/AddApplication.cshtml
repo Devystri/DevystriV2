@@ -93,12 +93,8 @@
             </div>
             <div id="product-condition" class="input-box">
                 <span>Statut du projet</span>
-                <select name="product-condition">
-                    <option>Aucun</option>
-                    <option>Non commercialisé</option>
-                    <option>Projet annulé</option>
-                    <option>Non téléchargable</option>
-                    <option>Nécessite le hub</option>
+                <select asp-for="Application.State" asp-items="Html.GetEnumSelectList(Model.Application.State.GetType())">
+                
                 </select>
             </div>
         </div>

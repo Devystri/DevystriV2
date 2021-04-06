@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
 using SixLabors.ImageSharp;
-
 namespace Devystri.Pages.Admin
 {
 #if RELEASE
@@ -76,6 +75,7 @@ namespace Devystri.Pages.Admin
                     toEdit.AppLogoName = ImportTools.ImageName(Application.AppLogo, toEdit.AppLogoName, imageImport);
                     toEdit.Presentation2RessourceName = ImportTools.ImageName(Application.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
                     toEdit.Presentation3RessourceName = ImportTools.ImageName(Application.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
+                    toEdit.Stat = (int)Application.State;
 
                     dbContext.Applications.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();

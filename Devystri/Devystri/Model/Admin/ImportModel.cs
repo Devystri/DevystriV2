@@ -31,6 +31,7 @@ namespace Devystri.Model.Admin
             PresentationRessourceName = application.PresentationRessourceName;
             Presentation2RessourceName = application.Presentation2RessourceName;
             Presentation3RessourceName = application.Presentation3RessourceName;
+            State = (Stats)application.Stat;
         }
    
         public Application ToApplication()
@@ -49,7 +50,8 @@ namespace Devystri.Model.Admin
                 PlayStoreLink = PlayStoreLink,
                 PresentationRessourceName = PresentationRessource.FileName,
                 Presentation2RessourceName = Presentation2Ressource.FileName,
-                Presentation3RessourceName = Presentation3Ressource.FileName
+                Presentation3RessourceName = Presentation3Ressource.FileName,
+                Stat = (int)State
             };
         }
 
@@ -83,6 +85,8 @@ namespace Devystri.Model.Admin
 
         public IFormFile Presentation3Ressource { get; set; }
         public string Presentation3RessourceName { get; set; }
+
+        public Stats State { get; set; }
     }
 
 

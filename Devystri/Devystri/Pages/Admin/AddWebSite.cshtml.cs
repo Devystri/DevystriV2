@@ -82,6 +82,7 @@ namespace Devystri.Pages.Admin
                     toEdit.AppLogoName = ImportTools.ImageName(WebSite.AppLogo, toEdit.AppLogoName, imageImport);
                     toEdit.Presentation2RessourceName = ImportTools.ImageName(WebSite.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);
                     toEdit.Presentation3RessourceName = ImportTools.ImageName(WebSite.Presentation3Ressource, toEdit.Presentation3RessourceName, imageImport);
+                    toEdit.Stat = (int)WebSite.State;
 
                     dbContext.WebSites.Update(toEdit);
                     var sections = dbContext.Sections.Where(item => item.ProjectId == AppId).ToList();

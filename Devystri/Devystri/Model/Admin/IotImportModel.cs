@@ -24,7 +24,7 @@ namespace Devystri.Model.Admin
             PresentationRessourceName = iot.PresentationRessourceName;
             Presentation2RessourceName = iot.Presentation2RessourceName;
             Presentation3RessourceName = iot.Presentation3RessourceName;
-            Statut = iot.Stat;
+            State = (Stats)iot.Stat;
         }
 
         public IoT ToIot()
@@ -39,7 +39,7 @@ namespace Devystri.Model.Admin
                 Presentation2RessourceName = Presentation2RessourceName,
                 Presentation3RessourceName = Presentation3RessourceName,
                 PresentationRessourceName = PresentationRessourceName,
-                Stat = Statut
+                Stat = (int) State
             };
         }
 
@@ -63,7 +63,7 @@ namespace Devystri.Model.Admin
         public string Presentation3RessourceName { get; set; }
         public IFormFile Presentation3Ressource { get; set; }
 
-        public int Statut { get; set; }
+        public Stats State { get; set; }
     
     }
 }
