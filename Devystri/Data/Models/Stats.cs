@@ -15,7 +15,9 @@ namespace Data.Models
         [Display(Name = "Non commercialisé")]
         NOT_MARKETED = 2,
         [Display(Name = "Aucun")]
-        NONE = 0
+        NONE = 0,
+        [Display(Name = "En développement")]
+        IN_DEV = 4
     }
     
 }
