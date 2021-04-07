@@ -101,6 +101,7 @@
     .description-section {
         flex-direction: column-reverse;
         padding: 12% 5%;
+        height: 118vh;
     }
     .description-section-text {
         display: flex;
@@ -120,14 +121,16 @@
     .image-section {
         margin-top: 75px;
         margin-bottom: 20px;
-        width: auto;
-        height: 33%;
+        width: 100%;
     }
     canvas {
-        height: 100%;
+        height: 100% !important;
+        width: auto !important;
     }
 
     object-viewer {
-        height: 100% !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
     }
 }
