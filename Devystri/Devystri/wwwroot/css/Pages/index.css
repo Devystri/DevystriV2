@@ -51,7 +51,7 @@
 /* Section title ( main page ) */
 
 .section-title-main {
-    font-size: min(max(57px), 9vw);
+    font-size: min(max(57px), 8vw);
     font-weight: bold;
     max-width: 490px;
     width: 90%;
@@ -62,7 +62,7 @@
 /* Section description ( main page) */
 
 .section-description-main {
-    font-size: min(max(25px), 5vw);
+    font-size: min(max(25px), 4vw);
     max-width: 899px;
     width: 90%;
     color: var(--dark-blue);
@@ -89,6 +89,9 @@
     display: flex;
     justify-content: center;
     user-select: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .image-section-img {

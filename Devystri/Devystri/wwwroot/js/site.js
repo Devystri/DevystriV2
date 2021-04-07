@@ -1,5 +1,9 @@
 ﻿//Animation library
-AOS.init();
+document.onreadystatechange = function () {
+    if (document.readyState === 'complete') {
+        AOS.init();
+    }
+}
 
 //Padding B of nav fold
 var SizeOfNavFold = 71
@@ -68,7 +72,7 @@ $(function () {
             var headerSize = $('#header').height()
             //$('#header').animate({ height: sizeOfSmallHeader }, 200);
             $("#header").css("height", 71 - document.documentElement.scrollTop / 11);
-            $("#header").css("fontSize", headerSize / 4);
+            //$("#header").css("fontSize", headerSize / 4);
         }
     });
 });
