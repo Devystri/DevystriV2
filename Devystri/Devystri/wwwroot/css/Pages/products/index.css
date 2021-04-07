@@ -18,13 +18,16 @@ main {
 .container-description-img {
     display: flex;
     place-content: center;
-    width: 18%;
+    width: 30%;
+    margin: 0 20px;
 }
 
 
 .product-description-img { /*image in left and right description*/
     min-height: 100px;
     max-height: 450px;
+    width: 100%;
+    height: intrinsic;
 }
 
 #detailed-description {
@@ -32,6 +35,7 @@ main {
     flex-direction: column;
     align-items: center;
     max-width: 843px;
+    width: fit-content;
 }
 
 .product-logo {
@@ -48,7 +52,7 @@ main {
     }
 
 .title-product { /*Title product*/
-    font-size: min(max(45px), 10vw);
+    font-size: 2.2em;
     margin-top: 20px;
 }
 
@@ -197,11 +201,15 @@ main {
     }
     .product-description-img {
         margin: 5px auto;
+        width: 92%;
     }
     .feature-container {
         flex-direction: column !important;
         text-align: center;
         padding: 61px 0;
+    }
+    .container-description-img {
+        width: 79%;
     }
     .feature-title {
         width: 95%;
