@@ -16,19 +16,18 @@ main {
 }
 
 .container-description-img {
-    display: flex;
     place-content: center;
-    width: 30%;
+    max-width: 30%;
     margin: 0 20px;
+    max-height: 600px;
 }
 
 
 .product-description-img { /*image in left and right description*/
-    min-height: 100px;
-    max-height: 450px;
-    width: auto;
-    width: -webkit-fill-available;
-    height: intrinsic;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    max-width: 400px;
 }
 
 #detailed-description {
@@ -72,7 +71,8 @@ main {
 #product-description-text { /*Product description*/
     font-size: 16px;
     text-align: center;
-    width: 70%;
+    min-width: 70%;
+    max-width: 90%;
     margin-top: 13px;
 }
 
@@ -106,7 +106,7 @@ main {
 .feature-description {
     margin-top: 20px;
     font-size: min(max(21px), 4.5vw);
-    min-height: 300px;
+    max-height: 300px;
 }
 
 .feature-text {
@@ -117,7 +117,7 @@ main {
 
 .container-image {
     min-width: 319px;
-    max-width: 611px;
+    max-width: 70vh;
 }
 
 .feature-image {
@@ -202,7 +202,7 @@ main {
     }
     .product-description-img {
         margin: 5px auto;
-        width: 92%;
+        width: 100%;
         max-width: 394px;
     }
     .feature-container {
@@ -211,10 +211,13 @@ main {
         padding: 61px 0;
     }
     .container-description-img {
-        width: 79%;
+        max-width: 60%;
+        text-align: center;
     }
     .feature-title {
-        width: 95%;
+        width: 197%;
+        max-width: 400px;
+        height: auto;
     }
     .feature-description {
         height: min-content;
