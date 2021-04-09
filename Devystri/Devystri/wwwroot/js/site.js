@@ -5,6 +5,14 @@ document.onreadystatechange = function () {
     }
 }
 
+document.querySelectorAll('img')
+    .forEach((img) =>
+        img.addEventListener('load', () =>
+            AOS.refresh()
+        )
+    );
+
+
 //Padding B of nav fold
 var SizeOfNavFold = 71
 
