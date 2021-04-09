@@ -80,7 +80,7 @@ $(function () {
             var headerSize = $('#header').height()
             //$('#header').animate({ height: sizeOfSmallHeader }, 200);
             $("#header").css("height", 71 - document.documentElement.scrollTop / 11);
-            //$("#header").css("fontSize", headerSize / 4);
+            $("#header").css("fontSize", headerSize / 4);
         }
     });
 });

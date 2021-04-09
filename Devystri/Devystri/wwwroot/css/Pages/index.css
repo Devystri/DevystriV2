@@ -92,11 +92,12 @@
     user-select: none;
     max-width: 83%;
     max-height: 600px;
+    margin-left: 20px;
 }
 
 .image-section-img {
     width: auto;
-    max-width: 60vw;
+    max-width: 58vw;
     max-height: 60vh;
 }
 
@@ -129,6 +130,7 @@
     .image-section {
         margin-bottom: 20px;
         max-width: 100%;
+        margin: 0;
     }
     canvas {
         height: 100% !important;
