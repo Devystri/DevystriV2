@@ -26,7 +26,8 @@ main {
 .product-description-img { /*image in left and right description*/
     min-height: 100px;
     max-height: 450px;
-    width: 100%;
+    width: auto;
+    width: -webkit-fill-available;
     height: intrinsic;
 }
 
