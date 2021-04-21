@@ -42,7 +42,7 @@
 
 .description-section {
     height: 85vh;
-    padding: 4% 5%;
+    padding: 8% 5% 12% 5%;
     margin: 0px auto;
     display: flex;
     align-items: center;
@@ -55,7 +55,7 @@
 /* Section title ( main page ) */
 
 .section-title-main {
-    font-size: min(max(57px), 8vw);
+    font-size: min(max(50px), 8vw);
     font-weight: bold;
     max-width: 490px;
     width: 90%;
@@ -66,7 +66,7 @@
 /* Section description ( main page) */
 
 .section-description-main {
-    font-size: min(max(25px), 4vw);
+    font-size: min(max(22px), 4vw);
     max-width: 899px;
     width: 90%;
     color: var(--dark-blue);
