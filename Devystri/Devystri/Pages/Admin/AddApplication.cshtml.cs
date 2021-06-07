@@ -71,6 +71,11 @@ namespace Devystri.Pages.Admin
                     toEdit.Languages = Application.Languages;
                     toEdit.Description = Application.Description;
                     toEdit.AppStoreLink = Application.AppStoreLink;
+                    toEdit.PlayStoreLink = Application.PlayStoreLink;
+
+                    toEdit.IsOnPlayStore = Application.IsOnPlayStore;
+                    toEdit.IsOnAppStore = Application.IsOnAppStore;
+
                     toEdit.PresentationRessourceName = ImportTools.ImageName(Application.PresentationRessource, toEdit.PresentationRessourceName, imageImport);
                     toEdit.AppLogoName = ImportTools.ImageName(Application.AppLogo, toEdit.AppLogoName, imageImport);
                     toEdit.Presentation2RessourceName = ImportTools.ImageName(Application.Presentation2Ressource, toEdit.Presentation2RessourceName, imageImport);

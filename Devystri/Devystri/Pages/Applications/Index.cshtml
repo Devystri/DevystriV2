@@ -24,12 +24,12 @@
         <div id="download">
             @if (Model.Application.IsOnAppStore)
             {
-                <a href="@Model.Application.AppStoreLink" title="Télécharger sur l'AppStore" class="download-button" id="appstore-button"></a>
+                <a href="@Model.Application.AppStoreLink" title="Télécharger sur l'AppStore" class="download-button" id="appstore-button" download></a>
 
             }
             @if (Model.Application.IsOnPlayStore)
             {
-                <a href="@Model.Application.PlayStoreLink" title="Télécharger sur le PlayStore" class="download-button" id="playstore-button"></a>
+                <a href="@Model.Application.PlayStoreLink" title="Télécharger sur le PlayStore" class="download-button" id="playstore-button" download></a>
             }
         </div>
     </div>
