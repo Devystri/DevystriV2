@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: environement
-      run: cd Devystri/Devystri
+      run: cd Devystri
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
